@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appvex (VEX) - Estoque</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/forms.css">
+    <link rel="stylesheet" href="css/components/modals.css">
+    <link rel="stylesheet" href="css/components/tables.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body class="dark-mode">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/images/logo.png" alt="VEX Logo" style="height: 30px;">
+        </div>
+        <nav class="sidebar-menu">
+            <a href="index.html" class="sidebar-menu-item">
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="insumos.html" class="sidebar-menu-item">
+                <i class='bx bx-package'></i>
+                <span>Insumos</span>
+            </a>
+            <a href="modelos.html" class="sidebar-menu-item">
+                <i class='bx bx-cube'></i>
+                <span>Modelos</span>
+            </a>
+            <a href="producao.html" class="sidebar-menu-item">
+                <i class='bx bx-factory'></i>
+                <span>Produção</span>
+            </a>
+            <a href="estoque.html" class="sidebar-menu-item active">
+                <i class='bx bx-store'></i>
+                <span>Estoque</span>
+            </a>
+            <a href="financeiro.html" class="sidebar-menu-item">
+                <i class='bx bx-money'></i>
+                <span>Financeiro</span>
+            </a>
+            <a href="configuracoes.html" class="sidebar-menu-item">
+                <i class='bx bx-cog'></i>
+                <span>Configurações</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="d-flex align-center">
+                <i class='bx bx-help-circle' style="margin-right: 8px;"></i>
+                <span>Ajuda & Suporte</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="header">
+            <div class="mobile-menu-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+            <div class="header-title">Gestão de Estoque</div>
+            <div class="header-actions">
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff" alt="Perfil">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="page-title">
+                <h1>Gestão de Estoque</h1>
+                <div class="actions">
+                    <button class="btn btn-primary" id="openModalBtn">
+                        <i class='bx bx-plus'></i>
+                        Adicionar Entrada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Estoque Status Cards -->
+            <div class="grid grid-3 mb-lg">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Insumos em Estoque</div>
+                        <i class='bx bx-package text-info'></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 style="font-size: 2rem; font-weight: 600;">15</h2>
+                        <p>Tipos de insumos cadastrados</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Estoque Crítico</div>
+                        <i class='bx bx-error-circle text-danger'></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 style="font-size: 2rem; font-weight: 600;">3</h2>
+                        <p class="text-danger">Insumos abaixo do mínimo</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Valor em Estoque</div>
+                        <i class='bx bx-money text-success'></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 style="font-size: 2rem; font-weight: 600;">R$ 12.850,00</h2>
+                        <p>Total investido em insumos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="card mb-lg">
+                <div class="d-flex gap-md">
+                    <div class="form-group w-100">
+                        <div class="d-flex align-center">
+                            <i class='bx bx-search' style="position: absolute; margin-left: 12px; color: var(--color-secondary);"></i>
+                            <input type="text" class="form-control" placeholder="Buscar insumos..." style="padding-left: 40px;">
+                        </div>
+                    </div>
+                    <div class="form-group" style="min-width: 200px;">
+                        <select class="form-control form-select">
+                            <option value="">Todos os status</option>
+                            <option value="ok">Estoque OK</option>
+                            <option value="medio">Estoque Médio</option>
+                            <option value="critico">Estoque Crítico</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-outline">
+                        <i class='bx bx-filter'></i>
+                        Filtrar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Estoque Table -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Controle de Estoque</div>
+                    <div>
+                        <button class="btn btn-outline">
+                            <i class='bx bx-export'></i>
+                            Exportar
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Insumo</th>
+                                    <th>Unidade</th>
+                                    <th>Estoque Atual</th>
+                                    <th>Estoque Mínimo</th>
+                                    <th>Status</th>
+                                    <th>Valor Unitário</th>
+                                    <th>Valor Total</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tecido Algodão</td>
+                                    <td>m</td>
+                                    <td>120</td>
+                                    <td>50</td>
+                                    <td>
+                                        <div class="progress progress-success">
+                                            <div class="progress-bar" style="width: 80%;"></div>
+                                        </div>
+                                    </td>
+                                    <td>R$ 25,00</td>
+                                    <td>R$ 3.000,00</td>
+                                    <td>
+                                        <div class="d-flex gap-sm">
+                                            <button class="btn btn-outline" title="Adicionar Entrada">
+                                                <i class='bx bx-plus'></i>
+                                            </button>
+                                            <button class="btn btn-outline" title="Histórico">
+                                                <i class='bx bx-history'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Linha Poliéster</td>
+                                    <td>unid</td>
+                                    <td>45</td>
+                                    <td>30</td>
+                                    <td>
+                                        <div class="progress progress-warning">
+                                            <div class="progress-bar" style="width: 60%;"></div>
+                                        </div>
+                                    </td>
+                                    <td>R$ 5,50</td>
+                                    <td>R$ 247,50</td>
+                                    <td>
+                                        <div class="d-flex gap-sm">
+                                            <button class="btn btn-outline" title="Adicionar Entrada">
+                                                <i class='bx bx-plus'></i>
+                                            </button>
+                                            <button class="btn btn-outline" title="Histórico">
+                                                <i class='bx bx-history'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Botões Plásticos</td>
+                                    <td>unid</td>
+                                    <td>200</td>
+                                    <td>100</td>
+                                    <td>
+                                        <div class="progress progress-success">
+                                            <div class="progress-bar" style="width: 90%;"></div>
+                                        </div>
+                                    </td>
+                                    <td>R$ 0,25</td>
+                                    <td>R$ 50,00</td>
+                                    <td>
+                                        <div class="d-flex gap-sm">
+                                            <button class="btn btn-outline" title="Adicionar Entrada">
+                                                <i class='bx bx-plus'></i>
+                                            </button>
+                                            <button class="btn btn-outline" title="Histórico">
+                                                <i class='bx bx-history'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Zíper Metálico</td>
+                                    <td>unid</td>
+                                    <td>15</td>
+                                    <td>25</td>
+                                    <td>
+                                        <div class="progress progress-danger">
+                                            <div class="progress-bar" style="width: 30%;"></div>
+                                        </div>
+                                    </td>
+                                    <td>R$ 3,75</td>
+                                    <td>R$ 56,25</td>
+                                    <td>
+                                        <div class="d-flex gap-sm">
+                                            <button class="btn btn-outline" title="Adicionar Entrada">
+                                                <i class='bx bx-plus'></i>
+                                            </button>
+                                            <button class="btn btn-outline" title="Histórico">
+                                                <i class='bx bx-history'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Elástico</td>
+                                    <td>m</td>
+                                    <td>8</td>
+                                    <td>20</td>
+                                    <td>
+                                        <div class="progress progress-danger">
+                                            <div class="progress-bar" style="width: 20%;"></div>
+                                        </div>
+                                    </td>
+                                    <td>R$ 1,20</td>
+                                    <td>R$ 9,60</td>
+                                    <td>
+                                        <div class="d-flex gap-sm">
+                                            <button class="btn btn-outline" title="Adicionar Entrada">
+                                                <i class='bx bx-plus'></i>
+                                            </button>
+                                            <button class="btn btn-outline" title="Histórico">
+                                                <i class='bx bx-history'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-between align-center">
+                        <div>Mostrando 1-5 de 15 insumos</div>
+                        <div class="d-flex gap-sm">
+                            <button class="btn btn-outline" disabled>
+                                <i class='bx bx-chevron-left'></i>
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class='bx bx-chevron-right'></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movimentações Recentes -->
+            <div class="card mt-lg">
+                <div class="card-header">
+                    <div class="card-title">Movimentações Recentes</div>
+                    <a href="#" class="text-info">Ver todas</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Insumo</th>
+                                    <th>Tipo</th>
+                                    <th>Quantidade</th>
+                                    <th>Origem/Destino</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>20/05/2025</td>
+                                    <td>Tecido Algodão</td>
+                                    <td><span class="status status-danger">Saída</span></td>
+                                    <td>25m</td>
+                                    <td>Produção: Modelo XYZ</td>
+                                </tr>
+                                <tr>
+                                    <td>18/05/2025</td>
+                                    <td>Zíper Metálico</td>
+                                    <td><span class="status status-success">Entrada</span></td>
+                                    <td>50 unid</td>
+                                    <td>Compra: Fornecedor ABC</td>
+                                </tr>
+                                <tr>
+                                    <td>15/05/2025</td>
+                                    <td>Linha Poliéster</td>
+                                    <td><span class="status status-danger">Saída</span></td>
+                                    <td>10 unid</td>
+                                    <td>Produção: Modelo DEF</td>
+                                </tr>
+                                <tr>
+                                    <td>12/05/2025</td>
+                                    <td>Botões Plásticos</td>
+                                    <td><span class="status status-success">Entrada</span></td>
+                                    <td>300 unid</td>
+                                    <td>Compra: Fornecedor XYZ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para Adicionar Entrada -->
+    <div id="addEntradaModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div style="background-color: var(--color-bg-card); border-radius: var(--border-radius-md); width: 100%; max-width: 500px; padding: var(--spacing-lg); position: relative;">
+            <div class="d-flex justify-between align-center mb-lg">
+                <h2 style="font-size: 1.2rem; font-weight: 600;">Adicionar Entrada de Estoque</h2>
+                <button id="closeModalBtn" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--color-secondary);">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+            
+            <form>
+                <div class="form-group">
+                    <label class="form-label" for="insumoSelect">Insumo</label>
+                    <select id="insumoSelect" class="form-control form-select">
+                        <option value="">Selecione um insumo</option>
+                        <option value="tecido">Tecido Algodão</option>
+                        <option value="linha">Linha Poliéster</option>
+                        <option value="botoes">Botões Plásticos</option>
+                        <option value="ziper">Zíper Metálico</option>
+                        <option value="elastico">Elástico</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="quantidade">Quantidade</label>
+                    <input type="number" id="quantidade" class="form-control" placeholder="0" min="1">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="valorUnitario">Valor Unitário (R$)</label>
+                    <input type="number" id="valorUnitario" class="form-control" placeholder="0.00" step="0.01" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="fornecedor">Fornecedor (opcional)</label>
+                    <input type="text" id="fornecedor" class="form-control" placeholder="Nome do fornecedor">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="notaFiscal">Nota Fiscal (opcional)</label>
+                    <input type="text" id="notaFiscal" class="form-control" placeholder="Número da NF">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="dataEntrada">Data de Entrada</label>
+                    <input type="date" id="dataEntrada" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="observacoes">Observações (opcional)</label>
+                    <textarea id="observacoes" class="form-control" rows="3" placeholder="Adicione observações sobre esta entrada..."></textarea>
+                </div>
+                
+                <div class="d-flex gap-md justify-between mt-lg">
+                    <button type="button" class="btn btn-outline" id="cancelModalBtn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Registrar Entrada</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Toggle mobile menu
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('addEntradaModal');
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const cancelModalBtn = document.getElementById('cancelModalBtn');
+
+        openModalBtn.addEventListener('click', function() {
+            modal.style.display = 'flex';
+        });
+
+        closeModalBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        cancelModalBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
