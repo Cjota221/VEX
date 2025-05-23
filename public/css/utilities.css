@@ -1,0 +1,15 @@
+/* Classes Utilitárias */
+/* Margens e Paddings */
+.mt-sm { margin-top: var(--spacing-sm) !important; }
+.mb-lg { margin-bottom: var(--spacing-lg) !important; }
+.px-md { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+
+/* Flexbox */
+.d-flex { display: flex; }
+.align-center { align-items: center; }
+.justify-end { justify-content: flex-end; }
+.gap-md { gap: var(--spacing-md); }
+
+/* Texto */
+.text-center { text-align: center; }
+.text-muted { color: var(--color-secondary); }
