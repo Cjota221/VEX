@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/forms.css">
+    <link rel="stylesheet" href="css/components/modals.css">
+    <link rel="stylesheet" href="css/components/tables.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appvex - Calculadoras</title>
+    <!-- Links CSS serão adicionados na próxima etapa -->
+</head>
+<body>
+    <!-- Sidebar (Estrutura similar às outras páginas) -->
+    <nav class="sidebar">
+        <div class="logo">
+            <!-- Logo -->
+            Appvex
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
+            <li><a href="insumos.html"><i class='bx bx-package'></i> Insumos</a></li>
+            <li><a href="modelos.html"><i class='bx bx-shape-square'></i> Modelos</a></li>
+            <li><a href="producao.html"><i class='bx bx-factory'></i> Produção</a></li>
+            <li><a href="estoque.html"><i class='bx bx-pallet'></i> Estoque</a></li>
+            <li><a href="financeiro.html"><i class='bx bx-line-chart'></i> Financeiro</a></li>
+            <li><a href="relatorios.html"><i class='bx bx-file'></i> Relatórios</a></li>
+            <li><a href="calculadora.html" class="active"><i class='bx bx-calculator'></i> Calculadora</a></li>
+            <li><a href="perfil.html"><i class='bx bx-cog'></i> Configurações</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="content">
+        <header class="topbar">
+            <div class="menu-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+            <h1>Calculadoras</h1>
+        </header>
+
+        <div class="calculator-grid">
+
+            <!-- Calculadora: Produção por Insumo -->
+            <section class="card calculator-section">
+                <h3>Quantos produtos faço com X de insumo?</h3>
+                <form id="calcProducaoPorInsumoForm" class="form-grid">
+                    <div class="form-group">
+                        <label for="calcProdInsumoModelo">Modelo:</label>
+                        <select id="calcProdInsumoModelo" name="modeloId" required>
+                            <option value="">Selecione o Modelo</option>
+                            <!-- Options populadas via JS -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="calcProdInsumoInsumo">Insumo:</label>
+                        <select id="calcProdInsumoInsumo" name="insumoId" required>
+                            <option value="">Selecione o Insumo</option>
+                            <!-- Options populadas via JS (dependente do modelo) -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="calcProdInsumoQtd">Quantidade do Insumo Disponível:</label>
+                        <input type="number" id="calcProdInsumoQtd" name="quantidadeInsumo" step="any" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="button" class="btn-primary" onclick="calcularProducaoPorInsumoUI()">Calcular Produção</button>
+                    </div>
+                    <div class="form-group full-width result-area">
+                        <strong>Produção Possível:</strong> <span id="resultadoProducaoPorInsumo">-</span> unidades
+                    </div>
+                </form>
+            </section>
+
+            <!-- Calculadora: Insumo por Produção -->
+            <section class="card calculator-section">
+                <h3>Quanto insumo preciso para produzir X produtos?</h3>
+                <form id="calcInsumoPorProducaoForm" class="form-grid">
+                    <div class="form-group">
+                        <label for="calcInsumoProdModelo">Modelo:</label>
+                        <select id="calcInsumoProdModelo" name="modeloId" required>
+                            <option value="">Selecione o Modelo</option>
+                            <!-- Options populadas via JS -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="calcInsumoProdInsumo">Insumo:</label>
+                        <select id="calcInsumoProdInsumo" name="insumoId" required>
+                            <option value="">Selecione o Insumo</option>
+                            <!-- Options populadas via JS (dependente do modelo) -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="calcInsumoProdQtd">Quantidade de Produtos Desejada:</label>
+                        <input type="number" id="calcInsumoProdQtd" name="quantidadeProdutos" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="button" class="btn-primary" onclick="calcularInsumoPorProducaoUI()">Calcular Insumo</button>
+                    </div>
+                    <div class="form-group full-width result-area">
+                        <strong>Insumo Necessário:</strong> <span id="resultadoInsumoPorProducao">-</span> <span id="unidadeInsumoPorProducao"></span>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Calculadora: Custo Fixo Unitário -->
+            <section class="card calculator-section">
+                <h3>Custo Fixo por Unidade</h3>
+                <form id="calcCustoFixoForm" class="form-grid">
+                    <div class="form-group">
+                        <label for="calcCustoFixoTotal">Custo Fixo Total Mensal (R$):</label>
+                        <input type="number" id="calcCustoFixoTotal" name="custoFixoTotal" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="calcCustoFixoProducaoMedia">Produção Média Mensal (Unidades):</label>
+                        <input type="number" id="calcCustoFixoProducaoMedia" name="producaoMedia" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="button" class="btn-primary" onclick="calcularCustoFixoUnitarioUI()">Calcular Custo Unitário</button>
+                    </div>
+                    <div class="form-group full-width result-area">
+                        <strong>Custo Fixo por Unidade:</strong> R$ <span id="resultadoCustoFixoUnitario">-</span>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Calculadora: Ponto de Equilíbrio -->
+            <section class="card calculator-section">
+                <h3>Ponto de Equilíbrio (Unidades)</h3>
+                <form id="calcPontoEquilibrioForm" class="form-grid">
+                     <div class="form-group">
+                        <label for="calcPECustoFixoTotal">Custo Fixo Total Mensal (R$):</label>
+                        <input type="number" id="calcPECustoFixoTotal" name="custoFixoTotal" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="calcPEPrecoVendaMedio">Preço Médio de Venda (R$):</label>
+                        <input type="number" id="calcPEPrecoVendaMedio" name="precoVendaMedio" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="calcPECustoInsumoMedio">Custo Médio Insumos/Unid (R$):</label>
+                        <input type="number" id="calcPECustoInsumoMedio" name="custoInsumoMedio" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="calcPECustoVariavelPadrao">Custo Variável Padrão/Unid (R$):</label>
+                        <input type="number" id="calcPECustoVariavelPadrao" name="custoVariavelPadrao" step="0.01" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="button" class="btn-primary" onclick="calcularPontoEquilibrioUI()">Calcular Ponto de Equilíbrio</button>
+                    </div>
+                    <div class="form-group full-width result-area">
+                        <strong>Ponto de Equilíbrio:</strong> <span id="resultadoPontoEquilibrio">-</span> unidades/mês
+                    </div>
+                </form>
+            </section>
+
+            <!-- Calculadora: Projeção de Lucro -->
+            <section class="card calculator-section">
+                <h3>Projeção de Lucro</h3>
+                <form id="calcProjecaoLucroForm" class="form-grid">
+                    <div class="form-group">
+                        <label for="calcLucroQtdVendida">Quantidade Vendida:</label>
+                        <input type="number" id="calcLucroQtdVendida" name="quantidadeVendida" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="calcLucroPrecoMedio">Preço Médio Venda (R$):</label>
+                        <input type="number" id="calcLucroPrecoMedio" name="precoMedioVenda" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="calcLucroCustoMedio">Custo Total Unitário Médio (R$):</label>
+                        <input type="number" id="calcLucroCustoMedio" name="custoTotalUnitarioMedio" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="calcLucroImposto">Imposto sobre Venda (%):</label>
+                        <input type="number" id="calcLucroImposto" name="percentualImposto" step="0.01" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="button" class="btn-primary" onclick="calcularProjecaoLucroUI()">Calcular Projeção</button>
+                    </div>
+                    <div class="form-group full-width result-area">
+                        <strong>Faturamento Bruto:</strong> R$ <span id="resultadoLucroFaturamento">-</span><br>
+                        <strong>Custo Total Produção:</strong> R$ <span id="resultadoLucroCustoTotal">-</span><br>
+                        <strong>Lucro Bruto:</strong> R$ <span id="resultadoLucroBruto">-</span><br>
+                        <strong>Imposto Total:</strong> R$ <span id="resultadoLucroImposto">-</span><br>
+                        <strong>Lucro Líquido:</strong> R$ <span id="resultadoLucroLiquido">-</span><br>
+                        <strong>Margem Líquida:</strong> <span id="resultadoLucroMargem">-</span> %
+                    </div>
+                </form>
+            </section>
+
+        </div> <!-- Fim .calculator-grid -->
+
+    </main>
+
+    <!-- Scripts JS serão adicionados na próxima etapa -->
+<script src="js/calculations.js" defer></script>
+<script src="js/filters.js" defer></script>
+<script src="js/updateData.js" defer></script>
+<script src="js/validations.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
+
