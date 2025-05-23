@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appvex (VEX) - Financeiro</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/forms.css">
+    <link rel="stylesheet" href="css/components/modals.css">
+    <link rel="stylesheet" href="css/components/tables.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body class="dark-mode">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/images/logo.png" alt="VEX Logo" style="height: 30px;">
+        </div>
+        <nav class="sidebar-menu">
+            <a href="index.html" class="sidebar-menu-item">
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="insumos.html" class="sidebar-menu-item">
+                <i class='bx bx-package'></i>
+                <span>Insumos</span>
+            </a>
+            <a href="modelos.html" class="sidebar-menu-item">
+                <i class='bx bx-cube'></i>
+                <span>Modelos</span>
+            </a>
+            <a href="producao.html" class="sidebar-menu-item">
+                <i class='bx bx-factory'></i>
+                <span>Produção</span>
+            </a>
+            <a href="estoque.html" class="sidebar-menu-item">
+                <i class='bx bx-store'></i>
+                <span>Estoque</span>
+            </a>
+            <a href="financeiro.html" class="sidebar-menu-item active">
+                <i class='bx bx-money'></i>
+                <span>Financeiro</span>
+            </a>
+            <a href="configuracoes.html" class="sidebar-menu-item">
+                <i class='bx bx-cog'></i>
+                <span>Configurações</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="d-flex align-center">
+                <i class='bx bx-help-circle' style="margin-right: 8px;"></i>
+                <span>Ajuda & Suporte</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="header">
+            <div class="mobile-menu-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+            <div class="header-title">Financeiro / Fluxo de Caixa</div>
+            <div class="header-actions">
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff" alt="Perfil">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="page-title">
+                <h1>Financeiro / Fluxo de Caixa</h1>
+                <div class="actions">
+                    <div class="d-flex gap-sm">
+                        <button class="btn btn-success" id="openEntradaModalBtn">
+                            <i class='bx bx-plus'></i>
+                            Nova Entrada
+                        </button>
+                        <button class="btn btn-danger" id="openSaidaModalBtn">
+                            <i class='bx bx-minus'></i>
+                            Nova Saída
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumo Financeiro Cards -->
+            <div class="grid grid-3 mb-lg">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Entradas (Vendas)</div>
+                        <i class='bx bx-trending-up text-success'></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 style="font-size: 2rem; font-weight: 600;">R$ 28.750,00</h2>
+                        <p class="text-success">
+                            <i class='bx bx-up-arrow-alt'></i>
+                            15% em relação ao mês anterior
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Saídas (Despesas)</div>
+                        <i class='bx bx-trending-down text-danger'></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 style="font-size: 2rem; font-weight: 600;">R$ 15.320,00</h2>
+                        <p class="text-success">
+                            <i class='bx bx-down-arrow-alt'></i>
+                            5% em relação ao mês anterior
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Saldo Final</div>
+                        <i class='bx bx-wallet text-info'></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 style="font-size: 2rem; font-weight: 600;">R$ 13.430,00</h2>
+                        <p class="text-success">
+                            <i class='bx bx-up-arrow-alt'></i>
+                            Lucro de 46,7%
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gráficos -->
+            <div class="grid grid-2 mb-lg">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Distribuição de Despesas</div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Placeholder para gráfico de pizza -->
+                        <div style="height: 300px; background-color: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <p>Gráfico de Pizza - Distribuição de Despesas (Simulação)</p>
+                        </div>
+                        <div class="d-flex justify-between mt-md">
+                            <div>
+                                <div class="d-flex align-center mb-sm">
+                                    <div style="width: 12px; height: 12px; background-color: #4CAF50; border-radius: 50%; margin-right: 8px;"></div>
+                                    <span>Insumos (65%)</span>
+                                </div>
+                                <div class="d-flex align-center mb-sm">
+                                    <div style="width: 12px; height: 12px; background-color: #2196F3; border-radius: 50%; margin-right: 8px;"></div>
+                                    <span>Mão de Obra (20%)</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex align-center mb-sm">
+                                    <div style="width: 12px; height: 12px; background-color: #FFC107; border-radius: 50%; margin-right: 8px;"></div>
+                                    <span>Operacional (10%)</span>
+                                </div>
+                                <div class="d-flex align-center mb-sm">
+                                    <div style="width: 12px; height: 12px; background-color: #9C27B0; border-radius: 50%; margin-right: 8px;"></div>
+                                    <span>Outros (5%)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Comparativo Mensal</div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Placeholder para gráfico de barras -->
+                        <div style="height: 300px; background-color: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <p>Gráfico de Barras - Comparativo Mensal (Simulação)</p>
+                        </div>
+                        <div class="d-flex justify-between mt-md">
+                            <div>
+                                <div class="d-flex align-center mb-sm">
+                                    <div style="width: 12px; height: 12px; background-color: #4CAF50; border-radius: 50%; margin-right: 8px;"></div>
+                                    <span>Entradas</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex align-center mb-sm">
+                                    <div style="width: 12px; height: 12px; background-color: #F44336; border-radius: 50%; margin-right: 8px;"></div>
+                                    <span>Saídas</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex align-center mb-sm">
+                                    <div style="width: 12px; height: 12px; background-color: #2196F3; border-radius: 50%; margin-right: 8px;"></div>
+                                    <span>Saldo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtro de Lançamentos -->
+            <div class="card mb-lg">
+                <div class="d-flex gap-md">
+                    <div class="form-group" style="min-width: 200px;">
+                        <select class="form-control form-select">
+                            <option value="maio">Maio 2025</option>
+                            <option value="abril">Abril 2025</option>
+                            <option value="marco">Março 2025</option>
+                            <option value="fevereiro">Fevereiro 2025</option>
+                            <option value="janeiro">Janeiro 2025</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="min-width: 200px;">
+                        <select class="form-control form-select">
+                            <option value="">Todos os tipos</option>
+                            <option value="entrada">Entradas</option>
+                            <option value="saida">Saídas</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="min-width: 200px;">
+                        <select class="form-control form-select">
+                            <option value="">Todas as categorias</option>
+                            <option value="vendas">Vendas</option>
+                            <option value="insumos">Insumos</option>
+                            <option value="mao-de-obra">Mão de Obra</option>
+                            <option value="operacional">Operacional</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-outline">
+                        <i class='bx bx-filter'></i>
+                        Filtrar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lançamentos Table -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Lançamentos Financeiros</div>
+                    <div>
+                        <button class="btn btn-outline">
+                            <i class='bx bx-export'></i>
+                            Exportar
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Descrição</th>
+                                    <th>Tipo</th>
+                                    <th>Categoria</th>
+                                    <th>Valor</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>20/05/2025</td>
+                                    <td>Venda para Cliente ABC</td>
+                                    <td><span class="status status-success">Entrada</span></td>
+                                    <td>Vendas</td>
+                                    <td class="text-success">R$ 5.890,00</td>
+                                    <td>
+                                        <div class="d-flex gap-sm">
+                                            <button class="btn btn-outline" title="Editar">
+                                                <i class='bx bx-edit'></i>
+                                            </button>
+                                            <button class="btn btn-outline" title="Excluir">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>18/05/2025</td>
+                                    <td>Compra de Insumos</td>
+                                    <td><span class="status status-danger">Saída</span></td>
+                                    <td>Insumos</td>
+                                    <td class="text-danger">R$ 2.350,00</td>
+                                    <td>
+                                        <div class="d-flex gap-sm">
+                                            <button class="btn btn-outline" title="Editar">
+                                                <i class='bx bx-edit'></i>
+                                            </button>
+                                            <button class="btn btn-outline" title="Excluir">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>15/05/2025</td>
+                                    <td>Venda para Cliente XYZ</td>
+                                    <td><span class="status status-success">Entrada</span></td>
+                                    <td>Vendas</td>
+                                    <td class="text-success">R$ 3.450,00</td>
+                                    <td>
+                                        <div class="d-flex gap-sm">
+                                            <button class="btn btn-outline" title="Editar">
+                                                <i class='bx bx-edit'></i>
+                                            </button>
+                                            <button class="btn btn-outline" title="Excluir">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>12/05/2025</td>
+                                    <td>Pagamento de Funcionários</td>
+                                    <td><span class="status status-danger">Saída</span></td>
+                                    <td>Mão de Obra</td>
+                                    <td class="text-danger">R$ 4.200,00</td>
+                                    <td>
+                                        <div class="d-flex gap-sm">
+                                            <button class="btn btn-outline" title="Editar">
+                                                <i class='bx bx-edit'></i>
+                                            </button>
+                                            <button class="btn btn-outline" title="Excluir">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2025</td>
+                                    <td>Conta de Energia</td>
+                                    <td><span class="status status-danger">Saída</span></td>
+                                    <td>Operacional</td>
+                                    <td class="text-danger">R$ 850,00</td>
+                                    <td>
+                                        <div class="d-flex gap-sm">
+                                            <button class="btn btn-outline" title="Editar">
+                                                <i class='bx bx-edit'></i>
+                                            </button>
+                                            <button class="btn btn-outline" title="Excluir">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-between align-center">
+                        <div>Mostrando 1-5 de 24 lançamentos</div>
+                        <div class="d-flex gap-sm">
+                            <button class="btn btn-outline" disabled>
+                                <i class='bx bx-chevron-left'></i>
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class='bx bx-chevron-right'></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para Nova Entrada -->
+    <div id="addEntradaModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div style="background-color: var(--color-bg-card); border-radius: var(--border-radius-md); width: 100%; max-width: 500px; padding: var(--spacing-lg); position: relative;">
+            <div class="d-flex justify-between align-center mb-lg">
+                <h2 style="font-size: 1.2rem; font-weight: 600;">Nova Entrada Financeira</h2>
+                <button id="closeEntradaModalBtn" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--color-secondary);">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+            
+            <form>
+                <div class="form-group">
+                    <label class="form-label" for="entradaDescricao">Descrição</label>
+                    <input type="text" id="entradaDescricao" class="form-control" placeholder="Ex: Venda para Cliente ABC">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="entradaCategoria">Categoria</label>
+                    <select id="entradaCategoria" class="form-control form-select">
+                        <option value="">Selecione uma categoria</option>
+                        <option value="vendas">Vendas</option>
+                        <option value="investimentos">Investimentos</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="entradaValor">Valor (R$)</label>
+                    <input type="number" id="entradaValor" class="form-control" placeholder="0.00" step="0.01" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="entradaData">Data</label>
+                    <input type="date" id="entradaData" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="entradaObservacoes">Observações (opcional)</label>
+                    <textarea id="entradaObservacoes" class="form-control" rows="3" placeholder="Adicione observações sobre esta entrada..."></textarea>
+                </div>
+                
+                <div class="d-flex gap-md justify-between mt-lg">
+                    <button type="button" class="btn btn-outline" id="cancelEntradaModalBtn">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Registrar Entrada</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Nova Saída -->
+    <div id="addSaidaModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div style="background-color: var(--color-bg-card); border-radius: var(--border-radius-md); width: 100%; max-width: 500px; padding: var(--spacing-lg); position: relative;">
+            <div class="d-flex justify-between align-center mb-lg">
+                <h2 style="font-size: 1.2rem; font-weight: 600;">Nova Saída Financeira</h2>
+                <button id="closeSaidaModalBtn" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--color-secondary);">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+            
+            <form>
+                <div class="form-group">
+                    <label class="form-label" for="saidaDescricao">Descrição</label>
+                    <input type="text" id="saidaDescricao" class="form-control" placeholder="Ex: Compra de Insumos">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="saidaCategoria">Categoria</label>
+                    <select id="saidaCategoria" class="form-control form-select">
+                        <option value="">Selecione uma categoria</option>
+                        <option value="insumos">Insumos</option>
+                        <option value="mao-de-obra">Mão de Obra</option>
+                        <option value="operacional">Operacional</option>
+                        <option value="impostos">Impostos</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="saidaValor">Valor (R$)</label>
+                    <input type="number" id="saidaValor" class="form-control" placeholder="0.00" step="0.01" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="saidaData">Data</label>
+                    <input type="date" id="saidaData" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="saidaObservacoes">Observações (opcional)</label>
+                    <textarea id="saidaObservacoes" class="form-control" rows="3" placeholder="Adicione observações sobre esta saída..."></textarea>
+                </div>
+                
+                <div class="d-flex gap-md justify-between mt-lg">
+                    <button type="button" class="btn btn-outline" id="cancelSaidaModalBtn">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Registrar Saída</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Toggle mobile menu
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+
+        // Modal Entrada functionality
+        const entradaModal = document.getElementById('addEntradaModal');
+        const openEntradaModalBtn = document.getElementById('openEntradaModalBtn');
+        const closeEntradaModalBtn = document.getElementById('closeEntradaModalBtn');
+        const cancelEntradaModalBtn = document.getElementById('cancelEntradaModalBtn');
+
+        openEntradaModalBtn.addEventListener('click', function() {
+            entradaModal.style.display = 'flex';
+        });
+
+        closeEntradaModalBtn.addEventListener('click', function() {
+            entradaModal.style.display = 'none';
+        });
+
+        cancelEntradaModalBtn.addEventListener('click', function() {
+            entradaModal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        entradaModal.addEventListener('click', function(event) {
+            if (event.target === entradaModal) {
+                entradaModal.style.display = 'none';
+            }
+        });
+
+        // Modal Saída functionality
+        const saidaModal = document.getElementById('addSaidaModal');
+        const openSaidaModalBtn = document.getElementById('openSaidaModalBtn');
+        const closeSaidaModalBtn = document.getElementById('closeSaidaModalBtn');
+        const cancelSaidaModalBtn = document.getElementById('cancelSaidaModalBtn');
+
+        openSaidaModalBtn.addEventListener('click', function() {
+            saidaModal.style.display = 'flex';
+        });
+
+        closeSaidaModalBtn.addEventListener('click', function() {
+            saidaModal.style.display = 'none';
+        });
+
+        cancelSaidaModalBtn.addEventListener('click', function() {
+            saidaModal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        saidaModal.addEventListener('click', function(event) {
+            if (event.target === saidaModal) {
+                saidaModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
