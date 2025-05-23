@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appvex (VEX) - Dashboard</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/forms.css">
+    <link rel="stylesheet" href="css/components/modals.css">
+    <link rel="stylesheet" href="css/components/tables.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body class="dark-mode">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/images/logo.png" alt="VEX Logo" style="height: 30px;">
+        </div>
+        <nav class="sidebar-menu">
+            <a href="index.html" class="sidebar-menu-item active">
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="insumos.html" class="sidebar-menu-item">
+                <i class='bx bx-package'></i>
+                <span>Insumos</span>
+            </a>
+            <a href="modelos.html" class="sidebar-menu-item">
+                <i class='bx bx-cube'></i>
+                <span>Modelos</span>
+            </a>
+            <a href="producao.html" class="sidebar-menu-item">
+                <i class='bx bx-factory'></i>
+                <span>Produção</span>
+            </a>
+            <a href="estoque.html" class="sidebar-menu-item">
+                <i class='bx bx-store'></i>
+                <span>Estoque</span>
+            </a>
+            <a href="financeiro.html" class="sidebar-menu-item">
+                <i class='bx bx-money'></i>
+                <span>Financeiro</span>
+            </a>
+            <a href="configuracoes.html" class="sidebar-menu-item">
+                <i class='bx bx-cog'></i>
+                <span>Configurações</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="d-flex align-center">
+                <i class='bx bx-help-circle' style="margin-right: 8px;"></i>
+                <span>Ajuda & Suporte</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="header">
+            <div class="mobile-menu-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+            <div class="header-title">Dashboard</div>
+            <div class="header-actions">
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff" alt="Perfil">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="page-title">
+                <h1>Olá, Admin!</h1>
+                <div class="actions">
+                    <button class="btn btn-primary">
+                        <i class='bx bx-plus'></i>
+                        Nova Produção
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Cards -->
+            <div class="grid grid-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Total Produzido no Mês</div>
+                        <i class='bx bx-line-chart text-info'></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 style="font-size: 2rem; font-weight: 600;">245</h2>
+                        <p class="text-success">
+                            <i class='bx bx-up-arrow-alt'></i>
+                            12% em relação ao mês anterior
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Lucro Estimado</div>
+                        <i class='bx bx-money text-success'></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 style="font-size: 2rem; font-weight: 600;">R$ 12.450</h2>
+                        <p class="text-success">
+                            <i class='bx bx-up-arrow-alt'></i>
+                            8% em relação ao mês anterior
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Insumos em Estoque Crítico</div>
+                        <i class='bx bx-error-circle text-danger'></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 style="font-size: 2rem; font-weight: 600;">3</h2>
+                        <p class="text-danger">
+                            <i class='bx bx-down-arrow-alt'></i>
+                            Verificar estoque imediatamente
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Última Produção</div>
+                        <i class='bx bx-calendar text-info'></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 style="font-size: 1.5rem; font-weight: 600;">Modelo XYZ</h2>
+                        <p>Quantidade: 50 unidades</p>
+                        <p>Data: 20/05/2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Production Chart -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Histórico de Produção (Últimos 30 dias)</div>
+                    <div>
+                        <button class="btn btn-outline">
+                            <i class='bx bx-filter'></i>
+                            Filtrar
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Placeholder for chart -->
+                    <div style="height: 300px; background-color: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <p>Gráfico de Produção (Simulação)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Productions -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Produções Recentes</div>
+                    <a href="producao.html" class="text-info">Ver todas</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Modelo</th>
+                                    <th>Quantidade</th>
+                                    <th>Custo Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>20/05/2025</td>
+                                    <td>Modelo XYZ</td>
+                                    <td>50</td>
+                                    <td>R$ 2.500,00</td>
+                                    <td><span class="status status-success">Concluída</span></td>
+                                </tr>
+                                <tr>
+                                    <td>18/05/2025</td>
+                                    <td>Modelo ABC</td>
+                                    <td>30</td>
+                                    <td>R$ 1.800,00</td>
+                                    <td><span class="status status-success">Concluída</span></td>
+                                </tr>
+                                <tr>
+                                    <td>15/05/2025</td>
+                                    <td>Modelo DEF</td>
+                                    <td>45</td>
+                                    <td>R$ 3.200,00</td>
+                                    <td><span class="status status-success">Concluída</span></td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2025</td>
+                                    <td>Modelo GHI</td>
+                                    <td>25</td>
+                                    <td>R$ 1.250,00</td>
+                                    <td><span class="status status-success">Concluída</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Toggle mobile menu
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
