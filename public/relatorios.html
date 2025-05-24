@@ -1,95 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/utilities.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appvex - Relatórios</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/components/buttons.css">
     <link rel="stylesheet" href="css/components/cards.css">
     <link rel="stylesheet" href="css/components/forms.css">
     <link rel="stylesheet" href="css/components/modals.css">
     <link rel="stylesheet" href="css/components/tables.css">
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appvex - Relatórios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
-    <!-- Sidebar Padrão -->
-    <nav class="sidebar">
-        <div class="logo">
-            <img src="assets/images/logo.svg" alt="Appvex">
-        </div>
-        <ul class="nav-links">
-            <li><a href="relatorios.html" class="active"><i class='bx bx-file'></i> Relatórios</a></li>
-            <!-- Demais links do menu -->
-        </ul>
-    </nav>
-
-    <!-- Conteúdo Principal -->
-    <main class="content">
-        <header class="topbar">
-            <div class="menu-toggle">
-                <i class='bx bx-menu'></i>
+<body class="dark-mode">
+    <!-- Sidebar - Estrutura básica que será preenchida pelo JavaScript -->
+    <aside class="sidebar"></aside>
+    
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+        <header class="header">
+            <h1>Relatórios</h1>
+            <div class="header-actions">
+                <button class="btn btn-primary">Exportar Relatórios</button>
             </div>
-            <h1>Relatórios Analíticos</h1>
         </header>
-
-        <!-- Filtros -->
-        <div class="filter-bar">
-            <div class="filter-group">
-                <label>Tipo de Relatório:</label>
-                <select id="tipo-relatorio">
-                    <option value="vendas">Vendas</option>
-                    <option value="producao">Produção</option>
-                    <option value="financeiro">Financeiro</option>
-                </select>
+        
+        <div class="content">
+            <!-- Filtros de Relatórios -->
+            <div class="card mb-6">
+                <h2 class="card-title">Filtros</h2>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="tipoRelatorio">Tipo de Relatório:</label>
+                        <select id="tipoRelatorio" class="form-control">
+                            <option value="producao">Produção</option>
+                            <option value="vendas">Vendas</option>
+                            <option value="estoque">Estoque</option>
+                            <option value="financeiro">Financeiro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="periodoInicio">Data Início:</label>
+                        <input type="date" id="periodoInicio" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="periodoFim">Data Fim:</label>
+                        <input type="date" id="periodoFim" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <button class="btn btn-primary">Gerar Relatório</button>
+                    </div>
+                </div>
             </div>
-
-            <div class="filter-group">
-                <label>Período:</label>
-                <input type="date" id="data-inicio">
-                <span>até</span>
-                <input type="date" id="data-fim">
+            
+            <!-- Relatórios Recentes -->
+            <div class="card">
+                <h2 class="card-title">Relatórios Recentes</h2>
+                
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Tipo</th>
+                                <th>Período</th>
+                                <th>Data de Geração</th>
+                                <th>Gerado Por</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Relatório de Produção - Maio/2025</td>
+                                <td>Produção</td>
+                                <td>01/05/2025 - 22/05/2025</td>
+                                <td>22/05/2025</td>
+                                <td>Admin</td>
+                                <td>
+                                    <button class="btn btn-icon btn-sm" title="Visualizar">
+                                        <i class='bx bx-show'></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-sm" title="Baixar">
+                                        <i class='bx bx-download'></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Relatório Financeiro - Abril/2025</td>
+                                <td>Financeiro</td>
+                                <td>01/04/2025 - 30/04/2025</td>
+                                <td>02/05/2025</td>
+                                <td>Admin</td>
+                                <td>
+                                    <button class="btn btn-icon btn-sm" title="Visualizar">
+                                        <i class='bx bx-show'></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-sm" title="Baixar">
+                                        <i class='bx bx-download'></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Relatório de Estoque - Abril/2025</td>
+                                <td>Estoque</td>
+                                <td>01/04/2025 - 30/04/2025</td>
+                                <td>01/05/2025</td>
+                                <td>Admin</td>
+                                <td>
+                                    <button class="btn btn-icon btn-sm" title="Visualizar">
+                                        <i class='bx bx-show'></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-sm" title="Baixar">
+                                        <i class='bx bx-download'></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-            <button class="btn-primary">Gerar Relatório</button>
-        </div>
-
-        <!-- Gráficos -->
-        <div class="report-grid">
-            <div class="chart-container">
-                <canvas id="reportChart1"></canvas>
-            </div>
-            <div class="chart-container">
-                <canvas id="reportChart2"></canvas>
-            </div>
-        </div>
-
-        <!-- Tabela Detalhada -->
-        <div class="table-section">
-            <h2>Dados Consolidados</h2>
-            <table class="report-table">
-                <thead>
-                    <tr>
-                        <th>Categoria</th>
-                        <th>Total Produzido</th>
-                        <th>Custo Médio</th>
-                        <th>Lucro</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Dados dinâmicos via JS -->
-                </tbody>
-            </table>
         </div>
     </main>
-<script src="js/calculations.js" defer></script>
-<script src="js/filters.js" defer></script>
-<script src="js/updateData.js" defer></script>
-<script src="js/validations.js" defer></script>
-<script src="js/main.js" defer></script>
+    
+    <!-- Scripts -->
+    <script src="js/menu.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
