@@ -1,0 +1,5 @@
+# Redirecionamentos para páginas com problemas
+/producao.html /producao 301
+/configuracoes.html /configuracoes 301
+/producao /producao.html 200
+/configuracoes /configuracoes.html 200
