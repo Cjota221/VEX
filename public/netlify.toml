@@ -1,12 +1,14 @@
 [build]
-publish = "public"
+  publish = "public"
+
 [[redirects]]
-from = "/producao"
-to = "/producao.html"
-status = 200
-force = true
+  from = "/producao"
+  to = "/producao.html"
+  status = 200
+  force = true
+
 [[redirects]]
-from = "/configuracoes"
-to = "/configuracoes.html"
-status = 200
-force = true
+  from = "/configuracoes"
+  to = "/configuracoes.html"
+  status = 200
+  force = true
