@@ -37,16 +37,3 @@
 --transition-normal: 0.3s ease;
 --transition-slow: 0.5s ease;
 }
-/* Tema claro (não usado atualmente) */
-.light-mode {
---color-primary: #f8fafc;
---color-primary-light: #f1f5f9;
---color-secondary: #e2e8f0;
---color-accent: #3b82f6;
---color-accent-light: #60a5fa;
---color-bg-content: #f1f5f9;
---color-card-bg: #ffffff;
---color-text: #0f172a;
---color-text-muted: #64748b;
---color-border: #e2e8f0;
-}
