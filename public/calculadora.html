@@ -1,231 +1,203 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initialscale=1.0">
-<title>Appvex - Calculadora</title>
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/utilities.css">
-<link rel="stylesheet" href="css/components/buttons.css">
-<link rel="stylesheet" href="css/components/cards.css">
-<link rel="stylesheet" href="css/components/forms.css">
-<link rel="stylesheet" href="css/components/modals.css">
-<link rel="stylesheet" href="css/components/tables.css">
-<link href="https://fonts.googleapis.com/css2?
-family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
-<link href='https://unpkg.com/boxicons@2.1.4/css/
-boxicons.min.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appvex - Calculadora</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/forms.css">
+    <link rel="stylesheet" href="css/components/modals.css">
+    <link rel="stylesheet" href="css/components/tables.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="dark-mode">
-<!-- Sidebar - Estrutura básica que será preenchida pelo
-JavaScript -->
-<aside class="sidebar"></aside>
-<!-- Conteúdo principal -->
-<main class="main-content">
-<header class="header">
-<h1>Calculadora</h1>
-</header>
-<div class="content">
-<!-- Calculadora 1: Quantos produtos faço com X de
-insumo -->
-<div class="card mb-4">
-<h2 class="card-title">Quantos produtos faço com
-X de insumo?</h2>
-<form id="calcProdutos" class="form-grid">
-<div class="form-group">
-<label for="modelo1">Modelo:</label>
-<select id="modelo1" required>
-<option value="">Selecione o
-Modelo</option>
-<option value="modelo1">Modelo XYZ</
-option>
-<option value="modelo2">Modelo ABC</
-option>
-</select>
-</div>
-<div class="form-group">
-<label for="insumo1">Insumo:</label>
-<select id="insumo1" required>
-<option value="">Selecione o
-Insumo</option>
-<option value="insumo1">Tecido
-Algodão</option>
-<option value="insumo2">Linha
-Poliéster</option>
-</select>
-</div>
-<div class="form-group">
-<label for="qtdInsumo">Quantidade do
-Insumo Disponível:</label>
-<input type="number" id="qtdInsumo"
-min="1" required>
-</div>
-<div class="form-group">
-<button type="button"
-id="btnCalcProdutos" class="btn btn-primary">Calcular</button>
-</div>
-<div class="form-group result-container"
-id="resultProdutos">
-<div class="result-label">Resultado:</
-div>
-<div class="result-value">-</div>
-</div>
-</form>
-</div>
-<!-- Calculadora 2: Quanto insumo preciso para
-produzir X produtos -->
-<div class="card mb-4">
-<h2 class="card-title">Quanto insumo preciso
-para produzir X produtos?</h2>
-<form id="calcInsumos" class="form-grid">
-<div class="form-group">
-<label for="modelo2">Modelo:</label>
-<select id="modelo2" required>
-<option value="">Selecione o
-Modelo</option>
-<option value="modelo1">Modelo XYZ</
-option>
-<option value="modelo2">Modelo ABC</
-option>
-</select>
-</div>
-<div class="form-group">
-<label for="insumo2">Insumo:</label>
-<select id="insumo2" required>
-<option value="">Selecione o
-Insumo</option>
-<option value="insumo1">Tecido
-Algodão</option>
-<option value="insumo2">Linha
-Poliéster</option>
-</select>
-</div>
-<div class="form-group">
-<label for="qtdProdutos">Quantidade de
-Produtos Desejada:</label>
-<input type="number" id="qtdProdutos"
-min="1" required>
-</div>
-<div class="form-group">
-<button type="button"
-id="btnCalcInsumos" class="btn btn-primary">Calcular</button>
-</div>
-<div class="form-group result-container"
-id="resultInsumos">
-<div class="result-label">Resultado:</
-div>
-<div class="result-value">-</div>
-</div>
-</form>
-</div>
-<!-- Calculadora 3: Custo Fixo por Unidade -->
-<div class="card mb-4">
-<h2 class="card-title">Custo Fixo por Unidade</
-h2>
-<form id="calcCustoFixo" class="form-grid">
-<div class="form-group">
-<label for="custoFixoTotal">Custo Fixo
-Total (R$):</label>
-<input type="number" id="custoFixoTotal"
-min="0" step="0.01" required>
-</div>
-<div class="form-group">
-<label for="qtdUnidades">Quantidade de
-Unidades:</label>
-<input type="number" id="qtdUnidades"
-min="1" required>
-</div>
-<div class="form-group">
-<button type="button"
-id="btnCalcCustoFixo" class="btn btn-primary">Calcular</button>
-</div>
-<div class="form-group result-container"
-id="resultCustoFixo">
-<div class="result-label">Custo Fixo por
-Unidade:</div>
-<div class="result-value">-</div>
-</div>
-</form>
-</div>
-<!-- Calculadora 4: Ponto de Equilíbrio -->
-<div class="card mb-4">
-<h2 class="card-title">Ponto de Equilíbrio
-(Unidades)</h2>
-<form id="calcPontoEquilibrio" class="formgrid">
-<div class="form-group">
-<label for="custoFixoMensal">Custo Fixo
-Mensal (R$):</label>
-<input type="number"
-id="custoFixoMensal" min="0" step="0.01" required>
-</div>
-<div class="form-group">
-<label for="precoVenda">Preço de Venda
-por Unidade (R$):</label>
-<input type="number" id="precoVenda"
-min="0" step="0.01" required>
-</div>
-<div class="form-group">
-<label for="custoVariavel">Custo
-Variável por Unidade (R$):</label>
-<input type="number" id="custoVariavel"
-min="0" step="0.01" required>
-</div>
-<div class="form-group">
-<button type="button"
-id="btnCalcPontoEquilibrio" class="btn btn-primary">Calcular</
-button>
-</div>
-<div class="form-group result-container"
-id="resultPontoEquilibrio">
-<div class="result-label">Ponto de
-Equilíbrio:</div>
-<div class="result-value">-</div>
-</div>
-</form>
-</div>
-<!-- Calculadora 5: Projeção de Lucro -->
-<div class="card">
-<h2 class="card-title">Projeção de Lucro</h2>
-<form id="calcProjecaoLucro" class="form-grid">
-<div class="form-group">
-<label for="qtdVendas">Quantidade de
-Vendas Projetada:</label>
-<input type="number" id="qtdVendas"
-min="1" required>
-</div>
-<div class="form-group">
-<label for="precoVendaProj">Preço de
-Venda por Unidade (R$):</label>
-<input type="number" id="precoVendaProj"
-min="0" step="0.01" required>
-</div>
-<div class="form-group">
-<label for="custoTotalProj">Custo Total
-por Unidade (R$):</label>
-<input type="number" id="custoTotalProj"
-min="0" step="0.01" required>
-</div>
-<div class="form-group">
-<button type="button"
-id="btnCalcProjecaoLucro" class="btn btn-primary">Calcular</
-button>
-</div>
-<div class="form-group result-container"
-id="resultProjecaoLucro">
-<div class="result-label">Lucro
-Projetado:</div>
-<div class="result-value">-</div>
-</div>
-</form>
-</div>
-</div>
-</main>
-<!-- Scripts -->
-<script src="js/menu.js"></script>
-<script src="js/main.js"></script>
-<script src="js/calculadora.js"></script>
+    <!-- Sidebar - Estrutura básica que será preenchida pelo JavaScript -->
+    <aside class="sidebar"></aside>
+    
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+        <header class="header">
+            <h1>Calculadora</h1>
+        </header>
+        
+        <div class="content">
+            <!-- Calculadora 1: Quantos produtos faço com X de insumo -->
+            <div class="card mb-4">
+                <h2 class="card-title">Quantos produtos faço com X de insumo?</h2>
+                
+                <form id="calcProdutos" class="form-grid">
+                    <div class="form-group">
+                        <label for="modelo1">Modelo:</label>
+                        <select id="modelo1" required>
+                            <option value="">Selecione o Modelo</option>
+                            <option value="modelo1">Modelo XYZ</option>
+                            <option value="modelo2">Modelo ABC</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="insumo1">Insumo:</label>
+                        <select id="insumo1" required>
+                            <option value="">Selecione o Insumo</option>
+                            <option value="insumo1">Tecido Algodão</option>
+                            <option value="insumo2">Linha Poliéster</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="qtdInsumo">Quantidade do Insumo Disponível:</label>
+                        <input type="number" id="qtdInsumo" min="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="button" id="btnCalcProdutos" class="btn btn-primary">Calcular</button>
+                    </div>
+                    
+                    <div class="form-group result-container" id="resultProdutos">
+                        <div class="result-label">Resultado:</div>
+                        <div class="result-value">-</div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Calculadora 2: Quanto insumo preciso para produzir X produtos -->
+            <div class="card mb-4">
+                <h2 class="card-title">Quanto insumo preciso para produzir X produtos?</h2>
+                
+                <form id="calcInsumos" class="form-grid">
+                    <div class="form-group">
+                        <label for="modelo2">Modelo:</label>
+                        <select id="modelo2" required>
+                            <option value="">Selecione o Modelo</option>
+                            <option value="modelo1">Modelo XYZ</option>
+                            <option value="modelo2">Modelo ABC</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="insumo2">Insumo:</label>
+                        <select id="insumo2" required>
+                            <option value="">Selecione o Insumo</option>
+                            <option value="insumo1">Tecido Algodão</option>
+                            <option value="insumo2">Linha Poliéster</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="qtdProdutos">Quantidade de Produtos Desejada:</label>
+                        <input type="number" id="qtdProdutos" min="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="button" id="btnCalcInsumos" class="btn btn-primary">Calcular</button>
+                    </div>
+                    
+                    <div class="form-group result-container" id="resultInsumos">
+                        <div class="result-label">Resultado:</div>
+                        <div class="result-value">-</div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Calculadora 3: Custo Fixo por Unidade -->
+            <div class="card mb-4">
+                <h2 class="card-title">Custo Fixo por Unidade</h2>
+                
+                <form id="calcCustoFixo" class="form-grid">
+                    <div class="form-group">
+                        <label for="custoFixoTotal">Custo Fixo Total (R$ ):</label>
+                        <input type="number" id="custoFixoTotal" min="0" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="qtdUnidades">Quantidade de Unidades:</label>
+                        <input type="number" id="qtdUnidades" min="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="button" id="btnCalcCustoFixo" class="btn btn-primary">Calcular</button>
+                    </div>
+                    
+                    <div class="form-group result-container" id="resultCustoFixo">
+                        <div class="result-label">Custo Fixo por Unidade:</div>
+                        <div class="result-value">-</div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Calculadora 4: Ponto de Equilíbrio -->
+            <div class="card mb-4">
+                <h2 class="card-title">Ponto de Equilíbrio (Unidades)</h2>
+                
+                <form id="calcPontoEquilibrio" class="form-grid">
+                    <div class="form-group">
+                        <label for="custoFixoMensal">Custo Fixo Mensal (R$):</label>
+                        <input type="number" id="custoFixoMensal" min="0" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="precoVenda">Preço de Venda por Unidade (R$):</label>
+                        <input type="number" id="precoVenda" min="0" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="custoVariavel">Custo Variável por Unidade (R$):</label>
+                        <input type="number" id="custoVariavel" min="0" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="button" id="btnCalcPontoEquilibrio" class="btn btn-primary">Calcular</button>
+                    </div>
+                    
+                    <div class="form-group result-container" id="resultPontoEquilibrio">
+                        <div class="result-label">Ponto de Equilíbrio:</div>
+                        <div class="result-value">-</div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Calculadora 5: Projeção de Lucro -->
+            <div class="card">
+                <h2 class="card-title">Projeção de Lucro</h2>
+                
+                <form id="calcProjecaoLucro" class="form-grid">
+                    <div class="form-group">
+                        <label for="qtdVendas">Quantidade de Vendas Projetada:</label>
+                        <input type="number" id="qtdVendas" min="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="precoVendaProj">Preço de Venda por Unidade (R$):</label>
+                        <input type="number" id="precoVendaProj" min="0" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="custoTotalProj">Custo Total por Unidade (R$):</label>
+                        <input type="number" id="custoTotalProj" min="0" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="button" id="btnCalcProjecaoLucro" class="btn btn-primary">Calcular</button>
+                    </div>
+                    
+                    <div class="form-group result-container" id="resultProjecaoLucro">
+                        <div class="result-label">Lucro Projetado:</div>
+                        <div class="result-value">-</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Scripts -->
+    <script src="js/menu.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/calculadora.js"></script>
 </body>
 </html>
