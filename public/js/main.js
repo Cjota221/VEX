@@ -3,52 +3,13 @@
  * Contém funcionalidades comuns a todas as páginas
  */
 document.addEventListener('DOMContentLoaded', function() {
-// Inicializar componentes
-initSidebar();
-initDropdowns();
+// Inicializar tooltips
 initTooltips();
-// Verificar se há notificações
-checkNotifications();
-// Adicionar data atual ao cabeçalho
-updateCurrentDate();
+// Inicializar modais
+initModals();
+// Inicializar dropdowns
+initDropdowns();
 });
-/**
- * Inicializa a barra lateral
- */
-function initSidebar() {
-const toggleBtn = document.querySelector('.sidebar-toggle');
-const sidebar = document.querySelector('.sidebar');
-const mainContent = document.querySelector('.main-content');
-if (toggleBtn && sidebar && mainContent) {
-toggleBtn.addEventListener('click', function() {
-sidebar.classList.toggle('collapsed');
-mainContent.classList.toggle('expanded');
-});
-}
-}
-/**
- * Inicializa dropdowns
- */
-function initDropdowns() {
-const dropdowns = document.querySelectorAll('.dropdown');
-dropdowns.forEach(dropdown => {
-const trigger = dropdown.querySelector('.dropdowntrigger');
-const menu = dropdown.querySelector('.dropdown-menu');
-if (trigger && menu) {
-trigger.addEventListener('click', function(e) {
-e.stopPropagation();
-menu.classList.toggle('active');
-});
-}
-});
-// Fechar dropdowns ao clicar fora
-document.addEventListener('click', function() {
-const activeMenus =
-document.querySelectorAll('.dropdown-menu.active');
-activeMenus.forEach(menu =>
-menu.classList.remove('active'));
-});
-}
 /**
  * Inicializa tooltips
  */
@@ -79,30 +40,58 @@ tooltip.remove();
 });
 }
 /**
- * Verifica notificações
+ * Inicializa modais
  */
-function checkNotifications() {
-// Simulação de notificações
-const hasNotifications = Math.random() > 0.5;
-if (hasNotifications) {
-const notifBadge =
-document.querySelector('.notification-badge');
-if (notifBadge) {
-notifBadge.style.display = 'block';
+function initModals() {
+const modalTriggers = document.querySelectorAll('[datamodal]');
+const modalClosers = document.querySelectorAll('.modalclose');
+modalTriggers.forEach(trigger => {
+trigger.addEventListener('click', function() {
+const modalId = this.getAttribute('data-modal');
+const modal = document.getElementById(modalId);
+if (modal) {
+modal.classList.add('active');
+document.body.style.overflow = 'hidden';
 }
+});
+});
+modalClosers.forEach(closer => {
+closer.addEventListener('click', function() {
+const modal = this.closest('.modal');
+if (modal) {
+modal.classList.remove('active');
+document.body.style.overflow = '';
 }
+});
+});
+document.addEventListener('click', function(event) {
+if (event.target.classList.contains('modal')) {
+event.target.classList.remove('active');
+document.body.style.overflow = '';
+}
+});
 }
 /**
- * Atualiza a data atual no cabeçalho
+ * Inicializa dropdowns
  */
-function updateCurrentDate() {
-const dateElement = document.querySelector('.current-date');
-if (dateElement) {
-const now = new Date();
-const options = { weekday: 'long', year: 'numeric',
-month: 'long', day: 'numeric' };
-dateElement.textContent = now.toLocaleDateString('ptBR', options);
+function initDropdowns() {
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(dropdown => {
+const trigger = dropdown.querySelector('.dropdowntrigger');
+const menu = dropdown.querySelector('.dropdown-menu');
+if (trigger && menu) {
+trigger.addEventListener('click', function(e) {
+e.stopPropagation();
+menu.classList.toggle('active');
+});
 }
+});
+document.addEventListener('click', function() {
+const activeMenus =
+document.querySelectorAll('.dropdown-menu.active');
+activeMenus.forEach(menu =>
+menu.classList.remove('active'));
+});
 }
 /**
  * Formata valores monetários
