@@ -1,83 +1,154 @@
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM fully loaded and parsed. main.js executing.");
-
-    // --- Sidebar Toggle --- //
-    const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
-    const sidebar = document.querySelector(".sidebar");
-
-    if (mobileMenuToggle && sidebar) {
-        mobileMenuToggle.addEventListener("click", () => {
-            sidebar.classList.toggle("active");
-            console.log("Sidebar toggled.");
-        });
-    } else {
-        console.warn("Sidebar toggle button or sidebar element not found.");
-    }
-
-    // --- Generic Modal Handling --- //
-    const openModalButtons = document.querySelectorAll("[id^=\"open\"][id$=\"ModalBtn\"]"); // Matches openModalBtn, openEntradaModalBtn, etc.
-    const closeModalButtons = document.querySelectorAll("[id^=\"close\"][id$=\"ModalBtn\"], [id^=\"cancel\"][id$=\"ModalBtn\"]"); // Matches closeModalBtn, cancelModalBtn, etc.
-
-    console.log(`Found ${openModalButtons.length} modal open buttons.`);
-    console.log(`Found ${closeModalButtons.length} modal close/cancel buttons.`);
-
-    // Function to open a modal
-    const openModal = (modal) => {
-        if (modal) {
-            modal.style.display = "flex"; // Use flex as per the inline style in HTML
-            console.log(`Modal ${modal.id} opened.`);
-        }
-    };
-
-    // Function to close a modal
-    const closeModal = (modal) => {
-        if (modal) {
-            modal.style.display = "none";
-            console.log(`Modal ${modal.id} closed.`);
-        }
-    };
-
-    // Add event listeners to open buttons
-    openModalButtons.forEach(button => {
-        // Derive modal ID from button ID (e.g., openAddInsumoModalBtn -> addInsumoModal)
-        let modalId = button.id.replace("open", "").replace("Btn", "");
-        modalId = modalId.charAt(0).toLowerCase() + modalId.slice(1);
-        const modal = document.getElementById(modalId);
-
-        if (modal) {
-            button.addEventListener("click", () => openModal(modal));
-        } else {
-            // Handle generic case like 'openModalBtn' -> find the first modal on the page?
-            // Or assume a convention like 'add<PageName>Modal'
-            // For now, let's try finding *any* modal if the specific one isn't found by ID convention
-            const genericModal = document.querySelector("[id$=Modal]");
-            if (genericModal && button.id === "openModalBtn") {
-                 button.addEventListener("click", () => openModal(genericModal));
-            } else {
-                 console.warn(`Modal with derived ID ${modalId} not found for button ${button.id}.`);
-            }
-        }
-    });
-
-    // Add event listeners to close/cancel buttons
-    closeModalButtons.forEach(button => {
-        const modal = button.closest("[id$=Modal]"); // Find the parent modal
-        if (modal) {
-            button.addEventListener("click", () => closeModal(modal));
-        } else {
-            console.warn(`Could not find parent modal for close/cancel button:`, button);
-        }
-    });
-
-    // Optional: Close modal when clicking outside of it
-    window.addEventListener("click", (event) => {
-        document.querySelectorAll("[id$=Modal]").forEach(modal => {
-            if (event.target === modal) { // Check if the click is directly on the modal background
-                closeModal(modal);
-            }
-        });
-    });
-
-    console.log("main.js setup complete.");
+/**
+ * Script principal do Appvex
+ * Contém funcionalidades comuns a todas as páginas
+ */
+document.addEventListener('DOMContentLoaded', function() {
+// Inicializar componentes
+initSidebar();
+initDropdowns();
+initTooltips();
+// Verificar se há notificações
+checkNotifications();
+// Adicionar data atual ao cabeçalho
+updateCurrentDate();
 });
-
+/**
+ * Inicializa a barra lateral
+ */
+function initSidebar() {
+const toggleBtn = document.querySelector('.sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const mainContent = document.querySelector('.main-content');
+if (toggleBtn && sidebar && mainContent) {
+toggleBtn.addEventListener('click', function() {
+sidebar.classList.toggle('collapsed');
+mainContent.classList.toggle('expanded');
+});
+}
+}
+/**
+ * Inicializa dropdowns
+ */
+function initDropdowns() {
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(dropdown => {
+const trigger = dropdown.querySelector('.dropdowntrigger');
+const menu = dropdown.querySelector('.dropdown-menu');
+if (trigger && menu) {
+trigger.addEventListener('click', function(e) {
+e.stopPropagation();
+menu.classList.toggle('active');
+});
+}
+});
+// Fechar dropdowns ao clicar fora
+document.addEventListener('click', function() {
+const activeMenus =
+document.querySelectorAll('.dropdown-menu.active');
+activeMenus.forEach(menu =>
+menu.classList.remove('active'));
+});
+}
+/**
+ * Inicializa tooltips
+ */
+function initTooltips() {
+const tooltipTriggers = document.querySelectorAll('[datatooltip]');
+tooltipTriggers.forEach(trigger => {
+trigger.addEventListener('mouseenter', function() {
+const tooltipText = this.getAttribute('datatooltip');
+const tooltip = document.createElement('div');
+tooltip.className = 'tooltip';
+tooltip.textContent = tooltipText;
+document.body.appendChild(tooltip);
+const triggerRect = this.getBoundingClientRect();
+const tooltipRect = tooltip.getBoundingClientRect();
+tooltip.style.top = (triggerRect.top -
+tooltipRect.height - 10) + 'px';
+tooltip.style.left = (triggerRect.left +
+(triggerRect.width / 2) - (tooltipRect.width / 2)) + 'px';
+tooltip.classList.add('active');
+});
+trigger.addEventListener('mouseleave', function() {
+const tooltip =
+document.querySelector('.tooltip.active');
+if (tooltip) {
+tooltip.remove();
+}
+});
+});
+}
+/**
+ * Verifica notificações
+ */
+function checkNotifications() {
+// Simulação de notificações
+const hasNotifications = Math.random() > 0.5;
+if (hasNotifications) {
+const notifBadge =
+document.querySelector('.notification-badge');
+if (notifBadge) {
+notifBadge.style.display = 'block';
+}
+}
+}
+/**
+ * Atualiza a data atual no cabeçalho
+ */
+function updateCurrentDate() {
+const dateElement = document.querySelector('.current-date');
+if (dateElement) {
+const now = new Date();
+const options = { weekday: 'long', year: 'numeric',
+month: 'long', day: 'numeric' };
+dateElement.textContent = now.toLocaleDateString('ptBR', options);
+}
+}
+/**
+ * Formata valores monetários
+ */
+function formatCurrency(value) {
+return new Intl.NumberFormat('pt-BR', {
+style: 'currency',
+currency: 'BRL'
+}).format(value);
+}
+/**
+ * Formata datas
+ */
+function formatDate(dateString) {
+const date = new Date(dateString);
+return date.toLocaleDateString('pt-BR');
+}
+/**
+ * Exibe mensagem de alerta
+ */
+function showAlert(message, type = 'info') {
+const alertContainer = document.querySelector('.alertcontainer') || createAlertContainer();
+const alert = document.createElement('div');
+alert.className = `alert alert-${type}`;
+alert.innerHTML = `
+ <span>${message}</span>
+ <button class="alert-close">&times;</button>
+ `;
+alertContainer.appendChild(alert);
+// Auto-remover após 5 segundos
+setTimeout(() => {
+alert.classList.add('fade-out');
+setTimeout(() => alert.remove(), 300);
+}, 5000);
+// Fechar ao clicar no botão
+alert.querySelector('.alertclose').addEventListener('click', function() {
+alert.classList.add('fade-out');
+setTimeout(() => alert.remove(), 300);
+});
+}
+/**
+ * Cria container para alertas
+ */
+function createAlertContainer() {
+const container = document.createElement('div');
+container.className = 'alert-container';
+document.body.appendChild(container);
+return container;
+}
