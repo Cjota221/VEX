@@ -143,3 +143,28 @@
 .login-links a:hover {
   opacity: 0.8;
 }
+/* Estilos específicos para formulários da calculadora */
+.form-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 20px;
+}
+.result-container {
+background-color: var(--color-primary-light);
+padding: 15px;
+border-radius: var(--radius-md);
+border-left: 3px solid var(--color-accent);
+}
+.result-label {
+font-weight: 500;
+margin-bottom: 5px;
+color: var(--color-text-muted);
+}
+.result-value {
+font-size: 1.2rem;
+font-weight: 700;
+}
+/* Espaçamento entre cards */
+.mb-4 {
+margin-bottom: 20px;
+}
