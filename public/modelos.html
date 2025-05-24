@@ -3,379 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appvex (VEX) - Cadastro de Modelos</title>
+    <title>Appvex - Modelos</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/components/buttons.css">
     <link rel="stylesheet" href="css/components/cards.css">
     <link rel="stylesheet" href="css/components/forms.css">
     <link rel="stylesheet" href="css/components/modals.css">
     <link rel="stylesheet" href="css/components/tables.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="dark-mode">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="sidebar-logo">
-            <img src="assets/images/logo.png" alt="VEX Logo" style="height: 30px;">
-        </div>
-        <nav class="sidebar-menu">
-            <a href="index.html" class="sidebar-menu-item">
-                <i class='bx bxs-dashboard'></i>
-                <span>Dashboard</span>
-            </a>
-            <a href="insumos.html" class="sidebar-menu-item">
-                <i class='bx bx-package'></i>
-                <span>Insumos</span>
-            </a>
-            <a href="modelos.html" class="sidebar-menu-item active">
-                <i class='bx bx-cube'></i>
-                <span>Modelos</span>
-            </a>
-            <a href="producao.html" class="sidebar-menu-item">
-                <i class='bx bx-factory'></i>
-                <span>Produção</span>
-            </a>
-            <a href="estoque.html" class="sidebar-menu-item">
-                <i class='bx bx-store'></i>
-                <span>Estoque</span>
-            </a>
-            <a href="financeiro.html" class="sidebar-menu-item">
-                <i class='bx bx-money'></i>
-                <span>Financeiro</span>
-            </a>
-            <a href="configuracoes.html" class="sidebar-menu-item">
-                <i class='bx bx-cog'></i>
-                <span>Configurações</span>
-            </a>
-        </nav>
-        <div class="sidebar-footer">
-            <div class="d-flex align-center">
-                <i class='bx bx-help-circle' style="margin-right: 8px;"></i>
-                <span>Ajuda & Suporte</span>
-            </div>
-        </div>
-    </aside>
-
-    <!-- Main Content -->
+    <!-- Sidebar - Estrutura básica que será preenchida pelo JavaScript -->
+    <aside class="sidebar"></aside>
+    
+    <!-- Conteúdo principal -->
     <main class="main-content">
         <header class="header">
-            <div class="mobile-menu-toggle">
-                <i class='bx bx-menu'></i>
-            </div>
-            <div class="header-title">Cadastro de Modelos</div>
+            <h1>Modelos</h1>
             <div class="header-actions">
-                <div class="user-profile">
-                    <img src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff" alt="Perfil">
-                    <span>Admin</span>
-                </div>
+                <button class="btn btn-primary">Adicionar Modelo</button>
             </div>
         </header>
-
+        
         <div class="content">
-            <div class="page-title">
-                <h1>Cadastro de Modelos</h1>
-                <div class="actions">
-                    <button class="btn btn-primary" id="openModalBtn">
-                        <i class='bx bx-plus'></i>
-                        Novo Modelo
-                    </button>
-                </div>
-            </div>
-
-            <!-- Search and Filter -->
-            <div class="card mb-lg">
-                <div class="d-flex gap-md">
-                    <div class="form-group w-100">
-                        <div class="d-flex align-center">
-                            <i class='bx bx-search' style="position: absolute; margin-left: 12px; color: var(--color-secondary);"></i>
-                            <input type="text" class="form-control" placeholder="Buscar modelos..." style="padding-left: 40px;">
-                        </div>
+            <!-- Filtros e Busca -->
+            <div class="card mb-4">
+                <div class="filters-container">
+                    <div class="search-container">
+                        <input type="text" placeholder="Buscar modelos..." class="form-control">
                     </div>
-                    <div class="form-group" style="min-width: 200px;">
-                        <select class="form-control form-select">
-                            <option value="">Todos os modelos</option>
-                            <option value="alta">Margem Alta</option>
-                            <option value="media">Margem Média</option>
-                            <option value="baixa">Margem Baixa</option>
+                    
+                    <div class="filter-container">
+                        <select class="form-control">
+                            <option>Todos os modelos</option>
+                            <option>Categoria: Vestuário</option>
+                            <option>Categoria: Acessórios</option>
                         </select>
+                        <button class="btn btn-secondary">Filtrar</button>
                     </div>
-                    <button class="btn btn-outline">
-                        <i class='bx bx-filter'></i>
-                        Filtrar
-                    </button>
                 </div>
             </div>
-
-            <!-- Modelos Grid -->
-            <div class="grid grid-3">
-                <!-- Modelo Card 1 -->
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Modelo XYZ</div>
-                        <div class="d-flex gap-sm">
-                            <button class="btn btn-outline" title="Editar">
-                                <i class='bx bx-edit'></i>
-                            </button>
-                            <button class="btn btn-outline" title="Excluir">
-                                <i class='bx bx-trash'></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex gap-md mb-md">
-                            <div style="width: 100px; height: 100px; background-color: rgba(255,255,255,0.05); border-radius: var(--border-radius-sm); display: flex; align-items: center; justify-content: center;">
-                                <i class='bx bx-image' style="font-size: 2rem;"></i>
-                            </div>
-                            <div>
-                                <div class="mb-sm">
-                                    <strong>Custo Total:</strong> R$ 45,80
-                                </div>
-                                <div class="mb-sm">
-                                    <strong>Preço Sugerido:</strong> R$ 89,90
-                                </div>
-                                <div class="mb-sm">
-                                    <strong>Margem:</strong> 
-                                    <span class="text-success">49%</span>
-                                </div>
-                                <div>
-                                    <strong>Lucro por Unidade:</strong> 
-                                    <span class="text-success">R$ 44,10</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-outline w-100">
-                            <i class='bx bx-detail'></i>
-                            Ver Detalhes
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Modelo Card 2 -->
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Modelo ABC</div>
-                        <div class="d-flex gap-sm">
-                            <button class="btn btn-outline" title="Editar">
-                                <i class='bx bx-edit'></i>
-                            </button>
-                            <button class="btn btn-outline" title="Excluir">
-                                <i class='bx bx-trash'></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex gap-md mb-md">
-                            <div style="width: 100px; height: 100px; background-color: rgba(255,255,255,0.05); border-radius: var(--border-radius-sm); display: flex; align-items: center; justify-content: center;">
-                                <i class='bx bx-image' style="font-size: 2rem;"></i>
-                            </div>
-                            <div>
-                                <div class="mb-sm">
-                                    <strong>Custo Total:</strong> R$ 62,30
-                                </div>
-                                <div class="mb-sm">
-                                    <strong>Preço Sugerido:</strong> R$ 119,90
-                                </div>
-                                <div class="mb-sm">
-                                    <strong>Margem:</strong> 
-                                    <span class="text-success">48%</span>
-                                </div>
-                                <div>
-                                    <strong>Lucro por Unidade:</strong> 
-                                    <span class="text-success">R$ 57,60</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-outline w-100">
-                            <i class='bx bx-detail'></i>
-                            Ver Detalhes
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Modelo Card 3 -->
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Modelo DEF</div>
-                        <div class="d-flex gap-sm">
-                            <button class="btn btn-outline" title="Editar">
-                                <i class='bx bx-edit'></i>
-                            </button>
-                            <button class="btn btn-outline" title="Excluir">
-                                <i class='bx bx-trash'></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex gap-md mb-md">
-                            <div style="width: 100px; height: 100px; background-color: rgba(255,255,255,0.05); border-radius: var(--border-radius-sm); display: flex; align-items: center; justify-content: center;">
-                                <i class='bx bx-image' style="font-size: 2rem;"></i>
-                            </div>
-                            <div>
-                                <div class="mb-sm">
-                                    <strong>Custo Total:</strong> R$ 38,50
-                                </div>
-                                <div class="mb-sm">
-                                    <strong>Preço Sugerido:</strong> R$ 69,90
-                                </div>
-                                <div class="mb-sm">
-                                    <strong>Margem:</strong> 
-                                    <span class="text-success">45%</span>
-                                </div>
-                                <div>
-                                    <strong>Lucro por Unidade:</strong> 
-                                    <span class="text-success">R$ 31,40</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-outline w-100">
-                            <i class='bx bx-detail'></i>
-                            Ver Detalhes
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Modelo Card 4 -->
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Modelo GHI</div>
-                        <div class="d-flex gap-sm">
-                            <button class="btn btn-outline" title="Editar">
-                                <i class='bx bx-edit'></i>
-                            </button>
-                            <button class="btn btn-outline" title="Excluir">
-                                <i class='bx bx-trash'></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex gap-md mb-md">
-                            <div style="width: 100px; height: 100px; background-color: rgba(255,255,255,0.05); border-radius: var(--border-radius-sm); display: flex; align-items: center; justify-content: center;">
-                                <i class='bx bx-image' style="font-size: 2rem;"></i>
-                            </div>
-                            <div>
-                                <div class="mb-sm">
-                                    <strong>Custo Total:</strong> R$ 52,70
-                                </div>
-                                <div class="mb-sm">
-                                    <strong>Preço Sugerido:</strong> R$ 99,90
-                                </div>
-                                <div class="mb-sm">
-                                    <strong>Margem:</strong> 
-                                    <span class="text-success">47%</span>
-                                </div>
-                                <div>
-                                    <strong>Lucro por Unidade:</strong> 
-                                    <span class="text-success">R$ 47,20</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-outline w-100">
-                            <i class='bx bx-detail'></i>
-                            Ver Detalhes
-                        </button>
-                    </div>
+            
+            <!-- Lista de Modelos -->
+            <div class="card">
+                <h2 class="card-title">Lista de Modelos</h2>
+                
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nome</th>
+                                <th>Categoria</th>
+                                <th>Preço de Venda</th>
+                                <th>Custo Estimado</th>
+                                <th>Margem</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MOD001</td>
+                                <td>Modelo XYZ</td>
+                                <td>Vestuário</td>
+                                <td>R$ 89,90</td>
+                                <td>R$ 45,20</td>
+                                <td>49.7%</td>
+                                <td>
+                                    <button class="btn btn-icon btn-sm" title="Editar">
+                                        <i class='bx bx-edit'></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-sm" title="Ver Insumos">
+                                        <i class='bx bx-list-ul'></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-sm btn-danger" title="Excluir">
+                                        <i class='bx bx-trash'></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>MOD002</td>
+                                <td>Modelo ABC</td>
+                                <td>Acessórios</td>
+                                <td>R$ 45,00</td>
+                                <td>R$ 18,75</td>
+                                <td>58.3%</td>
+                                <td>
+                                    <button class="btn btn-icon btn-sm" title="Editar">
+                                        <i class='bx bx-edit'></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-sm" title="Ver Insumos">
+                                        <i class='bx bx-list-ul'></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-sm btn-danger" title="Excluir">
+                                        <i class='bx bx-trash'></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </main>
-
-    <!-- Modal para Novo Modelo (Wizard) -->
-    <div id="addModeloModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
-        <div style="background-color: var(--color-bg-card); border-radius: var(--border-radius-md); width: 100%; max-width: 600px; padding: var(--spacing-lg); position: relative;">
-            <div class="d-flex justify-between align-center mb-lg">
-                <h2 style="font-size: 1.2rem; font-weight: 600;">Novo Modelo</h2>
-                <button id="closeModalBtn" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--color-secondary);">
-                    <i class='bx bx-x'></i>
-                </button>
-            </div>
-            
-            <!-- Wizard Steps -->
-            <div class="d-flex mb-lg" style="border-bottom: 1px solid var(--color-border); padding-bottom: var(--spacing-md);">
-                <div class="d-flex flex-column align-center" style="flex: 1; position: relative;">
-                    <div style="width: 30px; height: 30px; border-radius: 50%; background-color: var(--color-info); display: flex; align-items: center; justify-content: center; margin-bottom: 8px; z-index: 2;">1</div>
-                    <span style="font-size: 0.8rem;">Informações Básicas</span>
-                    <div style="position: absolute; height: 2px; background-color: var(--color-border); width: 100%; top: 15px; left: 50%; z-index: 1;"></div>
-                </div>
-                <div class="d-flex flex-column align-center" style="flex: 1; position: relative;">
-                    <div style="width: 30px; height: 30px; border-radius: 50%; background-color: var(--color-border); display: flex; align-items: center; justify-content: center; margin-bottom: 8px; z-index: 2;">2</div>
-                    <span style="font-size: 0.8rem;">Insumos</span>
-                    <div style="position: absolute; height: 2px; background-color: var(--color-border); width: 100%; top: 15px; left: 50%; z-index: 1;"></div>
-                </div>
-                <div class="d-flex flex-column align-center" style="flex: 1; position: relative;">
-                    <div style="width: 30px; height: 30px; border-radius: 50%; background-color: var(--color-border); display: flex; align-items: center; justify-content: center; margin-bottom: 8px; z-index: 2;">3</div>
-                    <span style="font-size: 0.8rem;">Custos Variáveis</span>
-                    <div style="position: absolute; height: 2px; background-color: var(--color-border); width: 100%; top: 15px; left: 50%; z-index: 1;"></div>
-                </div>
-                <div class="d-flex flex-column align-center" style="flex: 1;">
-                    <div style="width: 30px; height: 30px; border-radius: 50%; background-color: var(--color-border); display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">4</div>
-                    <span style="font-size: 0.8rem;">Margem e Preço</span>
-                </div>
-            </div>
-            
-            <!-- Step 1: Informações Básicas -->
-            <div id="step1" class="wizard-step">
-                <div class="form-group">
-                    <label class="form-label" for="modeloNome">Nome do Modelo</label>
-                    <input type="text" id="modeloNome" class="form-control" placeholder="Ex: Camiseta Básica">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="modeloDescricao">Descrição (opcional)</label>
-                    <textarea id="modeloDescricao" class="form-control" rows="3" placeholder="Descreva o modelo..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Imagem do Modelo</label>
-                    <div style="border: 2px dashed var(--color-border); border-radius: var(--border-radius-sm); padding: var(--spacing-lg); text-align: center; cursor: pointer;">
-                        <i class='bx bx-upload' style="font-size: 2rem;"></i>
-                        <p>Clique para fazer upload ou arraste a imagem aqui</p>
-                        <input type="file" style="display: none;">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Navigation Buttons -->
-            <div class="d-flex justify-between mt-lg">
-                <button type="button" class="btn btn-outline" id="cancelModalBtn">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="nextStepBtn">Próximo</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Toggle mobile menu
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            document.querySelector('.sidebar').classList.toggle('active');
-        });
-
-        // Modal functionality
-        const modal = document.getElementById('addModeloModal');
-        const openModalBtn = document.getElementById('openModalBtn');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const cancelModalBtn = document.getElementById('cancelModalBtn');
-
-        openModalBtn.addEventListener('click', function() {
-            modal.style.display = 'flex';
-        });
-
-        closeModalBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        cancelModalBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        // Close modal when clicking outside
-        modal.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    </script>
+    
+    <!-- Scripts -->
+    <script src="js/menu.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
