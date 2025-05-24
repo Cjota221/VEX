@@ -1,353 +1,292 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appvex (VEX) - Cadastro de Insumos</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/layout.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initialscale=1.0">
+<title>Appvex - Cadastro de Insumos</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/utilities.css">
-    <link rel="stylesheet" href="css/components/buttons.css">
-    <link rel="stylesheet" href="css/components/cards.css">
-    <link rel="stylesheet" href="css/components/forms.css">
-    <link rel="stylesheet" href="css/components/modals.css">
-    <link rel="stylesheet" href="css/components/tables.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+<link rel="stylesheet" href="css/components/buttons.css">
+<link rel="stylesheet" href="css/components/cards.css">
+<link rel="stylesheet" href="css/components/forms.css">
+<link rel="stylesheet" href="css/components/modals.css">
+<link rel="stylesheet" href="css/components/tables.css">
+<link href="https://fonts.googleapis.com/css2?
+family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+<link href='https://unpkg.com/boxicons@2.1.4/css/
+boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="dark-mode">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="sidebar-logo">
-            <img src="assets/images/logo.png" alt="VEX Logo" style="height: 30px;">
-        </div>
-        <nav class="sidebar-menu">
-            <a href="index.html" class="sidebar-menu-item">
-                <i class='bx bxs-dashboard'></i>
-                <span>Dashboard</span>
-            </a>
-            <a href="insumos.html" class="sidebar-menu-item active">
-                <i class='bx bx-package'></i>
-                <span>Insumos</span>
-            </a>
-            <a href="modelos.html" class="sidebar-menu-item">
-                <i class='bx bx-cube'></i>
-                <span>Modelos</span>
-            </a>
-            <a href="producao.html" class="sidebar-menu-item">
-                <i class='bx bx-factory'></i>
-                <span>Produção</span>
-            </a>
-            <a href="estoque.html" class="sidebar-menu-item">
-                <i class='bx bx-store'></i>
-                <span>Estoque</span>
-            </a>
-            <a href="financeiro.html" class="sidebar-menu-item">
-                <i class='bx bx-money'></i>
-                <span>Financeiro</span>
-            </a>
-            <a href="configuracoes.html" class="sidebar-menu-item">
-                <i class='bx bx-cog'></i>
-                <span>Configurações</span>
-            </a>
-        </nav>
-        <div class="sidebar-footer">
-            <div class="d-flex align-center">
-                <i class='bx bx-help-circle' style="margin-right: 8px;"></i>
-                <span>Ajuda & Suporte</span>
-            </div>
-        </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <header class="header">
-            <div class="mobile-menu-toggle">
-                <i class='bx bx-menu'></i>
-            </div>
-            <div class="header-title">Cadastro de Insumos</div>
-            <div class="header-actions">
-                <div class="user-profile">
-                    <img src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff" alt="Perfil">
-                    <span>Admin</span>
-                </div>
-            </div>
-        </header>
-
-        <div class="content">
-            <div class="page-title">
-                <h1>Cadastro de Insumos</h1>
-                <div class="actions">
-                    <button class="btn btn-primary" id="openModalBtn">
-                        <i class='bx bx-plus'></i>
-                        Adicionar Insumo
-                    </button>
-                </div>
-            </div>
-
-            <!-- Search and Filter -->
-            <div class="card mb-lg">
-                <div class="d-flex gap-md">
-                    <div class="form-group w-100">
-                        <div class="d-flex align-center">
-                            <i class='bx bx-search' style="position: absolute; margin-left: 12px; color: var(--color-secondary);"></i>
-                            <input type="text" class="form-control" placeholder="Buscar insumos..." style="padding-left: 40px;">
-                        </div>
-                    </div>
-                    <div class="form-group" style="min-width: 200px;">
-                        <select class="form-control form-select">
-                            <option value="">Todos os insumos</option>
-                            <option value="kg">Unidade: kg</option>
-                            <option value="m">Unidade: m</option>
-                            <option value="l">Unidade: l</option>
-                            <option value="unid">Unidade: unid</option>
-                        </select>
-                    </div>
-                    <button class="btn btn-outline">
-                        <i class='bx bx-filter'></i>
-                        Filtrar
-                    </button>
-                </div>
-            </div>
-
-            <!-- Insumos Table -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Lista de Insumos</div>
-                    <div>
-                        <button class="btn btn-outline">
-                            <i class='bx bx-export'></i>
-                            Exportar
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Unidade</th>
-                                    <th>Preço Unitário</th>
-                                    <th>Estoque Atual</th>
-                                    <th>Estoque Mínimo</th>
-                                    <th>Status</th>
-                                    <th>Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Tecido Algodão</td>
-                                    <td>m</td>
-                                    <td>R$ 25,00</td>
-                                    <td>120</td>
-                                    <td>50</td>
-                                    <td>
-                                        <div class="progress progress-success">
-                                            <div class="progress-bar" style="width: 80%;"></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex gap-sm">
-                                            <button class="btn btn-outline" title="Editar">
-                                                <i class='bx bx-edit'></i>
-                                            </button>
-                                            <button class="btn btn-outline" title="Excluir">
-                                                <i class='bx bx-trash'></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Linha Poliéster</td>
-                                    <td>unid</td>
-                                    <td>R$ 5,50</td>
-                                    <td>45</td>
-                                    <td>30</td>
-                                    <td>
-                                        <div class="progress progress-warning">
-                                            <div class="progress-bar" style="width: 60%;"></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex gap-sm">
-                                            <button class="btn btn-outline" title="Editar">
-                                                <i class='bx bx-edit'></i>
-                                            </button>
-                                            <button class="btn btn-outline" title="Excluir">
-                                                <i class='bx bx-trash'></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Botões Plásticos</td>
-                                    <td>unid</td>
-                                    <td>R$ 0,25</td>
-                                    <td>200</td>
-                                    <td>100</td>
-                                    <td>
-                                        <div class="progress progress-success">
-                                            <div class="progress-bar" style="width: 90%;"></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex gap-sm">
-                                            <button class="btn btn-outline" title="Editar">
-                                                <i class='bx bx-edit'></i>
-                                            </button>
-                                            <button class="btn btn-outline" title="Excluir">
-                                                <i class='bx bx-trash'></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Zíper Metálico</td>
-                                    <td>unid</td>
-                                    <td>R$ 3,75</td>
-                                    <td>15</td>
-                                    <td>25</td>
-                                    <td>
-                                        <div class="progress progress-danger">
-                                            <div class="progress-bar" style="width: 30%;"></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex gap-sm">
-                                            <button class="btn btn-outline" title="Editar">
-                                                <i class='bx bx-edit'></i>
-                                            </button>
-                                            <button class="btn btn-outline" title="Excluir">
-                                                <i class='bx bx-trash'></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Elástico</td>
-                                    <td>m</td>
-                                    <td>R$ 1,20</td>
-                                    <td>8</td>
-                                    <td>20</td>
-                                    <td>
-                                        <div class="progress progress-danger">
-                                            <div class="progress-bar" style="width: 20%;"></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex gap-sm">
-                                            <button class="btn btn-outline" title="Editar">
-                                                <i class='bx bx-edit'></i>
-                                            </button>
-                                            <button class="btn btn-outline" title="Excluir">
-                                                <i class='bx bx-trash'></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="d-flex justify-between align-center">
-                        <div>Mostrando 1-5 de 12 insumos</div>
-                        <div class="d-flex gap-sm">
-                            <button class="btn btn-outline" disabled>
-                                <i class='bx bx-chevron-left'></i>
-                            </button>
-                            <button class="btn btn-outline">
-                                <i class='bx bx-chevron-right'></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Modal para Adicionar Insumo -->
-    <div id="addInsumoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
-        <div style="background-color: var(--color-bg-card); border-radius: var(--border-radius-md); width: 100%; max-width: 500px; padding: var(--spacing-lg); position: relative;">
-            <div class="d-flex justify-between align-center mb-lg">
-                <h2 style="font-size: 1.2rem; font-weight: 600;">Adicionar Novo Insumo</h2>
-                <button id="closeModalBtn" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--color-secondary);">
-                    <i class='bx bx-x'></i>
-                </button>
-            </div>
-            
-            <form>
-                <div class="form-group">
-                    <label class="form-label" for="insumoNome">Nome do Insumo</label>
-                    <input type="text" id="insumoNome" class="form-control" placeholder="Ex: Tecido Algodão">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="insumoUnidade">Unidade de Medida</label>
-                    <select id="insumoUnidade" class="form-control form-select">
-                        <option value="">Selecione uma unidade</option>
-                        <option value="kg">Quilograma (kg)</option>
-                        <option value="m">Metro (m)</option>
-                        <option value="l">Litro (l)</option>
-                        <option value="unid">Unidade (unid)</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="insumoPreco">Preço por Unidade (R$)</label>
-                    <input type="number" id="insumoPreco" class="form-control" placeholder="0.00" step="0.01" min="0">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="insumoEstoque">Quantidade em Estoque</label>
-                    <input type="number" id="insumoEstoque" class="form-control" placeholder="0" min="0">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="insumoEstoqueMin">Estoque Mínimo</label>
-                    <input type="number" id="insumoEstoqueMin" class="form-control" placeholder="0" min="0">
-                </div>
-                
-                <div class="d-flex gap-md justify-between mt-lg">
-                    <button type="button" class="btn btn-outline" id="cancelModalBtn">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Salvar Insumo</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // Toggle mobile menu
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            document.querySelector('.sidebar').classList.toggle('active');
-        });
-
-        // Modal functionality
-        const modal = document.getElementById('addInsumoModal');
-        const openModalBtn = document.getElementById('openModalBtn');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const cancelModalBtn = document.getElementById('cancelModalBtn');
-
-        openModalBtn.addEventListener('click', function() {
-            modal.style.display = 'flex';
-        });
-
-        closeModalBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        cancelModalBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        // Close modal when clicking outside
-        modal.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    </script>
+<!-- Sidebar - Estrutura básica que será preenchida pelo
+JavaScript -->
+<aside class="sidebar"></aside>
+<!-- Conteúdo principal -->
+<main class="main-content">
+<header class="header">
+<h1>Cadastro de Insumos</h1>
+<div class="header-actions">
+<button class="btn btn-primary">Adicionar
+Insumo</button>
+</div>
+</header>
+<div class="content">
+<!-- Filtros e Busca -->
+<div class="card mb-4">
+<div class="filters-container">
+<div class="search-container">
+<input type="text" placeholder="Buscar
+insumos..." class="form-control">
+</div>
+<div class="filter-container">
+<select class="form-control">
+<option>Todos os insumos</option>
+<option>Unidade: kg</option>
+<option>Unidade: m</option>
+<option>Unidade: l</option>
+<option>Unidade: unid</option>
+</select>
+<button class="btn btnsecondary">Filtrar</button>
+</div>
+<div class="export-container">
+<button class="btn btn-outline">
+<i class='bx bx-export'></i>
+ Exportar
+</button>
+</div>
+</div>
+</div>
+<!-- Lista de Insumos -->
+<div class="card">
+<h2 class="card-title">Lista de Insumos</h2>
+<div class="table-responsive">
+<table class="table">
+<thead>
+<tr>
+<th>Nome</th>
+<th>Unidade</th>
+<th>Preço Unitário</th>
+<th>Estoque Atual</th>
+<th>Estoque Mínimo</th>
+<th>Status</th>
+<th>Ações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tecido Algodão</td>
+<td>m</td>
+<td>R$ 25,00</td>
+<td>120</td>
+<td>50</td>
+<td><span class="badge badgesuccess">OK</span></td>
+<td>
+<button class="btn btn-icon
+btn-sm" title="Editar">
+<i class='bx bx-edit'></
+i>
+</button>
+<button class="btn btn-icon
+btn-sm btn-danger" title="Excluir">
+<i class='bx bxtrash'></i>
+</button>
+</td>
+</tr>
+<tr>
+<td>Linha Poliéster</td>
+<td>unid</td>
+<td>R$ 5,50</td>
+<td>45</td>
+<td>30</td>
+<td><span class="badge badgesuccess">OK</span></td>
+<td>
+<button class="btn btn-icon
+btn-sm" title="Editar">
+<i class='bx bx-edit'></
+i>
+</button>
+<button class="btn btn-icon
+btn-sm btn-danger" title="Excluir">
+<i class='bx bxtrash'></i>
+</button>
+</td>
+</tr>
+<tr>
+<td>Botões Plásticos</td>
+<td>unid</td>
+<td>R$ 0,25</td>
+<td>200</td>
+<td>100</td>
+<td><span class="badge badgesuccess">OK</span></td>
+<td>
+<button class="btn btn-icon
+btn-sm" title="Editar">
+<i class='bx bx-edit'></
+i>
+</button>
+<button class="btn btn-icon
+btn-sm btn-danger" title="Excluir">
+<i class='bx bxtrash'></i>
+</button>
+</td>
+</tr>
+<tr>
+<td>Zíper Metálico</td>
+<td>unid</td>
+<td>R$ 3,75</td>
+<td>15</td>
+<td>25</td>
+<td><span class="badge badgedanger">Crítico</span></td>
+<td>
+<button class="btn btn-icon
+btn-sm" title="Editar">
+<i class='bx bx-edit'></
+i>
+</button>
+<button class="btn btn-icon
+btn-sm btn-danger" title="Excluir">
+<i class='bx bxtrash'></i>
+</button>
+</td>
+</tr>
+<tr>
+<td>Elástico</td>
+<td>m</td>
+<td>R$ 1,20</td>
+<td>8</td>
+<td>20</td>
+<td><span class="badge badgedanger">Crítico</span></td>
+<td>
+<button class="btn btn-icon
+btn-sm" title="Editar">
+<i class='bx bx-edit'></
+i>
+</button>
+<button class="btn btn-icon
+btn-sm btn-danger" title="Excluir">
+<i class='bx bxtrash'></i>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Scripts -->
+<script src="js/menu.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
+2.4. Melhorias de Responsividade
+Para melhorar a responsividade, vamos adicionar um arquivo CSS específico para
+ajustes mobile.
+Arquivo: css/responsive.css (novo arquivo)
+/* Responsividade para todos os dispositivos */
+/* Tablets e dispositivos médios */
+@media (max-width: 992px) {
+/* Ajustes para o grid */
+.grid-cols-3 {
+grid-template-columns: repeat(2, 1fr);
+}
+/* Ajustes para tabelas */
+.table-responsive {
+overflow-x: auto;
+}
+/* Ajustes para formulários */
+.form-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+/* Dispositivos móveis */
+@media (max-width: 768px) {
+/* Ajustes para o grid */
+.grid-cols-2,
+.grid-cols-3 {
+grid-template-columns: 1fr;
+}
+/* Ajustes para formulários */
+.form-grid {
+grid-template-columns: 1fr;
+}
+/* Ajustes para o header */
+.header {
+flex-direction: column;
+height: auto;
+padding: var(--spacing-md);
+gap: var(--spacing-md);
+align-items: flex-start;
+}
+.header-actions {
+width: 100%;
+justify-content: flex-start;
+}
+/* Ajustes para filtros */
+.filters-container {
+flex-direction: column;
+gap: var(--spacing-md);
+}
+.search-container,
+.filter-container,
+.export-container {
+width: 100%;
+}
+/* Ajustes para cards */
+.card {
+padding: var(--spacing-md);
+}
+/* Ajustes para botões */
+.btn {
+padding: 0.5rem 0.75rem;
+}
+/* Ajustes para tabelas */
+.table th,
+.table td {
+padding: 0.5rem;
+}
+/* Menu toggle para mobile */
+.menu-toggle {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 40px;
+height: 40px;
+background-color: var(--bg-color-tertiary);
+border-radius: var(--border-radius-md);
+cursor: pointer;
+position: fixed;
+top: 10px;
+left: 10px;
+z-index: 101;
+}
+.dark-mode .menu-toggle {
+background-color: var(--dark-bg-color-tertiary);
+}
+.menu-toggle i {
+font-size: 1.5rem;
+color: var(--text-color);
+}
+.dark-mode .menu-toggle i {
+color: var(--dark-text-color);
+}
+}
+/* Dispositivos muito pequenos */
+@media (max-width: 480px) {
+.content {
+padding: var(--spacing-md);
+}
+.card-title {
+font-size: 1.25rem;
+}
+.btn-group {
+flex-direction: column;
+width: 100%;
+}
+.btn-group .btn {
+width: 100%;
+margin-bottom: var(--spacing-xs);
+}
+}
