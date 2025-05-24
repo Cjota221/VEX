@@ -3,256 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appvex (VEX) - Configurações</title>
+    <title>Appvex - Configurações</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/components/buttons.css">
     <link rel="stylesheet" href="css/components/cards.css">
     <link rel="stylesheet" href="css/components/forms.css">
     <link rel="stylesheet" href="css/components/modals.css">
     <link rel="stylesheet" href="css/components/tables.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="dark-mode">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="sidebar-logo">
-            <img src="assets/images/logo.png" alt="VEX Logo" style="height: 30px;">
-        </div>
-        <nav class="sidebar-menu">
-            <a href="index.html" class="sidebar-menu-item">
-                <i class='bx bxs-dashboard'></i>
-                <span>Dashboard</span>
-            </a>
-            <a href="insumos.html" class="sidebar-menu-item">
-                <i class='bx bx-package'></i>
-                <span>Insumos</span>
-            </a>
-            <a href="modelos.html" class="sidebar-menu-item">
-                <i class='bx bx-cube'></i>
-                <span>Modelos</span>
-            </a>
-            <a href="producao.html" class="sidebar-menu-item">
-                <i class='bx bx-factory'></i>
-                <span>Produção</span>
-            </a>
-            <a href="estoque.html" class="sidebar-menu-item">
-                <i class='bx bx-store'></i>
-                <span>Estoque</span>
-            </a>
-            <a href="financeiro.html" class="sidebar-menu-item">
-                <i class='bx bx-money'></i>
-                <span>Financeiro</span>
-            </a>
-            <a href="configuracoes.html" class="sidebar-menu-item active">
-                <i class='bx bx-cog'></i>
-                <span>Configurações</span>
-            </a>
-        </nav>
-        <div class="sidebar-footer">
-            <div class="d-flex align-center">
-                <i class='bx bx-help-circle' style="margin-right: 8px;"></i>
-                <span>Ajuda & Suporte</span>
-            </div>
-        </div>
-    </aside>
-
-    <!-- Main Content -->
+    <!-- Sidebar - Estrutura básica que será preenchida pelo JavaScript -->
+    <aside class="sidebar"></aside>
+    
+    <!-- Conteúdo principal -->
     <main class="main-content">
         <header class="header">
-            <div class="mobile-menu-toggle">
-                <i class='bx bx-menu'></i>
-            </div>
-            <div class="header-title">Configurações</div>
-            <div class="header-actions">
-                <div class="user-profile">
-                    <img src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff" alt="Perfil">
-                    <span>Admin</span>
-                </div>
-            </div>
+            <h1>Configurações</h1>
         </header>
-
+        
         <div class="content">
-            <div class="page-title">
-                <h1>Configurações</h1>
+            <!-- Abas de Configurações -->
+            <div class="tabs mb-4">
+                <button class="tab-btn active" data-tab="geral">Geral</button>
+                <button class="tab-btn" data-tab="usuarios">Usuários</button>
+                <button class="tab-btn" data-tab="notificacoes">Notificações</button>
+                <button class="tab-btn" data-tab="sistema">Sistema</button>
             </div>
-
-            <!-- Tabs de Configurações -->
-            <div class="card mb-lg">
-                <div class="d-flex" style="border-bottom: 1px solid var(--color-border);">
-                    <button class="btn" style="padding: var(--spacing-md) var(--spacing-lg); border-bottom: 2px solid var(--color-info); color: var(--color-text);">
-                        Perfil
-                    </button>
-                    <button class="btn" style="padding: var(--spacing-md) var(--spacing-lg); color: var(--color-secondary);">
-                        Preferências
-                    </button>
-                    <button class="btn" style="padding: var(--spacing-md) var(--spacing-lg); color: var(--color-secondary);">
-                        Notificações
-                    </button>
-                    <button class="btn" style="padding: var(--spacing-md) var(--spacing-lg); color: var(--color-secondary);">
-                        Segurança
-                    </button>
-                </div>
-            </div>
-
-            <!-- Configurações de Perfil -->
-            <div class="grid grid-2 mb-lg">
+            
+            <!-- Configurações Gerais -->
+            <div class="tab-content active" id="geral">
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Dados do Usuário</div>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <label class="form-label" for="userName">Nome</label>
-                                <input type="text" id="userName" class="form-control" value="Administrador">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="userEmail">E-mail</label>
-                                <input type="email" id="userEmail" class="form-control" value="admin@exemplo.com">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="userPhone">Telefone</label>
-                                <input type="tel" id="userPhone" class="form-control" value="(11) 98765-4321">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="userPosition">Cargo</label>
-                                <input type="text" id="userPosition" class="form-control" value="Gerente">
-                            </div>
-                            
-                            <div class="d-flex justify-between mt-lg">
-                                <button type="button" class="btn btn-outline">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Foto de Perfil</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex flex-column align-center">
-                            <img src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff&size=150" alt="Perfil" style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: var(--spacing-lg);">
-                            
-                            <div style="border: 2px dashed var(--color-border); border-radius: var(--border-radius-sm); padding: var(--spacing-lg); text-align: center; cursor: pointer; width: 100%;">
-                                <i class='bx bx-upload' style="font-size: 2rem;"></i>
-                                <p>Clique para fazer upload ou arraste a imagem aqui</p>
-                                <input type="file" style="display: none;">
-                            </div>
-                            
-                            <p class="mt-md" style="font-size: 0.9rem; color: var(--color-secondary);">
-                                Formatos aceitos: JPG, PNG. Tamanho máximo: 2MB
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Configurações de Preferências -->
-            <div class="card mb-lg">
-                <div class="card-header">
-                    <div class="card-title">Preferências do Sistema</div>
-                </div>
-                <div class="card-body">
-                    <div class="grid grid-2">
-                        <div>
-                            <div class="form-group">
-                                <label class="form-label" for="defaultMargin">Margem de Lucro Padrão (%)</label>
-                                <input type="number" id="defaultMargin" class="form-control" value="45" min="0" max="100">
-                                <p style="font-size: 0.9rem; color: var(--color-secondary); margin-top: 4px;">
-                                    Será aplicada como sugestão ao criar novos modelos
-                                </p>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="stockAlert">Alerta de Estoque (%)</label>
-                                <input type="number" id="stockAlert" class="form-control" value="30" min="0" max="100">
-                                <p style="font-size: 0.9rem; color: var(--color-secondary); margin-top: 4px;">
-                                    Percentual do estoque mínimo para exibir alertas
-                                </p>
-                            </div>
+                    <h2 class="card-title">Configurações Gerais</h2>
+                    
+                    <form class="form-grid">
+                        <div class="form-group">
+                            <label for="nomeEmpresa">Nome da Empresa:</label>
+                            <input type="text" id="nomeEmpresa" class="form-control" value="VEX Confecções">
                         </div>
                         
-                        <div>
-                            <div class="form-group">
-                                <label class="form-label">Tema do Sistema</label>
-                                <div class="d-flex gap-md mt-sm">
-                                    <div style="flex: 1; border: 2px solid var(--color-info); border-radius: var(--border-radius-sm); padding: var(--spacing-md); text-align: center; background-color: var(--color-primary);">
-                                        <p>Escuro</p>
-                                        <div style="width: 20px; height: 20px; border-radius: 50%; background-color: var(--color-info); margin: 8px auto 0;"></div>
-                                    </div>
-                                    <div style="flex: 1; border: 2px solid var(--color-border); border-radius: var(--border-radius-sm); padding: var(--spacing-md); text-align: center); background-color: #F5F7FA; color: #212529;">
-                                        <p>Claro</p>
-                                        <div style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--color-border); margin: 8px auto 0;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label">Idioma</label>
-                                <select class="form-control form-select">
-                                    <option value="pt-br" selected>Português (Brasil)</option>
-                                    <option value="en">English</option>
-                                    <option value="es">Español</option>
-                                </select>
-                            </div>
+                        <div class="form-group">
+                            <label for="cnpj">CNPJ:</label>
+                            <input type="text" id="cnpj" class="form-control" value="12.345.678/0001-90">
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="endereco">Endereço:</label>
+                            <input type="text" id="endereco" class="form-control" value="Rua Exemplo, 123">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefone">Telefone:</label>
+                            <input type="text" id="telefone" class="form-control" value="(11 ) 1234-5678">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" class="form-control" value="contato@vexconfeccoes.com.br">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="website">Website:</label>
+                            <input type="url" id="website" class="form-control" value="https://www.vexconfeccoes.com.br">
+                        </div>
+                        
+                        <div class="form-group col-span-2">
+                            <button type="button" class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Configurações de Usuários -->
+            <div class="tab-content" id="usuarios" style="display: none;">
+                <div class="card">
+                    <h2 class="card-title">Gerenciamento de Usuários</h2>
+                    
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>E-mail</th>
+                                    <th>Cargo</th>
+                                    <th>Permissões</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Administrador</td>
+                                    <td>admin@vexconfeccoes.com.br</td>
+                                    <td>Administrador</td>
+                                    <td>Todas</td>
+                                    <td><span class="badge badge-success">Ativo</span></td>
+                                    <td>
+                                        <button class="btn btn-icon btn-sm" title="Editar">
+                                            <i class='bx bx-edit'></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-sm btn-danger" title="Desativar">
+                                            <i class='bx bx-lock'></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     
-                    <div class="d-flex justify-between mt-lg">
-                        <button type="button" class="btn btn-outline">Restaurar Padrões</button>
-                        <button type="submit" class="btn btn-primary">Salvar Preferências</button>
+                    <div class="mt-4">
+                        <button class="btn btn-primary">Adicionar Usuário</button>
                     </div>
                 </div>
             </div>
-
-            <!-- Configurações de Segurança -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Segurança</div>
-                </div>
-                <div class="card-body">
+            
+            <!-- Configurações de Notificações -->
+            <div class="tab-content" id="notificacoes" style="display: none;">
+                <div class="card">
+                    <h2 class="card-title">Configurações de Notificações</h2>
+                    
                     <form>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" id="notifEstoque" class="form-check-input" checked>
+                            <label for="notifEstoque" class="form-check-label">Notificar quando itens atingirem nível crítico de estoque</label>
+                        </div>
+                        
+                        <div class="form-check mb-3">
+                            <input type="checkbox" id="notifProducao" class="form-check-input" checked>
+                            <label for="notifProducao" class="form-check-label">Notificar quando uma produção for concluída</label>
+                        </div>
+                        
+                        <div class="form-check mb-3">
+                            <input type="checkbox" id="notifFinanceiro" class="form-check-input" checked>
+                            <label for="notifFinanceiro" class="form-check-label">Notificar sobre transações financeiras</label>
+                        </div>
+                        
+                        <div class="form-check mb-3">
+                            <input type="checkbox" id="notifEmail" class="form-check-input" checked>
+                            <label for="notifEmail" class="form-check-label">Receber notificações por e-mail</label>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <button type="button" class="btn btn-primary">Salvar Preferências</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Configurações do Sistema -->
+            <div class="tab-content" id="sistema" style="display: none;">
+                <div class="card">
+                    <h2 class="card-title">Configurações do Sistema</h2>
+                    
+                    <form class="form-grid">
                         <div class="form-group">
-                            <label class="form-label" for="currentPassword">Senha Atual</label>
-                            <input type="password" id="currentPassword" class="form-control" placeholder="Digite sua senha atual">
+                            <label for="moeda">Moeda:</label>
+                            <select id="moeda" class="form-control">
+                                <option value="BRL" selected>Real Brasileiro (R$ )</option>
+                                <option value="USD">Dólar Americano ($)</option>
+                                <option value="EUR">Euro (€)</option>
+                            </select>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label" for="newPassword">Nova Senha</label>
-                            <input type="password" id="newPassword" class="form-control" placeholder="Digite a nova senha">
+                            <label for="formatoData">Formato de Data:</label>
+                            <select id="formatoData" class="form-control">
+                                <option value="DD/MM/YYYY" selected>DD/MM/AAAA</option>
+                                <option value="MM/DD/YYYY">MM/DD/AAAA</option>
+                                <option value="YYYY-MM-DD">AAAA-MM-DD</option>
+                            </select>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label" for="confirmPassword">Confirmar Nova Senha</label>
-                            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirme a nova senha">
+                            <label for="fusoHorario">Fuso Horário:</label>
+                            <select id="fusoHorario" class="form-control">
+                                <option value="America/Sao_Paulo" selected>Brasília (GMT-3)</option>
+                                <option value="America/New_York">Nova York (GMT-4)</option>
+                                <option value="Europe/London">Londres (GMT+1)</option>
+                            </select>
                         </div>
                         
-                        <div class="d-flex justify-between mt-lg">
-                            <button type="button" class="btn btn-danger">
-                                <i class='bx bx-log-out'></i>
-                                Sair da Conta
-                            </button>
-                            <button type="submit" class="btn btn-primary">Alterar Senha</button>
+                        <div class="form-group">
+                            <label for="tema">Tema:</label>
+                            <select id="tema" class="form-control">
+                                <option value="dark" selected>Escuro</option>
+                                <option value="light">Claro</option>
+                                <option value="auto">Automático (Sistema)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group col-span-2">
+                            <button type="button" class="btn btn-primary">Salvar Configurações</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </main>
-
+    
+    <!-- Scripts -->
+    <script src="js/menu.js"></script>
+    <script src="js/main.js"></script>
     <script>
-        // Toggle mobile menu
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            document.querySelector('.sidebar').classList.toggle('active');
+        // Script para as abas de configurações
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remover classe active de todos os botões e conteúdos
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => {
+                        content.style.display = 'none';
+                        content.classList.remove('active');
+                    });
+                    
+                    // Adicionar classe active ao botão clicado
+                    this.classList.add('active');
+                    
+                    // Mostrar o conteúdo correspondente
+                    const activeContent = document.getElementById(tabId);
+                    if (activeContent) {
+                        activeContent.style.display = 'block';
+                        activeContent.classList.add('active');
+                    }
+                });
+            });
         });
     </script>
 </body>
