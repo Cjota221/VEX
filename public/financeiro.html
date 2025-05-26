@@ -31,107 +31,220 @@
         
         <div class="content">
             <!-- Resumo Financeiro -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                <div class="card">
-                    <h2 class="card-title">Receita Mensal</h2>
-                    <div class="card-value">R$ 24.850,00</div>
-                    <div class="card-info text-success">+15% em relação ao mês anterior</div>
+            <div class="dashboard-summary mb-4">
+                <div class="dashboard-card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-trending-up'></i>
+                            Receitas do Mês
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">R$ 15.780,00</div>
+                        <div class="card-info">+12% em relação ao mês anterior</div>
+                    </div>
                 </div>
                 
-                <div class="card">
-                    <h2 class="card-title">Despesas Mensais</h2>
-                    <div class="card-value">R$ 12.400,00</div>
-                    <div class="card-info text-danger">+5% em relação ao mês anterior</div>
+                <div class="dashboard-card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-trending-down'></i>
+                            Despesas do Mês
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">R$ 8.450,00</div>
+                        <div class="card-info">-5% em relação ao mês anterior</div>
+                    </div>
                 </div>
                 
-                <div class="card">
-                    <h2 class="card-title">Lucro Líquido</h2>
-                    <div class="card-value">R$ 12.450,00</div>
-                    <div class="card-info text-success">+8% em relação ao mês anterior</div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-wallet'></i>
+                            Saldo Atual
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">R$ 7.330,00</div>
+                        <div class="card-info">Atualizado hoje</div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-calendar'></i>
+                            Próximos Vencimentos
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">3</div>
+                        <div class="card-info">Nos próximos 7 dias</div>
+                    </div>
                 </div>
             </div>
             
-            <!-- Gráfico Financeiro -->
-            <div class="card mb-6">
-                <h2 class="card-title">Desempenho Financeiro (Últimos 6 meses )</h2>
-                <div class="chart-container" style="height: 300px;">
-                    <!-- Aqui entraria o gráfico -->
-                    <div class="chart-placeholder">Gráfico Financeiro (Simulação)</div>
+            <!-- Filtros e Busca -->
+            <div class="filters-container mb-4">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar transações..." class="form-control">
+                    <i class='bx bx-search'></i>
+                </div>
+                <div class="filters">
+                    <select class="form-control">
+                        <option>Todas as transações</option>
+                        <option>Apenas receitas</option>
+                        <option>Apenas despesas</option>
+                    </select>
+                    <button class="btn btn-secondary">Filtrar</button>
+                </div>
+                <div class="view-options">
+                    <button class="btn btn-icon" title="Visualização em Cards" disabled>
+                        <i class='bx bxs-grid'></i>
+                    </button>
+                    <button class="btn btn-icon" title="Visualização em Tabela">
+                        <i class='bx bx-table'></i>
+                    </button>
                 </div>
             </div>
             
-            <!-- Transações Recentes -->
-            <div class="card">
-                <h2 class="card-title">Transações Recentes</h2>
+            <!-- Grid de Cards de Transações -->
+            <div class="cards-grid">
+                <!-- Card 1: Venda de Produtos -->
+                <div class="item-card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-cart'></i>
+                            Venda de Produtos
+                        </h3>
+                        <div class="card-badge badge-success">Receita</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Data</div>
+                            <div class="info-value">22/05/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Vendas</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor</div>
+                            <div class="info-value highlight">R$ 3.450,00</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Status</div>
+                            <div class="info-value">Concluído</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Visualizar">
+                            <i class='bx bx-show'></i>
+                        </button>
+                    </div>
+                </div>
                 
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Data</th>
-                                <th>Descrição</th>
-                                <th>Categoria</th>
-                                <th>Valor</th>
-                                <th>Tipo</th>
-                                <th>Status</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>22/05/2025</td>
-                                <td>Venda - Pedido #1245</td>
-                                <td>Vendas</td>
-                                <td>R$ 1.798,00</td>
-                                <td><span class="badge badge-success">Receita</span></td>
-                                <td><span class="badge badge-info">Concluído</span></td>
-                                <td>
-                                    <button class="btn btn-icon btn-sm" title="Visualizar">
-                                        <i class='bx bx-show'></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>20/05/2025</td>
-                                <td>Compra de Insumos</td>
-                                <td>Matéria-prima</td>
-                                <td>R$ 2.500,00</td>
-                                <td><span class="badge badge-danger">Despesa</span></td>
-                                <td><span class="badge badge-info">Concluído</span></td>
-                                <td>
-                                    <button class="btn btn-icon btn-sm" title="Visualizar">
-                                        <i class='bx bx-show'></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>18/05/2025</td>
-                                <td>Venda - Pedido #1244</td>
-                                <td>Vendas</td>
-                                <td>R$ 899,00</td>
-                                <td><span class="badge badge-success">Receita</span></td>
-                                <td><span class="badge badge-info">Concluído</span></td>
-                                <td>
-                                    <button class="btn btn-icon btn-sm" title="Visualizar">
-                                        <i class='bx bx-show'></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>15/05/2025</td>
-                                <td>Pagamento de Aluguel</td>
-                                <td>Despesas Fixas</td>
-                                <td>R$ 1.800,00</td>
-                                <td><span class="badge badge-danger">Despesa</span></td>
-                                <td><span class="badge badge-info">Concluído</span></td>
-                                <td>
-                                    <button class="btn btn-icon btn-sm" title="Visualizar">
-                                        <i class='bx bx-show'></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Card 2: Pagamento de Aluguel -->
+                <div class="item-card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-building-house'></i>
+                            Pagamento de Aluguel
+                        </h3>
+                        <div class="card-badge badge-danger">Despesa</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Data</div>
+                            <div class="info-value">15/05/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Despesas Fixas</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor</div>
+                            <div class="info-value highlight">R$ 1.800,00</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Status</div>
+                            <div class="info-value">Concluído</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Visualizar">
+                            <i class='bx bx-show'></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 3: Compra de Insumos -->
+                <div class="item-card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-package'></i>
+                            Compra de Insumos
+                        </h3>
+                        <div class="card-badge badge-danger">Despesa</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Data</div>
+                            <div class="info-value">10/05/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Matéria Prima</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor</div>
+                            <div class="info-value highlight">R$ 2.750,00</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Status</div>
+                            <div class="info-value">Concluído</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Visualizar">
+                            <i class='bx bx-show'></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 4: Pagamento de Funcionários -->
+                <div class="item-card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-user'></i>
+                            Pagamento de Funcionários
+                        </h3>
+                        <div class="card-badge badge-danger">Despesa</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Data</div>
+                            <div class="info-value">05/05/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Folha de Pagamento</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor</div>
+                            <div class="info-value highlight">R$ 3.900,00</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Status</div>
+                            <div class="info-value">Concluído</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Visualizar">
+                            <i class='bx bx-show'></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
