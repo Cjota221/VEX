@@ -1,0 +1,11 @@
+/* Estilos para o logo */
+.logo {
+font-weight: 700;
+font-size: 1.8rem;
+letter-spacing: 1px;
+color: var(--text-color);
+transition: color 0.3s ease;
+}
+.dark-mode .logo {
+color: var(--dark-text-color);
+}
