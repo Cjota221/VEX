@@ -1,203 +1,357 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appvex - Calculadora</title>
+    <!-- CSS Base -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/utilities.css">
+    
+    <!-- Componentes CSS -->
     <link rel="stylesheet" href="css/components/buttons.css">
     <link rel="stylesheet" href="css/components/cards.css">
     <link rel="stylesheet" href="css/components/forms.css">
     <link rel="stylesheet" href="css/components/modals.css">
     <link rel="stylesheet" href="css/components/tables.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Correções CSS -->
+    <link rel="stylesheet" href="css/card-fixes.css">
+    <link rel="stylesheet" href="css/responsive-fixes.css">
+    
+    <!-- Fontes -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body class="dark-mode">
-    <!-- Sidebar - Estrutura básica que será preenchida pelo JavaScript -->
-    <aside class="sidebar"></aside>
-    
-    <!-- Conteúdo principal -->
-    <main class="main-content">
-        <header class="header">
-            <h1>Calculadora</h1>
-        </header>
-        
-        <div class="content">
-            <!-- Calculadora 1: Quantos produtos faço com X de insumo -->
-            <div class="card mb-4">
-                <h2 class="card-title">Quantos produtos faço com X de insumo?</h2>
-                
-                <form id="calcProdutos" class="form-grid">
-                    <div class="form-group">
-                        <label for="modelo1">Modelo:</label>
-                        <select id="modelo1" required>
-                            <option value="">Selecione o Modelo</option>
-                            <option value="modelo1">Modelo XYZ</option>
-                            <option value="modelo2">Modelo ABC</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="insumo1">Insumo:</label>
-                        <select id="insumo1" required>
-                            <option value="">Selecione o Insumo</option>
-                            <option value="insumo1">Tecido Algodão</option>
-                            <option value="insumo2">Linha Poliéster</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="qtdInsumo">Quantidade do Insumo Disponível:</label>
-                        <input type="number" id="qtdInsumo" min="1" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <button type="button" id="btnCalcProdutos" class="btn btn-primary">Calcular</button>
-                    </div>
-                    
-                    <div class="form-group result-container" id="resultProdutos">
-                        <div class="result-label">Resultado:</div>
-                        <div class="result-value">-</div>
-                    </div>
-                </form>
-            </div>
-            
-            <!-- Calculadora 2: Quanto insumo preciso para produzir X produtos -->
-            <div class="card mb-4">
-                <h2 class="card-title">Quanto insumo preciso para produzir X produtos?</h2>
-                
-                <form id="calcInsumos" class="form-grid">
-                    <div class="form-group">
-                        <label for="modelo2">Modelo:</label>
-                        <select id="modelo2" required>
-                            <option value="">Selecione o Modelo</option>
-                            <option value="modelo1">Modelo XYZ</option>
-                            <option value="modelo2">Modelo ABC</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="insumo2">Insumo:</label>
-                        <select id="insumo2" required>
-                            <option value="">Selecione o Insumo</option>
-                            <option value="insumo1">Tecido Algodão</option>
-                            <option value="insumo2">Linha Poliéster</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="qtdProdutos">Quantidade de Produtos Desejada:</label>
-                        <input type="number" id="qtdProdutos" min="1" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <button type="button" id="btnCalcInsumos" class="btn btn-primary">Calcular</button>
-                    </div>
-                    
-                    <div class="form-group result-container" id="resultInsumos">
-                        <div class="result-label">Resultado:</div>
-                        <div class="result-value">-</div>
-                    </div>
-                </form>
-            </div>
-            
-            <!-- Calculadora 3: Custo Fixo por Unidade -->
-            <div class="card mb-4">
-                <h2 class="card-title">Custo Fixo por Unidade</h2>
-                
-                <form id="calcCustoFixo" class="form-grid">
-                    <div class="form-group">
-                        <label for="custoFixoTotal">Custo Fixo Total (R$ ):</label>
-                        <input type="number" id="custoFixoTotal" min="0" step="0.01" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="qtdUnidades">Quantidade de Unidades:</label>
-                        <input type="number" id="qtdUnidades" min="1" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <button type="button" id="btnCalcCustoFixo" class="btn btn-primary">Calcular</button>
-                    </div>
-                    
-                    <div class="form-group result-container" id="resultCustoFixo">
-                        <div class="result-label">Custo Fixo por Unidade:</div>
-                        <div class="result-value">-</div>
-                    </div>
-                </form>
-            </div>
-            
-            <!-- Calculadora 4: Ponto de Equilíbrio -->
-            <div class="card mb-4">
-                <h2 class="card-title">Ponto de Equilíbrio (Unidades)</h2>
-                
-                <form id="calcPontoEquilibrio" class="form-grid">
-                    <div class="form-group">
-                        <label for="custoFixoMensal">Custo Fixo Mensal (R$):</label>
-                        <input type="number" id="custoFixoMensal" min="0" step="0.01" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="precoVenda">Preço de Venda por Unidade (R$):</label>
-                        <input type="number" id="precoVenda" min="0" step="0.01" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="custoVariavel">Custo Variável por Unidade (R$):</label>
-                        <input type="number" id="custoVariavel" min="0" step="0.01" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <button type="button" id="btnCalcPontoEquilibrio" class="btn btn-primary">Calcular</button>
-                    </div>
-                    
-                    <div class="form-group result-container" id="resultPontoEquilibrio">
-                        <div class="result-label">Ponto de Equilíbrio:</div>
-                        <div class="result-value">-</div>
-                    </div>
-                </form>
-            </div>
-            
-            <!-- Calculadora 5: Projeção de Lucro -->
-            <div class="card">
-                <h2 class="card-title">Projeção de Lucro</h2>
-                
-                <form id="calcProjecaoLucro" class="form-grid">
-                    <div class="form-group">
-                        <label for="qtdVendas">Quantidade de Vendas Projetada:</label>
-                        <input type="number" id="qtdVendas" min="1" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="precoVendaProj">Preço de Venda por Unidade (R$):</label>
-                        <input type="number" id="precoVendaProj" min="0" step="0.01" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="custoTotalProj">Custo Total por Unidade (R$):</label>
-                        <input type="number" id="custoTotalProj" min="0" step="0.01" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <button type="button" id="btnCalcProjecaoLucro" class="btn btn-primary">Calcular</button>
-                    </div>
-                    
-                    <div class="form-group result-container" id="resultProjecaoLucro">
-                        <div class="result-label">Lucro Projetado:</div>
-                        <div class="result-value">-</div>
-                    </div>
-                </form>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <h1 class="logo">VEX</h1>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="index.html">
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="insumos.html">
+                <i class='bx bxs-cube'></i>
+                <span>Insumos</span>
+            </a>
+            <a href="modelos.html">
+                <i class='bx bxs-cube-alt'></i>
+                <span>Modelos</span>
+            </a>
+            <a href="producao.html">
+                <i class='bx bxs-factory'></i>
+                <span>Produção</span>
+            </a>
+            <a href="estoque.html">
+                <i class='bx bxs-box'></i>
+                <span>Estoque</span>
+            </a>
+            <a href="financeiro.html">
+                <i class='bx bxs-wallet'></i>
+                <span>Financeiro</span>
+            </a>
+            <a href="relatorios.html">
+                <i class='bx bxs-file'></i>
+                <span>Relatórios</span>
+            </a>
+            <a href="calculadora.html" class="active">
+                <i class='bx bxs-calculator'></i>
+                <span>Calculadora</span>
+            </a>
+            <a href="configuracoes.html">
+                <i class='bx bxs-cog'></i>
+                <span>Configurações</span>
+            </a>
+            <a href="#">
+                <i class='bx bxs-help-circle'></i>
+                <span>Ajuda & Suporte</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Botão de toggle para o sidebar em dispositivos móveis -->
+    <button class="sidebar-toggle">
+        <i class='bx bx-menu'></i>
+    </button>
+
+    <!-- Overlay para o sidebar em dispositivos móveis -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- Container Principal -->
+    <div class="main-container">
+        <!-- Cabeçalho da Página -->
+        <div class="page-header">
+            <h2 class="page-title">Calculadora de Custos e Preços</h2>
+            <div class="page-actions">
+                <button class="btn btn-primary" id="saveCalculation">
+                    <i class='bx bx-save'></i>
+                    Salvar Cálculo
+                </button>
             </div>
         </div>
-    </main>
-    
+
+        <!-- Calculadora de Custos -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Cálculo de Custos</h3>
+            </div>
+            <div class="card-content">
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="modelSelect">Modelo:</label>
+                            <select id="modelSelect" class="form-control">
+                                <option value="">Selecione um modelo</option>
+                                <option value="1">Modelo XYZ</option>
+                                <option value="2">Modelo ABC</option>
+                                <option value="3">Modelo DEF</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="quantity">Quantidade:</label>
+                            <input type="number" id="quantity" class="form-control" value="1" min="1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Insumos</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Insumo</th>
+                                        <th>Quantidade</th>
+                                        <th>Valor Unitário</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="insumosTable">
+                                    <tr>
+                                        <td>Tecido Algodão</td>
+                                        <td>2 m</td>
+                                        <td>R$ 25,00</td>
+                                        <td>R$ 50,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Linha Poliéster</td>
+                                        <td>1 unid</td>
+                                        <td>R$ 5,50</td>
+                                        <td>R$ 5,50</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Botões Plásticos</td>
+                                        <td>8 unid</td>
+                                        <td>R$ 0,25</td>
+                                        <td>R$ 2,00</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3" class="text-right"><strong>Total de Insumos:</strong></td>
+                                        <td id="totalInsumos"><strong>R$ 57,50</strong></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="laborCost">Custo de Mão de Obra:</label>
+                            <div class="input-group">
+                                <span class="input-group-text">R$</span>
+                                <input type="number" id="laborCost" class="form-control" value="30.00" step="0.01">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="overheadCost">Custos Indiretos:</label>
+                            <div class="input-group">
+                                <span class="input-group-text">R$</span>
+                                <input type="number" id="overheadCost" class="form-control" value="15.00" step="0.01">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="totalCost">Custo Total:</label>
+                            <div class="input-group">
+                                <span class="input-group-text">R$</span>
+                                <input type="text" id="totalCost" class="form-control" value="102.50" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="unitCost">Custo Unitário:</label>
+                            <div class="input-group">
+                                <span class="input-group-text">R$</span>
+                                <input type="text" id="unitCost" class="form-control" value="102.50" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculadora de Preços -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Cálculo de Preços</h3>
+            </div>
+            <div class="card-content">
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="marginPercent">Margem de Lucro (%):</label>
+                            <div class="input-group">
+                                <input type="number" id="marginPercent" class="form-control" value="50" min="0" max="100">
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="taxPercent">Impostos (%):</label>
+                            <div class="input-group">
+                                <input type="number" id="taxPercent" class="form-control" value="12" min="0" max="100">
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="suggestedPrice">Preço Sugerido:</label>
+                            <div class="input-group">
+                                <span class="input-group-text">R$</span>
+                                <input type="text" id="suggestedPrice" class="form-control" value="179.38" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="finalPrice">Preço Final:</label>
+                            <div class="input-group">
+                                <span class="input-group-text">R$</span>
+                                <input type="number" id="finalPrice" class="form-control" value="179.90" step="0.01">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="actualMargin">Margem Real:</label>
+                            <div class="input-group">
+                                <input type="text" id="actualMargin" class="form-control" value="50.3%" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="profitAmount">Lucro por Unidade:</label>
+                            <div class="input-group">
+                                <span class="input-group-text">R$</span>
+                                <input type="text" id="profitAmount" class="form-control" value="77.40" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary" id="calculateButton">
+                    <i class='bx bx-calculator'></i>
+                    Calcular
+                </button>
+                <button class="btn btn-secondary" id="resetButton">
+                    <i class='bx bx-reset'></i>
+                    Limpar
+                </button>
+            </div>
+        </div>
+
+        <!-- Histórico de Cálculos -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Histórico de Cálculos</h3>
+            </div>
+            <div class="card-content">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Modelo</th>
+                                <th>Custo</th>
+                                <th>Preço</th>
+                                <th>Margem</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>25/05/2025</td>
+                                <td>Modelo XYZ</td>
+                                <td>R$ 102,50</td>
+                                <td>R$ 179,90</td>
+                                <td>50.3%</td>
+                                <td>
+                                    <button class="btn btn-icon btn-sm" title="Carregar">
+                                        <i class='bx bx-upload'></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-sm" title="Excluir">
+                                        <i class='bx bx-trash'></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>20/05/2025</td>
+                                <td>Modelo ABC</td>
+                                <td>R$ 45,20</td>
+                                <td>R$ 89,90</td>
+                                <td>49.7%</td>
+                                <td>
+                                    <button class="btn btn-icon btn-sm" title="Carregar">
+                                        <i class='bx bx-upload'></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-sm" title="Excluir">
+                                        <i class='bx bx-trash'></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="js/menu.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/calculadora.js"></script>
+    <script src="js/microinteractions.js"></script>
+    <script src="js/calculator.js"></script>
 </body>
 </html>
