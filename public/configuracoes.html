@@ -1,242 +1,372 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appvex - Configurações</title>
+    <!-- CSS Base -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/utilities.css">
+    
+    <!-- Componentes CSS -->
     <link rel="stylesheet" href="css/components/buttons.css">
     <link rel="stylesheet" href="css/components/cards.css">
     <link rel="stylesheet" href="css/components/forms.css">
     <link rel="stylesheet" href="css/components/modals.css">
     <link rel="stylesheet" href="css/components/tables.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Correções CSS -->
+    <link rel="stylesheet" href="css/card-fixes.css">
+    <link rel="stylesheet" href="css/responsive-fixes.css">
+    
+    <!-- Fontes -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body class="dark-mode">
-    <!-- Sidebar - Estrutura básica que será preenchida pelo JavaScript -->
-    <aside class="sidebar"></aside>
-    
-    <!-- Conteúdo principal -->
-    <main class="main-content">
-        <header class="header">
-            <h1>Configurações</h1>
-        </header>
-        
-        <div class="content">
-            <!-- Abas de Configurações -->
-            <div class="tabs mb-4">
-                <button class="tab-btn active" data-tab="geral">Geral</button>
-                <button class="tab-btn" data-tab="usuarios">Usuários</button>
-                <button class="tab-btn" data-tab="notificacoes">Notificações</button>
-                <button class="tab-btn" data-tab="sistema">Sistema</button>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <h1 class="logo">VEX</h1>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="index.html">
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="insumos.html">
+                <i class='bx bxs-cube'></i>
+                <span>Insumos</span>
+            </a>
+            <a href="modelos.html">
+                <i class='bx bxs-cube-alt'></i>
+                <span>Modelos</span>
+            </a>
+            <a href="producao.html">
+                <i class='bx bxs-factory'></i>
+                <span>Produção</span>
+            </a>
+            <a href="estoque.html">
+                <i class='bx bxs-box'></i>
+                <span>Estoque</span>
+            </a>
+            <a href="financeiro.html">
+                <i class='bx bxs-wallet'></i>
+                <span>Financeiro</span>
+            </a>
+            <a href="relatorios.html">
+                <i class='bx bxs-file'></i>
+                <span>Relatórios</span>
+            </a>
+            <a href="calculadora.html">
+                <i class='bx bxs-calculator'></i>
+                <span>Calculadora</span>
+            </a>
+            <a href="configuracoes.html" class="active">
+                <i class='bx bxs-cog'></i>
+                <span>Configurações</span>
+            </a>
+            <a href="#">
+                <i class='bx bxs-help-circle'></i>
+                <span>Ajuda & Suporte</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Botão de toggle para o sidebar em dispositivos móveis -->
+    <button class="sidebar-toggle">
+        <i class='bx bx-menu'></i>
+    </button>
+
+    <!-- Overlay para o sidebar em dispositivos móveis -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- Container Principal -->
+    <div class="main-container">
+        <!-- Cabeçalho da Página -->
+        <div class="page-header">
+            <h2 class="page-title">Configurações</h2>
+            <div class="page-actions">
+                <button class="btn btn-primary" id="saveSettings">
+                    <i class='bx bx-save'></i>
+                    Salvar Alterações
+                </button>
             </div>
-            
-            <!-- Configurações Gerais -->
-            <div class="tab-content active" id="geral">
+        </div>
+
+        <!-- Abas de Configuração -->
+        <div class="config-tabs">
+            <button class="btn btn-tab active" data-tab="general">
+                <i class='bx bx-cog'></i>
+                Geral
+            </button>
+            <button class="btn btn-tab" data-tab="user">
+                <i class='bx bx-user'></i>
+                Usuário
+            </button>
+            <button class="btn btn-tab" data-tab="company">
+                <i class='bx bx-building'></i>
+                Empresa
+            </button>
+            <button class="btn btn-tab" data-tab="notifications">
+                <i class='bx bx-bell'></i>
+                Notificações
+            </button>
+            <button class="btn btn-tab" data-tab="appearance">
+                <i class='bx bx-palette'></i>
+                Aparência
+            </button>
+            <button class="btn btn-tab" data-tab="backup">
+                <i class='bx bx-cloud-upload'></i>
+                Backup
+            </button>
+        </div>
+
+        <!-- Conteúdo das Abas -->
+        <div class="tab-content">
+            <!-- Aba Geral -->
+            <div class="tab-pane active" id="general">
                 <div class="card">
-                    <h2 class="card-title">Configurações Gerais</h2>
-                    
-                    <form class="form-grid">
-                        <div class="form-group">
-                            <label for="nomeEmpresa">Nome da Empresa:</label>
-                            <input type="text" id="nomeEmpresa" class="form-control" value="VEX Confecções">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="cnpj">CNPJ:</label>
-                            <input type="text" id="cnpj" class="form-control" value="12.345.678/0001-90">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="endereco">Endereço:</label>
-                            <input type="text" id="endereco" class="form-control" value="Rua Exemplo, 123">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="telefone">Telefone:</label>
-                            <input type="text" id="telefone" class="form-control" value="(11 ) 1234-5678">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">E-mail:</label>
-                            <input type="email" id="email" class="form-control" value="contato@vexconfeccoes.com.br">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="website">Website:</label>
-                            <input type="url" id="website" class="form-control" value="https://www.vexconfeccoes.com.br">
-                        </div>
-                        
-                        <div class="form-group col-span-2">
-                            <button type="button" class="btn btn-primary">Salvar Alterações</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            
-            <!-- Configurações de Usuários -->
-            <div class="tab-content" id="usuarios" style="display: none;">
-                <div class="card">
-                    <h2 class="card-title">Gerenciamento de Usuários</h2>
-                    
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>E-mail</th>
-                                    <th>Cargo</th>
-                                    <th>Permissões</th>
-                                    <th>Status</th>
-                                    <th>Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Administrador</td>
-                                    <td>admin@vexconfeccoes.com.br</td>
-                                    <td>Administrador</td>
-                                    <td>Todas</td>
-                                    <td><span class="badge badge-success">Ativo</span></td>
-                                    <td>
-                                        <button class="btn btn-icon btn-sm" title="Editar">
-                                            <i class='bx bx-edit'></i>
-                                        </button>
-                                        <button class="btn btn-icon btn-sm btn-danger" title="Desativar">
-                                            <i class='bx bx-lock'></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="card-header">
+                        <h3 class="card-title">Configurações Gerais</h3>
                     </div>
-                    
-                    <div class="mt-4">
-                        <button class="btn btn-primary">Adicionar Usuário</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Configurações de Notificações -->
-            <div class="tab-content" id="notificacoes" style="display: none;">
-                <div class="card">
-                    <h2 class="card-title">Configurações de Notificações</h2>
-                    
-                    <form>
-                        <div class="form-check mb-3">
-                            <input type="checkbox" id="notifEstoque" class="form-check-input" checked>
-                            <label for="notifEstoque" class="form-check-label">Notificar quando itens atingirem nível crítico de estoque</label>
-                        </div>
-                        
-                        <div class="form-check mb-3">
-                            <input type="checkbox" id="notifProducao" class="form-check-input" checked>
-                            <label for="notifProducao" class="form-check-label">Notificar quando uma produção for concluída</label>
-                        </div>
-                        
-                        <div class="form-check mb-3">
-                            <input type="checkbox" id="notifFinanceiro" class="form-check-input" checked>
-                            <label for="notifFinanceiro" class="form-check-label">Notificar sobre transações financeiras</label>
-                        </div>
-                        
-                        <div class="form-check mb-3">
-                            <input type="checkbox" id="notifEmail" class="form-check-input" checked>
-                            <label for="notifEmail" class="form-check-label">Receber notificações por e-mail</label>
-                        </div>
-                        
-                        <div class="mt-4">
-                            <button type="button" class="btn btn-primary">Salvar Preferências</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            
-            <!-- Configurações do Sistema -->
-            <div class="tab-content" id="sistema" style="display: none;">
-                <div class="card">
-                    <h2 class="card-title">Configurações do Sistema</h2>
-                    
-                    <form class="form-grid">
+                    <div class="card-content">
                         <div class="form-group">
-                            <label for="moeda">Moeda:</label>
-                            <select id="moeda" class="form-control">
-                                <option value="BRL" selected>Real Brasileiro (R$ )</option>
-                                <option value="USD">Dólar Americano ($)</option>
+                            <label for="language">Idioma:</label>
+                            <select id="language" class="form-control">
+                                <option value="pt-br" selected>Português (Brasil)</option>
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="timezone">Fuso Horário:</label>
+                            <select id="timezone" class="form-control">
+                                <option value="America/Sao_Paulo" selected>Brasília (GMT-3)</option>
+                                <option value="America/New_York">New York (GMT-4)</option>
+                                <option value="Europe/London">London (GMT+1)</option>
+                                <option value="Asia/Tokyo">Tokyo (GMT+9)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateFormat">Formato de Data:</label>
+                            <select id="dateFormat" class="form-control">
+                                <option value="dd/mm/yyyy" selected>DD/MM/AAAA</option>
+                                <option value="mm/dd/yyyy">MM/DD/AAAA</option>
+                                <option value="yyyy-mm-dd">AAAA-MM-DD</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="currency">Moeda:</label>
+                            <select id="currency" class="form-control">
+                                <option value="BRL" selected>Real (R$)</option>
+                                <option value="USD">Dólar ($)</option>
                                 <option value="EUR">Euro (€)</option>
                             </select>
                         </div>
-                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aba Usuário -->
+            <div class="tab-pane" id="user" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Perfil de Usuário</h3>
+                    </div>
+                    <div class="card-content">
                         <div class="form-group">
-                            <label for="formatoData">Formato de Data:</label>
-                            <select id="formatoData" class="form-control">
-                                <option value="DD/MM/YYYY" selected>DD/MM/AAAA</option>
-                                <option value="MM/DD/YYYY">MM/DD/AAAA</option>
-                                <option value="YYYY-MM-DD">AAAA-MM-DD</option>
+                            <label for="userName">Nome:</label>
+                            <input type="text" id="userName" class="form-control" value="Administrador">
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">E-mail:</label>
+                            <input type="email" id="userEmail" class="form-control" value="admin@appvex.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="userPassword">Senha:</label>
+                            <input type="password" id="userPassword" class="form-control" value="********">
+                        </div>
+                        <div class="form-group">
+                            <label for="userPasswordConfirm">Confirmar Senha:</label>
+                            <input type="password" id="userPasswordConfirm" class="form-control" value="********">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aba Empresa -->
+            <div class="tab-pane" id="company" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Dados da Empresa</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label for="companyName">Nome da Empresa:</label>
+                            <input type="text" id="companyName" class="form-control" value="Appvex Confecções">
+                        </div>
+                        <div class="form-group">
+                            <label for="companyCNPJ">CNPJ:</label>
+                            <input type="text" id="companyCNPJ" class="form-control" value="12.345.678/0001-90">
+                        </div>
+                        <div class="form-group">
+                            <label for="companyAddress">Endereço:</label>
+                            <input type="text" id="companyAddress" class="form-control" value="Rua Exemplo, 123">
+                        </div>
+                        <div class="form-group">
+                            <label for="companyPhone">Telefone:</label>
+                            <input type="text" id="companyPhone" class="form-control" value="(11) 1234-5678">
+                        </div>
+                        <div class="form-group">
+                            <label for="companyEmail">E-mail:</label>
+                            <input type="email" id="companyEmail" class="form-control" value="contato@appvex.com">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aba Notificações -->
+            <div class="tab-pane" id="notifications" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Configurações de Notificações</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="notifyLowStock" checked>
+                                <label for="notifyLowStock">Notificar quando estoque estiver baixo</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="notifyPayments" checked>
+                                <label for="notifyPayments">Notificar sobre pagamentos próximos do vencimento</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="notifyProduction" checked>
+                                <label for="notifyProduction">Notificar sobre conclusão de produção</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="notifyEmail" checked>
+                                <label for="notifyEmail">Receber notificações por e-mail</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="notifySystem" checked>
+                                <label for="notifySystem">Receber notificações no sistema</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aba Aparência -->
+            <div class="tab-pane" id="appearance" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Configurações de Aparência</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label>Tema:</label>
+                            <div class="theme-options">
+                                <div class="theme-option active">
+                                    <div class="theme-preview dark-theme"></div>
+                                    <span>Escuro</span>
+                                </div>
+                                <div class="theme-option">
+                                    <div class="theme-preview light-theme"></div>
+                                    <span>Claro</span>
+                                </div>
+                                <div class="theme-option">
+                                    <div class="theme-preview blue-theme"></div>
+                                    <span>Azul</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fontSize">Tamanho da Fonte:</label>
+                            <select id="fontSize" class="form-control">
+                                <option value="small">Pequeno</option>
+                                <option value="medium" selected>Médio</option>
+                                <option value="large">Grande</option>
                             </select>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="fusoHorario">Fuso Horário:</label>
-                            <select id="fusoHorario" class="form-control">
-                                <option value="America/Sao_Paulo" selected>Brasília (GMT-3)</option>
-                                <option value="America/New_York">Nova York (GMT-4)</option>
-                                <option value="Europe/London">Londres (GMT+1)</option>
+                            <label for="sidebarPosition">Posição da Barra Lateral:</label>
+                            <select id="sidebarPosition" class="form-control">
+                                <option value="left" selected>Esquerda</option>
+                                <option value="right">Direita</option>
                             </select>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="tema">Tema:</label>
-                            <select id="tema" class="form-control">
-                                <option value="dark" selected>Escuro</option>
-                                <option value="light">Claro</option>
-                                <option value="auto">Automático (Sistema)</option>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="compactMode">
+                                <label for="compactMode">Modo Compacto</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aba Backup -->
+            <div class="tab-pane" id="backup" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Backup e Restauração</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label>Backup Manual:</label>
+                            <button class="btn btn-primary">
+                                <i class='bx bx-download'></i>
+                                Fazer Backup Agora
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label>Backup Automático:</label>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="autoBackup" checked>
+                                <label for="autoBackup">Ativar backup automático</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="backupFrequency">Frequência:</label>
+                            <select id="backupFrequency" class="form-control">
+                                <option value="daily">Diário</option>
+                                <option value="weekly" selected>Semanal</option>
+                                <option value="monthly">Mensal</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group col-span-2">
-                            <button type="button" class="btn btn-primary">Salvar Configurações</button>
+                        <div class="form-group">
+                            <label>Restaurar Backup:</label>
+                            <div class="file-upload">
+                                <input type="file" id="restoreFile" class="form-control">
+                                <label for="restoreFile" class="btn btn-secondary">
+                                    <i class='bx bx-upload'></i>
+                                    Selecionar Arquivo
+                                </label>
+                            </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
-    
+    </div>
+
     <!-- Scripts -->
     <script src="js/menu.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        // Script para as abas de configurações
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
-            
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const tabId = this.getAttribute('data-tab');
-                    
-                    // Remover classe active de todos os botões e conteúdos
-                    tabBtns.forEach(btn => btn.classList.remove('active'));
-                    tabContents.forEach(content => {
-                        content.style.display = 'none';
-                        content.classList.remove('active');
-                    });
-                    
-                    // Adicionar classe active ao botão clicado
-                    this.classList.add('active');
-                    
-                    // Mostrar o conteúdo correspondente
-                    const activeContent = document.getElementById(tabId);
-                    if (activeContent) {
-                        activeContent.style.display = 'block';
-                        activeContent.classList.add('active');
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="js/microinteractions.js"></script>
+    <script src="js/settings.js"></script>
 </body>
 </html>
