@@ -31,101 +31,190 @@
         
         <div class="content">
             <!-- Filtros de Relatórios -->
-            <div class="card mb-6">
-                <h2 class="card-title">Filtros</h2>
-                
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="tipoRelatorio">Tipo de Relatório:</label>
-                        <select id="tipoRelatorio" class="form-control">
-                            <option value="producao">Produção</option>
-                            <option value="vendas">Vendas</option>
-                            <option value="estoque">Estoque</option>
-                            <option value="financeiro">Financeiro</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="periodoInicio">Data Início:</label>
-                        <input type="date" id="periodoInicio" class="form-control">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="periodoFim">Data Fim:</label>
-                        <input type="date" id="periodoFim" class="form-control">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>&nbsp;</label>
-                        <button class="btn btn-primary">Gerar Relatório</button>
-                    </div>
+            <div class="filters-container mb-4">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar relatórios..." class="form-control">
+                    <i class='bx bx-search'></i>
+                </div>
+                <div class="filters">
+                    <select class="form-control">
+                        <option>Todos os relatórios</option>
+                        <option>Produção</option>
+                        <option>Financeiro</option>
+                        <option>Estoque</option>
+                    </select>
+                    <button class="btn btn-secondary">Filtrar</button>
+                </div>
+                <div class="view-options">
+                    <button class="btn btn-icon" title="Visualização em Cards" disabled>
+                        <i class='bx bxs-grid'></i>
+                    </button>
+                    <button class="btn btn-icon" title="Visualização em Tabela">
+                        <i class='bx bx-table'></i>
+                    </button>
                 </div>
             </div>
             
-            <!-- Relatórios Recentes -->
-            <div class="card">
-                <h2 class="card-title">Relatórios Recentes</h2>
+            <!-- Grid de Cards de Relatórios -->
+            <div class="cards-grid">
+                <!-- Card 1: Relatório de Produção -->
+                <div class="item-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-file'></i>
+                            Relatório de Produção - Maio/2025
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Produção</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Período</div>
+                            <div class="info-value">01/05/2025 - 31/05/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Data de Geração</div>
+                            <div class="info-value">01/06/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Gerado por</div>
+                            <div class="info-value">Admin</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Formato</div>
+                            <div class="info-value">PDF, Excel</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Visualizar">
+                            <i class='bx bx-show'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Baixar">
+                            <i class='bx bx-download'></i>
+                        </button>
+                    </div>
+                </div>
                 
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Tipo</th>
-                                <th>Período</th>
-                                <th>Data de Geração</th>
-                                <th>Gerado Por</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Relatório de Produção - Maio/2025</td>
-                                <td>Produção</td>
-                                <td>01/05/2025 - 22/05/2025</td>
-                                <td>22/05/2025</td>
-                                <td>Admin</td>
-                                <td>
-                                    <button class="btn btn-icon btn-sm" title="Visualizar">
-                                        <i class='bx bx-show'></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-sm" title="Baixar">
-                                        <i class='bx bx-download'></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Relatório Financeiro - Abril/2025</td>
-                                <td>Financeiro</td>
-                                <td>01/04/2025 - 30/04/2025</td>
-                                <td>02/05/2025</td>
-                                <td>Admin</td>
-                                <td>
-                                    <button class="btn btn-icon btn-sm" title="Visualizar">
-                                        <i class='bx bx-show'></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-sm" title="Baixar">
-                                        <i class='bx bx-download'></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Relatório de Estoque - Abril/2025</td>
-                                <td>Estoque</td>
-                                <td>01/04/2025 - 30/04/2025</td>
-                                <td>01/05/2025</td>
-                                <td>Admin</td>
-                                <td>
-                                    <button class="btn btn-icon btn-sm" title="Visualizar">
-                                        <i class='bx bx-show'></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-sm" title="Baixar">
-                                        <i class='bx bx-download'></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Card 2: Relatório Financeiro -->
+                <div class="item-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-file'></i>
+                            Relatório Financeiro - Maio/2025
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Financeiro</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Período</div>
+                            <div class="info-value">01/05/2025 - 31/05/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Data de Geração</div>
+                            <div class="info-value">01/06/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Gerado por</div>
+                            <div class="info-value">Admin</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Formato</div>
+                            <div class="info-value">PDF, Excel</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Visualizar">
+                            <i class='bx bx-show'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Baixar">
+                            <i class='bx bx-download'></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 3: Relatório de Estoque -->
+                <div class="item-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-file'></i>
+                            Relatório de Estoque - Abril/2025
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Estoque</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Período</div>
+                            <div class="info-value">01/04/2025 - 30/04/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Data de Geração</div>
+                            <div class="info-value">01/05/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Gerado por</div>
+                            <div class="info-value">Admin</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Formato</div>
+                            <div class="info-value">PDF, Excel</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Visualizar">
+                            <i class='bx bx-show'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Baixar">
+                            <i class='bx bx-download'></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 4: Relatório de Vendas -->
+                <div class="item-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-file'></i>
+                            Relatório de Vendas - Q1/2025
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Vendas</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Período</div>
+                            <div class="info-value">01/01/2025 - 31/03/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Data de Geração</div>
+                            <div class="info-value">05/04/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Gerado por</div>
+                            <div class="info-value">Admin</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Formato</div>
+                            <div class="info-value">PDF, Excel</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Visualizar">
+                            <i class='bx bx-show'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Baixar">
+                            <i class='bx bx-download'></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
