@@ -1,101 +1,230 @@
-/* Responsividade para todos os dispositivos */
-/* Tablets e dispositivos médios */
-@media (max-width: 992px) {
-/* Ajustes para o grid */
-.grid-cols-3 {
-grid-template-columns: repeat(2, 1fr);
-}
-/* Ajustes para tabelas */
-.table-responsive {
-overflow-x: auto;
-}
-/* Ajustes para formulários */
-.form-grid {
-grid-template-columns: repeat(2, 1fr);
-}
-}
-/* Dispositivos móveis */
-@media (max-width: 768px) {
-/* Ajustes para o grid */
-.grid-cols-2, .grid-cols-3 {
-grid-template-columns: 1fr;
-}
-/* Ajustes para formulários */
-.form-grid {
-grid-template-columns: 1fr;
-}
-/* Ajustes para o header */
-.header {
-flex-direction: column;
-height: auto;
-padding: var(--spacing-md);
-gap: var(--spacing-md);
-align-items: flex-start;
-}
-.header-actions {
-width: 100%;
-justify-content: flex-start;
-}
-/* Ajustes para filtros */
+/* Estilos adicionais para garantir responsividade */
+
+/* Filtros e Busca Responsivos */
 .filters-container {
-flex-direction: column;
-gap: var(--spacing-md);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--dark-bg-color-secondary);
+    border-radius: var(--border-radius-md);
 }
-.search-container, .filter-container, .export-container {
-width: 100%;
+
+.search-box {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
 }
-/* Ajustes para cards */
-.card {
-padding: var(--spacing-md);
+
+.search-box input {
+    padding-left: 2.5rem;
+    width: 100%;
 }
-/* Ajustes para botões */
-.btn {
-padding: 0.5rem 0.75rem;
+
+.search-box i {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--dark-text-color-tertiary);
 }
-/* Ajustes para tabelas */
-.table th, .table td {
-padding: 0.5rem;
+
+.filters {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex: 2;
+    min-width: 300px;
 }
-/* Menu toggle para mobile */
-.menu-toggle {
-display: flex;
-align-items: center;
-justify-content: center;
-width: 40px;
-height: 40px;
-background-color: var(--bg-color-tertiary);
-border-radius: var(--border-radius-md);
-cursor: pointer;
-position: fixed;
-top: 10px;
-left: 10px;
-z-index: 101;
+
+.filters select {
+    flex: 1;
 }
-.dark-mode .menu-toggle {
-background-color: var(--dark-bg-color-tertiary);
+
+.view-options {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
 }
-.menu-toggle i {
-font-size: 1.5rem;
-color: var(--text-color);
+
+/* Seções e Títulos */
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark-text-color);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--dark-border-color);
 }
-.dark-mode .menu-toggle i {
-color: var(--dark-text-color);
+
+/* Estado Vazio */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    background: var(--dark-bg-color-secondary);
+    border-radius: var(--border-radius-lg);
+    color: var(--dark-text-color-tertiary);
 }
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.5;
 }
-/* Dispositivos muito pequenos */
+
+/* Código do Card */
+.card-code {
+    font-size: 0.8rem;
+    color: var(--dark-text-color-tertiary);
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--border-radius-sm);
+}
+
+/* Ajustes de Responsividade Adicionais */
+@media (max-width: 1200px) {
+    .dashboard-summary {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 992px) {
+    .filters-container {
+        flex-direction: column;
+    }
+    
+    .search-box, .filters {
+        width: 100%;
+    }
+    
+    .view-options {
+        justify-content: flex-end;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+    
+    .header-actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+    .dashboard-summary {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters {
+        flex-direction: column;
+    }
+}
+
+/* Melhorias de Acessibilidade */
+.btn:focus, 
+.form-control:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Animações Suaves */
+.item-card, 
+.dashboard-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+/* Ajustes para Telas Muito Pequenas */
 @media (max-width: 480px) {
-.content {
-padding: var(--spacing-md);
+    .card-footer {
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
+    
+    .info-value {
+        font-size: 0.9rem;
+    }
+    
+    .info-label {
+        font-size: 0.8rem;
+    }
 }
-.card-title {
-font-size: 1.25rem;
+
+/* Melhorias de Contraste */
+.card-badge {
+    font-weight: 700;
 }
-.btn-group {
-flex-direction: column;
-width: 100%;
+
+.info-value.highlight {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
-.btn-group .btn {
-width: 100%;
-margin-bottom: var(--spacing-xs);
+
+/* Ajustes para Telas Grandes */
+@media (min-width: 1600px) {
+    .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+    
+    .dashboard-summary {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
+
+/* Melhorias de Interatividade */
+.item-card:hover .card-footer {
+    border-top-color: var(--primary-color);
+}
+
+.btn-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ajustes para Modo Escuro */
+.dark-mode .item-card,
+.dark-mode .dashboard-card {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .filters-container {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustes para Impressão */
+@media print {
+    .sidebar, 
+    .header-actions, 
+    .filters-container, 
+    .card-footer {
+        display: none !important;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 0;
+    }
+    
+    .item-card,
+    .dashboard-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    body {
+        background-color: white;
+        color: black;
+    }
 }
