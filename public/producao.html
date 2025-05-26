@@ -1,97 +1,224 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appvex - Produção</title>
+    <!-- CSS Base -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/utilities.css">
+    
+    <!-- Componentes CSS -->
     <link rel="stylesheet" href="css/components/buttons.css">
     <link rel="stylesheet" href="css/components/cards.css">
     <link rel="stylesheet" href="css/components/forms.css">
     <link rel="stylesheet" href="css/components/modals.css">
     <link rel="stylesheet" href="css/components/tables.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Correções CSS -->
+    <link rel="stylesheet" href="css/card-fixes.css">
+    <link rel="stylesheet" href="css/responsive-fixes.css">
+    
+    <!-- Fontes -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body class="dark-mode">
-    <!-- Sidebar - Estrutura básica que será preenchida pelo JavaScript -->
-    <aside class="sidebar"></aside>
-    
-    <!-- Conteúdo principal -->
-    <main class="main-content">
-        <header class="header">
-            <h1>Produção</h1>
-            <div class="header-actions">
-                <button class="btn btn-primary">Nova Produção</button>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <h1 class="logo">VEX</h1>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="index.html">
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="insumos.html">
+                <i class='bx bxs-cube'></i>
+                <span>Insumos</span>
+            </a>
+            <a href="modelos.html">
+                <i class='bx bxs-cube-alt'></i>
+                <span>Modelos</span>
+            </a>
+            <a href="producao.html" class="active">
+                <i class='bx bxs-factory'></i>
+                <span>Produção</span>
+            </a>
+            <a href="estoque.html">
+                <i class='bx bxs-box'></i>
+                <span>Estoque</span>
+            </a>
+            <a href="financeiro.html">
+                <i class='bx bxs-wallet'></i>
+                <span>Financeiro</span>
+            </a>
+            <a href="relatorios.html">
+                <i class='bx bxs-file'></i>
+                <span>Relatórios</span>
+            </a>
+            <a href="calculadora.html">
+                <i class='bx bxs-calculator'></i>
+                <span>Calculadora</span>
+            </a>
+            <a href="configuracoes.html">
+                <i class='bx bxs-cog'></i>
+                <span>Configurações</span>
+            </a>
+            <a href="#">
+                <i class='bx bxs-help-circle'></i>
+                <span>Ajuda & Suporte</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Botão de toggle para o sidebar em dispositivos móveis -->
+    <button class="sidebar-toggle">
+        <i class='bx bx-menu'></i>
+    </button>
+
+    <!-- Overlay para o sidebar em dispositivos móveis -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- Container Principal -->
+    <div class="main-container">
+        <!-- Cabeçalho da Página -->
+        <div class="page-header">
+            <h2 class="page-title">Produção</h2>
+            <div class="page-actions">
+                <button class="btn btn-primary">
+                    <i class='bx bx-plus'></i>
+                    Nova Produção
+                </button>
             </div>
-        </header>
-        
-        <div class="content">
-            <!-- Seção: Produção em Andamento -->
-            <h2 class="section-title mb-3">Produção em Andamento</h2>
-            
-            <div class="cards-grid">
+        </div>
+
+        <!-- Seção de Produção em Andamento -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Produção em Andamento</h3>
+            </div>
+            <div class="card-content">
                 <!-- Card de Produção em Andamento -->
-                <div class="item-card card-info">
+                <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">
-                            <i class='bx bx-factory'></i>
-                            #1001
-                        </h3>
-                        <div class="card-badge badge-info">Em Progresso</div>
+                        <h3 class="card-title">#1001</h3>
+                        <span class="status status-progress">Em Progresso</span>
                     </div>
-                    <div class="card-body">
-                        <div class="card-info">
-                            <div class="info-label">Modelo</div>
-                            <div class="info-value highlight">Modelo XYZ</div>
+                    <div class="card-content">
+                        <div class="info-group">
+                            <div class="info-label">Modelo:</div>
+                            <div class="info-value">Modelo XYZ</div>
                         </div>
-                        <div class="card-info">
-                            <div class="info-label">Quantidade</div>
+                        <div class="info-group">
+                            <div class="info-label">Quantidade:</div>
                             <div class="info-value">50</div>
                         </div>
-                        <div class="card-info">
-                            <div class="info-label">Data Início</div>
+                        <div class="info-group">
+                            <div class="info-label">Data Início:</div>
                             <div class="info-value">20/05/2025</div>
                         </div>
-                        <div class="card-info">
-                            <div class="info-label">Previsão</div>
+                        <div class="info-group">
+                            <div class="info-label">Previsão:</div>
                             <div class="info-value">25/05/2025</div>
                         </div>
-                        <div class="card-info">
-                            <div class="info-label">Progresso</div>
-                            <div class="info-value">65%</div>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-bar-fill" style="width: 65%;"></div>
+                        <div class="info-group">
+                            <div class="info-label">Progresso:</div>
+                            <div class="info-value">
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 65%;" data-progress="65%"></div>
+                                </div>
+                                <span>65%</span>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-icon" title="Visualizar">
-                            <i class='bx bx-show'></i>
-                        </button>
-                        <button class="btn btn-icon btn-danger" title="Cancelar">
-                            <i class='bx bx-x'></i>
-                        </button>
+                        <div class="card-actions">
+                            <button class="btn btn-icon" title="Visualizar">
+                                <i class='bx bx-show'></i>
+                            </button>
+                            <button class="btn btn-icon" title="Cancelar">
+                                <i class='bx bx-x-circle'></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Seção: Histórico de Produção -->
-            <h2 class="section-title mt-5 mb-3">Histórico de Produção</h2>
-            
-            <div class="empty-state">
-                <i class='bx bx-history empty-icon'></i>
-                <h3>Nenhum registro encontrado</h3>
-                <p>O histórico de produções concluídas aparecerá aqui.</p>
+        </div>
+
+        <!-- Seção de Histórico de Produção -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Histórico de Produção</h3>
+            </div>
+            <div class="card-content">
+                <!-- Estado vazio para o histórico -->
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <i class='bx bx-history'></i>
+                    </div>
+                    <div class="empty-state-message">
+                        Nenhum registro encontrado
+                    </div>
+                    <div class="empty-state-description">
+                        O histórico de produções concluídas aparecerá aqui.
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
-    
+
+        <!-- Modal de Nova Produção (inicialmente oculto) -->
+        <div class="modal" id="modalNovaProdução" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Nova Produção</h3>
+                    <button class="modal-close">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formNovaProdução">
+                        <div class="form-group">
+                            <label for="modelo">Modelo:</label>
+                            <select id="modelo" class="form-control" required>
+                                <option value="">Selecione um modelo</option>
+                                <option value="1">Modelo XYZ</option>
+                                <option value="2">Modelo ABC</option>
+                                <option value="3">Modelo DEF</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantidade">Quantidade:</label>
+                            <input type="number" id="quantidade" class="form-control" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dataInicio">Data de Início:</label>
+                            <input type="date" id="dataInicio" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dataPrevisao">Previsão de Conclusão:</label>
+                            <input type="date" id="dataPrevisao" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="observacoes">Observações:</label>
+                            <textarea id="observacoes" class="form-control" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary" form="formNovaProdução">Iniciar Produção</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="js/menu.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/microinteractions.js"></script>
 </body>
 </html>
