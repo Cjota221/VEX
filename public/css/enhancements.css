@@ -1,31 +1,88 @@
-/* Microinterações e Feedback Visual */
+/* 
+ * enhancements.css - Melhorias visuais e microinterações para Appvex
+ * Implementação de melhorias de UX/UI para todas as telas
+ */
 
-/* Efeito de hover nos cards */
-.item-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+/* Microinterações para elementos interativos */
+.btn, .card, .nav-item, .form-control, select, input[type="checkbox"], input[type="radio"] {
+    transition: all 0.2s ease-in-out;
 }
 
-/* Efeito de clique nos botões */
+/* Efeitos de hover para botões */
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
 .btn:active {
-    transform: scale(0.97);
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Feedback visual para ações */
-.btn-success {
-    background-color: var(--success-color);
-    color: white;
+/* Efeitos para botões de ícone */
+.btn-icon {
+    position: relative;
+    overflow: hidden;
 }
 
-.btn-danger {
-    background-color: var(--danger-color);
-    color: white;
+.btn-icon:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
 }
 
-/* Tooltip personalizado */
+.btn-icon:hover:after {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* Melhorias para campos de formulário */
+.form-control:focus, select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+}
+
+/* Feedback visual para estados de validação */
+.form-control.is-valid {
+    border-color: var(--success-color);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2338b000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+.form-control.is-invalid {
+    border-color: var(--danger-color);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e5383b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+/* Tooltips aprimorados */
 [data-tooltip] {
     position: relative;
-    cursor: pointer;
+    cursor: help;
 }
 
 [data-tooltip]:before {
@@ -34,16 +91,17 @@
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
-    padding: 0.5rem;
+    padding: 0.5rem 0.75rem;
     background-color: var(--dark-bg-color-tertiary);
     color: var(--dark-text-color);
-    border-radius: var(--border-radius-sm);
-    font-size: 0.8rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
+    transition: opacity 0.2s, visibility 0.2s;
     z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 [data-tooltip]:hover:before {
@@ -51,83 +109,198 @@
     visibility: visible;
 }
 
-/* Notificações e alertas */
-.notification {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    padding: 1rem;
-    background-color: var(--dark-bg-color-secondary);
-    border-left: 4px solid var(--primary-color);
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    transform: translateX(120%);
-    transition: transform 0.3s ease-out;
+/* Badges aprimorados */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
 }
 
-.notification.show {
-    transform: translateX(0);
+.badge-success {
+    background-color: rgba(56, 176, 0, 0.15);
+    color: var(--success-color);
 }
 
-.notification.success {
-    border-left-color: var(--success-color);
+.badge-danger {
+    background-color: rgba(229, 56, 59, 0.15);
+    color: var(--danger-color);
 }
 
-.notification.error {
-    border-left-color: var(--danger-color);
+.badge-warning {
+    background-color: rgba(255, 190, 11, 0.15);
+    color: var(--warning-color);
 }
 
-.notification.warning {
-    border-left-color: var(--warning-color);
+.badge-info {
+    background-color: rgba(76, 201, 240, 0.15);
+    color: var(--info-color);
 }
 
-/* Animações de carregamento */
+/* Animações para carregamento */
 .loading {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: var(--primary-color);
-    animation: spin 1s ease-in-out infinite;
+    position: relative;
+    pointer-events: none;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Estados de foco melhorados para acessibilidade */
-:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
-
-/* Melhorias de navegação */
-.breadcrumb {
+.loading:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 36, 56, 0.7);
     display: flex;
     align-items: center;
-    margin-bottom: var(--spacing-md);
-    font-size: 0.9rem;
+    justify-content: center;
+    border-radius: inherit;
 }
 
-.breadcrumb-item {
-    color: var(--dark-text-color-tertiary);
+.loading:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(58, 134, 255, 0.3);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spinner 0.8s linear infinite;
+    z-index: 1;
 }
 
-.breadcrumb-item:not(:last-child):after {
-    content: "/";
-    margin: 0 0.5rem;
-    color: var(--dark-text-color-tertiary);
+@keyframes spinner {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
-.breadcrumb-item:last-child {
-    color: var(--dark-text-color-secondary);
-    font-weight: 500;
+/* Efeitos de destaque para notificações */
+.notification-item {
+    transition: background-color 0.3s ease;
 }
 
-/* Melhorias de acessibilidade */
-.sr-only {
+.notification-item:hover {
+    background-color: var(--dark-bg-color-tertiary);
+}
+
+.notification-item.unread {
+    position: relative;
+}
+
+.notification-item.unread:before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    left: 0.5rem;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+/* Melhorias para navegação */
+.nav-item {
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(58, 134, 255, 0.1);
+}
+
+.nav-item.active:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 4px;
+    background-color: var(--primary-color);
+}
+
+/* Efeitos para tabelas */
+.table tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tr:hover {
+    background-color: rgba(58, 134, 255, 0.05);
+}
+
+/* Efeitos para seleção de abas */
+.tab-button {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.tab-button:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.tab-button.active {
+    color: var(--primary-color);
+}
+
+.tab-button.active:after,
+.tab-button:hover:after {
+    width: 100%;
+}
+
+/* Efeitos para cards de destaque */
+.card-highlight {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-highlight:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(58, 134, 255, 0) 0%,
+        rgba(58, 134, 255, 0.1) 50%,
+        rgba(58, 134, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        top: -50%;
+        left: -50%;
+    }
+    100% {
+        top: 150%;
+        left: 150%;
+    }
+}
+
+/* Melhorias para acessibilidade */
+.visually-hidden {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -136,112 +309,48 @@
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
-    border-width: 0;
+    border: 0;
 }
 
-/* Modo de alto contraste */
-.high-contrast .item-card {
-    border: 2px solid white;
-}
-
-.high-contrast .card-badge {
-    border: 1px solid white;
-}
-
-/* Transições suaves para mudanças de estado */
-.item-card .card-body,
-.item-card .card-footer,
-.btn,
-.form-control {
-    transition: all 0.2s ease;
-}
-
-/* Efeitos de destaque para itens importantes */
-.highlight-item {
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(58, 134, 255, 0.4);
-    }
-    70% {
-        box-shadow: 0 0 0 10px rgba(58, 134, 255, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(58, 134, 255, 0);
-    }
-}
-
-/* Melhorias para interação por toque */
-@media (pointer: coarse) {
-    .btn, 
-    .card-footer button {
-        min-height: 44px;
-        min-width: 44px;
-    }
-    
-    .item-card {
-        padding: var(--spacing-lg);
-    }
-    
-    .form-control {
-        height: 44px;
-    }
-}
-
-/* Melhorias para navegação por teclado */
-.keyboard-focus:focus {
-    outline: 3px solid var(--primary-color);
-    outline-offset: 3px;
-}
-
-/* Efeitos de transição para cards */
-.cards-grid {
-    perspective: 1000px;
-}
-
-.item-card {
-    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
-    transform-style: preserve-3d;
-}
-
-.item-card:hover {
-    transform: translateY(-5px) rotateX(2deg);
+/* Foco visível para acessibilidade */
+:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 /* Melhorias para modo escuro */
-.dark-mode .item-card {
-    background: linear-gradient(145deg, var(--dark-bg-color-secondary), var(--dark-bg-color-tertiary));
+.dark-mode .card {
+    background-color: var(--dark-bg-color-secondary);
+    border-color: var(--dark-border-color);
 }
 
-/* Efeito de destaque para novos itens */
-.new-item {
-    position: relative;
-    overflow: hidden;
+.dark-mode .form-control,
+.dark-mode select,
+.dark-mode input {
+    background-color: var(--dark-bg-color-tertiary);
+    border-color: var(--dark-border-color);
+    color: var(--dark-text-color);
 }
 
-.new-item:after {
-    content: "Novo";
-    position: absolute;
-    top: 0;
-    right: 0;
+.dark-mode .form-control::placeholder {
+    color: var(--dark-text-color-tertiary);
+}
+
+/* Melhorias para scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dark-bg-color-tertiary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
     background: var(--primary-color);
-    color: white;
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-    transform: rotate(45deg) translate(25%, -50%);
-    transform-origin: top right;
-}
-
-/* Melhorias para impressão */
-@media print {
-    .no-print {
-        display: none !important;
-    }
-    
-    .item-card {
-        break-inside: avoid;
-        page-break-inside: avoid;
-    }
 }
