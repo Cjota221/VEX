@@ -31,133 +31,290 @@
         
         <div class="content">
             <!-- Resumo do Estoque -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                <div class="card">
-                    <h2 class="card-title">Total de Itens</h2>
-                    <div class="card-value">387</div>
-                    <div class="card-info">5 categorias</div>
+            <div class="dashboard-summary mb-4">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-package'></i>
+                            Total de Itens
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">387</div>
+                        <div class="card-info">5 categorias</div>
+                    </div>
                 </div>
                 
-                <div class="card">
-                    <h2 class="card-title">Valor em Estoque</h2>
-                    <div class="card-value">R$ 8.450,75</div>
-                    <div class="card-info">Atualizado hoje</div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-money'></i>
+                            Valor em Estoque
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">R$ 8.450,75</div>
+                        <div class="card-info">Atualizado hoje</div>
+                    </div>
                 </div>
                 
-                <div class="card">
-                    <h2 class="card-title">Itens em Nível Crítico</h2>
-                    <div class="card-value">3</div>
-                    <div class="card-info text-danger">Requer atenção</div>
+                <div class="dashboard-card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-error-circle'></i>
+                            Itens em Nível Crítico
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">3</div>
+                        <div class="card-info">Requer atenção</div>
+                    </div>
                 </div>
             </div>
             
             <!-- Filtros e Busca -->
-            <div class="card mb-4">
-                <div class="filters-container">
-                    <div class="search-container">
-                        <input type="text" placeholder="Buscar no estoque..." class="form-control">
-                    </div>
-                    
-                    <div class="filter-container">
-                        <select class="form-control">
-                            <option>Todos os itens</option>
-                            <option>Apenas itens críticos</option>
-                            <option>Apenas insumos</option>
-                            <option>Apenas produtos acabados</option>
-                        </select>
-                        <button class="btn btn-secondary">Filtrar</button>
-                    </div>
-                    
-                    <div class="export-container">
-                        <button class="btn btn-outline">
-                            <i class='bx bx-export'></i>
-                            Exportar
-                        </button>
-                    </div>
+            <div class="filters-container mb-4">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar no estoque..." class="form-control">
+                    <i class='bx bx-search'></i>
+                </div>
+                <div class="filters">
+                    <select class="form-control">
+                        <option>Todos os itens</option>
+                        <option>Apenas itens críticos</option>
+                        <option>Apenas insumos</option>
+                        <option>Apenas produtos acabados</option>
+                    </select>
+                    <button class="btn btn-secondary">Filtrar</button>
+                </div>
+                <div class="view-options">
+                    <button class="btn btn-icon" title="Visualização em Cards" disabled>
+                        <i class='bx bxs-grid'></i>
+                    </button>
+                    <button class="btn btn-icon" title="Visualização em Tabela">
+                        <i class='bx bx-table'></i>
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class='bx bx-export'></i> Exportar
+                    </button>
                 </div>
             </div>
             
-            <!-- Lista de Estoque -->
-            <div class="card">
-                <h2 class="card-title">Itens em Estoque</h2>
+            <!-- Grid de Cards de Estoque -->
+            <div class="cards-grid">
+                <!-- Card 1: Tecido Algodão -->
+                <div class="item-card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-package'></i>
+                            Tecido Algodão
+                        </h3>
+                        <div class="card-code">INS001</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Insumo</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Quantidade</div>
+                            <div class="info-value">120 m</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor Unitário</div>
+                            <div class="info-value">R$ 25,00</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor Total</div>
+                            <div class="info-value highlight">R$ 3.000,00</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Status</div>
+                            <div class="info-value">
+                                <span class="stock-level ok"></span> OK
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Histórico">
+                            <i class='bx bx-history'></i>
+                        </button>
+                    </div>
+                </div>
                 
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Código</th>
-                                <th>Nome</th>
-                                <th>Categoria</th>
-                                <th>Quantidade</th>
-                                <th>Unidade</th>
-                                <th>Valor Unitário</th>
-                                <th>Valor Total</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>INS001</td>
-                                <td>Tecido Algodão</td>
-                                <td>Insumo</td>
-                                <td>120</td>
-                                <td>m</td>
-                                <td>R$ 25,00</td>
-                                <td>R$ 3.000,00</td>
-                                <td><span class="badge badge-success">OK</span></td>
-                            </tr>
-                            <tr>
-                                <td>INS002</td>
-                                <td>Linha Poliéster</td>
-                                <td>Insumo</td>
-                                <td>45</td>
-                                <td>unid</td>
-                                <td>R$ 5,50</td>
-                                <td>R$ 247,50</td>
-                                <td><span class="badge badge-success">OK</span></td>
-                            </tr>
-                            <tr>
-                                <td>INS003</td>
-                                <td>Botões Plásticos</td>
-                                <td>Insumo</td>
-                                <td>200</td>
-                                <td>unid</td>
-                                <td>R$ 0,25</td>
-                                <td>R$ 50,00</td>
-                                <td><span class="badge badge-success">OK</span></td>
-                            </tr>
-                            <tr>
-                                <td>INS004</td>
-                                <td>Zíper Metálico</td>
-                                <td>Insumo</td>
-                                <td>15</td>
-                                <td>unid</td>
-                                <td>R$ 3,75</td>
-                                <td>R$ 56,25</td>
-                                <td><span class="badge badge-danger">Crítico</span></td>
-                            </tr>
-                            <tr>
-                                <td>INS005</td>
-                                <td>Elástico</td>
-                                <td>Insumo</td>
-                                <td>8</td>
-                                <td>m</td>
-                                <td>R$ 1,20</td>
-                                <td>R$ 9,60</td>
-                                <td><span class="badge badge-danger">Crítico</span></td>
-                            </tr>
-                            <tr>
-                                <td>PROD001</td>
-                                <td>Modelo XYZ</td>
-                                <td>Produto Acabado</td>
-                                <td>12</td>
-                                <td>unid</td>
-                                <td>R$ 89,90</td>
-                                <td>R$ 1.078,80</td>
-                                <td><span class="badge badge-success">OK</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Card 2: Linha Poliéster -->
+                <div class="item-card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-package'></i>
+                            Linha Poliéster
+                        </h3>
+                        <div class="card-code">INS002</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Insumo</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Quantidade</div>
+                            <div class="info-value">45 unid</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor Unitário</div>
+                            <div class="info-value">R$ 5,50</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor Total</div>
+                            <div class="info-value highlight">R$ 247,50</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Status</div>
+                            <div class="info-value">
+                                <span class="stock-level ok"></span> OK
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Histórico">
+                            <i class='bx bx-history'></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 3: Zíper Metálico -->
+                <div class="item-card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-package'></i>
+                            Zíper Metálico
+                        </h3>
+                        <div class="card-code">INS004</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Insumo</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Quantidade</div>
+                            <div class="info-value">15 unid</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor Unitário</div>
+                            <div class="info-value">R$ 3,75</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor Total</div>
+                            <div class="info-value highlight">R$ 56,25</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Status</div>
+                            <div class="info-value">
+                                <span class="stock-level critical"></span> Crítico
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Histórico">
+                            <i class='bx bx-history'></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 4: Elástico -->
+                <div class="item-card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-package'></i>
+                            Elástico
+                        </h3>
+                        <div class="card-code">INS005</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Insumo</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Quantidade</div>
+                            <div class="info-value">8 m</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor Unitário</div>
+                            <div class="info-value">R$ 1,20</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor Total</div>
+                            <div class="info-value highlight">R$ 9,60</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Status</div>
+                            <div class="info-value">
+                                <span class="stock-level critical"></span> Crítico
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Histórico">
+                            <i class='bx bx-history'></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 5: Modelo XYZ -->
+                <div class="item-card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-cube'></i>
+                            Modelo XYZ
+                        </h3>
+                        <div class="card-code">PROD001</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Produto Acabado</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Quantidade</div>
+                            <div class="info-value">12 unid</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor Unitário</div>
+                            <div class="info-value">R$ 89,90</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Valor Total</div>
+                            <div class="info-value highlight">R$ 1.078,80</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Status</div>
+                            <div class="info-value">
+                                <span class="stock-level ok"></span> OK
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Histórico">
+                            <i class='bx bx-history'></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
