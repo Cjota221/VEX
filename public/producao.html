@@ -30,70 +30,62 @@
         </header>
         
         <div class="content">
-            <!-- Produção em Andamento -->
-            <div class="card mb-4">
-                <h2 class="card-title">Produção em Andamento</h2>
-                
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Modelo</th>
-                                <th>Quantidade</th>
-                                <th>Data Início</th>
-                                <th>Previsão</th>
-                                <th>Status</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>#1001</td>
-                                <td>Modelo XYZ</td>
-                                <td>50</td>
-                                <td>20/05/2025</td>
-                                <td>25/05/2025</td>
-                                <td><span class="badge badge-info">Em Progresso</span></td>
-                                <td>
-                                    <button class="btn btn-icon btn-sm" title="Visualizar">
-                                        <i class='bx bx-show'></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-sm btn-danger" title="Cancelar">
-                                        <i class='bx bx-x'></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <!-- Seção: Produção em Andamento -->
+            <h2 class="section-title mb-3">Produção em Andamento</h2>
+            
+            <div class="cards-grid">
+                <!-- Card de Produção em Andamento -->
+                <div class="item-card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-factory'></i>
+                            #1001
+                        </h3>
+                        <div class="card-badge badge-info">Em Progresso</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Modelo</div>
+                            <div class="info-value highlight">Modelo XYZ</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Quantidade</div>
+                            <div class="info-value">50</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Data Início</div>
+                            <div class="info-value">20/05/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Previsão</div>
+                            <div class="info-value">25/05/2025</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Progresso</div>
+                            <div class="info-value">65%</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Visualizar">
+                            <i class='bx bx-show'></i>
+                        </button>
+                        <button class="btn btn-icon btn-danger" title="Cancelar">
+                            <i class='bx bx-x'></i>
+                        </button>
+                    </div>
                 </div>
             </div>
             
-            <!-- Histórico de Produção -->
-            <div class="card">
-                <h2 class="card-title">Histórico de Produção</h2>
-                
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Modelo</th>
-                                <th>Quantidade</th>
-                                <th>Data Início</th>
-                                <th>Data Fim</th>
-                                <th>Status</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Sem registros no histórico ainda -->
-                            <tr>
-                                <td colspan="7" class="text-center">Nenhum registro encontrado</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <!-- Seção: Histórico de Produção -->
+            <h2 class="section-title mt-5 mb-3">Histórico de Produção</h2>
+            
+            <div class="empty-state">
+                <i class='bx bx-history empty-icon'></i>
+                <h3>Nenhum registro encontrado</h3>
+                <p>O histórico de produções concluídas aparecerá aqui.</p>
             </div>
         </div>
     </main>
