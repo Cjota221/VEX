@@ -1,187 +1,271 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initialscale=1.0">
-<title>Appvex - Cadastro de Insumos</title>
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/utilities.css">
-<link rel="stylesheet" href="css/components/buttons.css">
-<link rel="stylesheet" href="css/components/cards.css">
-<link rel="stylesheet" href="css/components/forms.css">
-<link rel="stylesheet" href="css/components/modals.css">
-<link rel="stylesheet" href="css/components/tables.css">
-<link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/components/logo.css">
-<link href="https://fonts.googleapis.com/css2?
-family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
-<link href='https://unpkg.com/boxicons@2.1.4/css/
-boxicons.min.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appvex - Insumos</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/forms.css">
+    <link rel="stylesheet" href="css/components/modals.css">
+    <link rel="stylesheet" href="css/components/tables.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="dark-mode">
-<!-- Sidebar - Estrutura básica que será preenchida pelo
-JavaScript -->
-<aside class="sidebar"></aside>
-<!-- Conteúdo principal -->
-<main class="main-content">
-<header class="header">
-<h1>Cadastro de Insumos</h1>
-<div class="header-actions">
-<button class="btn btn-primary">
-<i class='bx bx-plus'></i>
- Adicionar Insumo
-</button>
-</div>
-</header>
-<div class="content">
-<!-- Filtros e Busca -->
-<div class="card mb-4">
-<div class="filters-container">
-<div class="search-container">
-<input type="text" class="form-control"
-placeholder="Buscar insumos...">
-</div>
-<div class="filter-container">
-<select class="form-control">
-<option>Todos os insumos</option>
-<option>Unidade: kg</option>
-<option>Unidade: m</option>
-<option>Unidade: l</option>
-<option>Unidade: unid</option>
-</select>
-<button class="btn btnsecondary">Filtrar</button>
-</div>
-<div class="export-container">
-<button class="btn btn-outline">
-<i class='bx bx-export'></i>
- Exportar
-</button>
-</div>
-</div>
-</div>
-<!-- Lista de Insumos -->
-<div class="card">
-<h2 class="card-title">Lista de Insumos</h2>
-<div class="table-responsive">
-<table class="table">
-<thead>
-<tr>
-<th>Nome</th>
-<th>Unidade</th>
-<th>Preço Unitário</th>
-<th>Estoque Atual</th>
-<th>Estoque Mínimo</th>
-<th>Status</th>
-<th>Ações</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Tecido Algodão</td>
-<td>m</td>
-<td>R$ 25,00</td>
-<td>120</td>
-<td>50</td>
-<td><span class="badge badgesuccess">OK</span></td>
-<td>
-<button class="btn btn-icon
-btn-sm" title="Editar">
-<i class='bx bx-edit'></
-i>
-</button>
-<button class="btn btn-icon
-btn-sm btn-danger" title="Excluir">
-<i class='bx bxtrash'></i>
-</button>
-</td>
-</tr>
-<tr>
-<td>Linha Poliéster</td>
-<td>unid</td>
-<td>R$ 5,50</td>
-<td>45</td>
-<td>30</td>
-<td><span class="badge badgesuccess">OK</span></td>
-<td>
-<button class="btn btn-icon
-btn-sm" title="Editar">
-<i class='bx bx-edit'></
-i>
-</button>
-<button class="btn btn-icon
-btn-sm btn-danger" title="Excluir">
-<i class='bx bxtrash'></i>
-</button>
-</td>
-</tr>
-<tr>
-<td>Botões Plásticos</td>
-<td>unid</td>
-<td>R$ 0,25</td>
-<td>200</td>
-<td>100</td>
-<td><span class="badge badgesuccess">OK</span></td>
-<td>
-<button class="btn btn-icon
-btn-sm" title="Editar">
-<i class='bx bx-edit'></
-i>
-</button>
-<button class="btn btn-icon
-btn-sm btn-danger" title="Excluir">
-<i class='bx bxtrash'></i>
-</button>
-</td>
-</tr>
-<tr>
-<td>Zíper Metálico</td>
-<td>unid</td>
-<td>R$ 3,75</td>
-<td>15</td>
-<td>25</td>
-<td><span class="badge badgedanger">Crítico</span></td>
-<td>
-<button class="btn btn-icon
-btn-sm" title="Editar">
-<i class='bx bx-edit'></
-i>
-</button>
-<button class="btn btn-icon
-btn-sm btn-danger" title="Excluir">
-<i class='bx bxtrash'></i>
-</button>
-</td>
-</tr>
-<tr>
-<td>Elástico</td>
-<td>m</td>
-<td>R$ 1,20</td>
-<td>8</td>
-<td>20</td>
-<td><span class="badge badgedanger">Crítico</span></td>
-<td>
-<button class="btn btn-icon
-btn-sm" title="Editar">
-<i class='bx bx-edit'></
-i>
-</button>
-<button class="btn btn-icon
-btn-sm btn-danger" title="Excluir">
-<i class='bx bxtrash'></i>
-</button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</main>
-<!-- Scripts -->
-<script src="js/menu.js"></script>
-<script src="js/main.js"></script>
+    <!-- Sidebar - Estrutura básica que será preenchida pelo JavaScript -->
+    <aside class="sidebar"></aside>
+    
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+        <header class="header">
+            <h1>Cadastro de Insumos</h1>
+            <div class="header-actions">
+                <button class="btn btn-primary">Adicionar Insumo</button>
+            </div>
+        </header>
+        
+        <div class="content">
+            <!-- Filtros e Busca -->
+            <div class="filters-container mb-4">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar insumos..." class="form-control">
+                    <i class='bx bx-search'></i>
+                </div>
+                <div class="filters">
+                    <select class="form-control">
+                        <option>Todos os insumos</option>
+                        <option>Unidade: kg</option>
+                        <option>Unidade: m</option>
+                        <option>Unidade: l</option>
+                        <option>Unidade: unid</option>
+                    </select>
+                    <button class="btn btn-secondary">Filtrar</button>
+                </div>
+                <div class="view-options">
+                    <button class="btn btn-icon" title="Visualização em Cards" disabled>
+                        <i class='bx bxs-grid'></i>
+                    </button>
+                    <button class="btn btn-icon" title="Visualização em Tabela">
+                        <i class='bx bx-table'></i>
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class='bx bx-export'></i> Exportar
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Grid de Cards de Insumos -->
+            <div class="cards-grid">
+                <!-- Card 1: Tecido Algodão -->
+                <div class="item-card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-package'></i>
+                            Tecido Algodão
+                        </h3>
+                        <div class="card-badge badge-success">OK</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Unidade</div>
+                            <div class="info-value">m</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Preço Unitário</div>
+                            <div class="info-value highlight">R$ 25,00</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Estoque Atual</div>
+                            <div class="info-value">120</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Estoque Mínimo</div>
+                            <div class="info-value">50</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill success" style="width: 240%;"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon btn-danger" title="Excluir">
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Linha Poliéster -->
+                <div class="item-card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-package'></i>
+                            Linha Poliéster
+                        </h3>
+                        <div class="card-badge badge-success">OK</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Unidade</div>
+                            <div class="info-value">unid</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Preço Unitário</div>
+                            <div class="info-value highlight">R$ 5,50</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Estoque Atual</div>
+                            <div class="info-value">45</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Estoque Mínimo</div>
+                            <div class="info-value">30</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill success" style="width: 150%;"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon btn-danger" title="Excluir">
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 3: Botões Plásticos -->
+                <div class="item-card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-package'></i>
+                            Botões Plásticos
+                        </h3>
+                        <div class="card-badge badge-success">OK</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Unidade</div>
+                            <div class="info-value">unid</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Preço Unitário</div>
+                            <div class="info-value highlight">R$ 0,25</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Estoque Atual</div>
+                            <div class="info-value">200</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Estoque Mínimo</div>
+                            <div class="info-value">100</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill success" style="width: 200%;"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon btn-danger" title="Excluir">
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 4: Zíper Metálico -->
+                <div class="item-card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-package'></i>
+                            Zíper Metálico
+                        </h3>
+                        <div class="card-badge badge-danger">Crítico</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Unidade</div>
+                            <div class="info-value">unid</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Preço Unitário</div>
+                            <div class="info-value highlight">R$ 3,75</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Estoque Atual</div>
+                            <div class="info-value">15</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Estoque Mínimo</div>
+                            <div class="info-value">25</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill danger" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon btn-danger" title="Excluir">
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 5: Elástico -->
+                <div class="item-card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-package'></i>
+                            Elástico
+                        </h3>
+                        <div class="card-badge badge-danger">Crítico</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Unidade</div>
+                            <div class="info-value">m</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Preço Unitário</div>
+                            <div class="info-value highlight">R$ 1,20</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Estoque Atual</div>
+                            <div class="info-value">8</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Estoque Mínimo</div>
+                            <div class="info-value">20</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill danger" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon btn-danger" title="Excluir">
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Scripts -->
+    <script src="js/menu.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
