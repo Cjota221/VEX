@@ -1,0 +1,101 @@
+/* Responsividade para todos os dispositivos */
+/* Tablets e dispositivos médios */
+@media (max-width: 992px) {
+/* Ajustes para o grid */
+.grid-cols-3 {
+grid-template-columns: repeat(2, 1fr);
+}
+/* Ajustes para tabelas */
+.table-responsive {
+overflow-x: auto;
+}
+/* Ajustes para formulários */
+.form-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+/* Dispositivos móveis */
+@media (max-width: 768px) {
+/* Ajustes para o grid */
+.grid-cols-2, .grid-cols-3 {
+grid-template-columns: 1fr;
+}
+/* Ajustes para formulários */
+.form-grid {
+grid-template-columns: 1fr;
+}
+/* Ajustes para o header */
+.header {
+flex-direction: column;
+height: auto;
+padding: var(--spacing-md);
+gap: var(--spacing-md);
+align-items: flex-start;
+}
+.header-actions {
+width: 100%;
+justify-content: flex-start;
+}
+/* Ajustes para filtros */
+.filters-container {
+flex-direction: column;
+gap: var(--spacing-md);
+}
+.search-container, .filter-container, .export-container {
+width: 100%;
+}
+/* Ajustes para cards */
+.card {
+padding: var(--spacing-md);
+}
+/* Ajustes para botões */
+.btn {
+padding: 0.5rem 0.75rem;
+}
+/* Ajustes para tabelas */
+.table th, .table td {
+padding: 0.5rem;
+}
+/* Menu toggle para mobile */
+.menu-toggle {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 40px;
+height: 40px;
+background-color: var(--bg-color-tertiary);
+border-radius: var(--border-radius-md);
+cursor: pointer;
+position: fixed;
+top: 10px;
+left: 10px;
+z-index: 101;
+}
+.dark-mode .menu-toggle {
+background-color: var(--dark-bg-color-tertiary);
+}
+.menu-toggle i {
+font-size: 1.5rem;
+color: var(--text-color);
+}
+.dark-mode .menu-toggle i {
+color: var(--dark-text-color);
+}
+}
+/* Dispositivos muito pequenos */
+@media (max-width: 480px) {
+.content {
+padding: var(--spacing-md);
+}
+.card-title {
+font-size: 1.25rem;
+}
+.btn-group {
+flex-direction: column;
+width: 100%;
+}
+.btn-group .btn {
+width: 100%;
+margin-bottom: var(--spacing-xs);
+}
+}
