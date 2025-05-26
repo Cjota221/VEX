@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="css/components/forms.css">
 <link rel="stylesheet" href="css/components/modals.css">
 <link rel="stylesheet" href="css/components/tables.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/components/logo.css">
 <link href="https://fonts.googleapis.com/css2?
 family=Poppins:wght@300;400;500;600;700&display=swap"
 rel="stylesheet">
@@ -28,8 +30,10 @@ JavaScript -->
 <header class="header">
 <h1>Cadastro de Insumos</h1>
 <div class="header-actions">
-<button class="btn btn-primary">Adicionar
-Insumo</button>
+<button class="btn btn-primary">
+<i class='bx bx-plus'></i>
+ Adicionar Insumo
+</button>
 </div>
 </header>
 <div class="content">
@@ -37,8 +41,8 @@ Insumo</button>
 <div class="card mb-4">
 <div class="filters-container">
 <div class="search-container">
-<input type="text" placeholder="Buscar
-insumos..." class="form-control">
+<input type="text" class="form-control"
+placeholder="Buscar insumos...">
 </div>
 <div class="filter-container">
 <select class="form-control">
@@ -181,112 +185,3 @@ btn-sm btn-danger" title="Excluir">
 <script src="js/main.js"></script>
 </body>
 </html>
-2.4. Melhorias de Responsividade
-Para melhorar a responsividade, vamos adicionar um arquivo CSS específico para
-ajustes mobile.
-Arquivo: css/responsive.css (novo arquivo)
-/* Responsividade para todos os dispositivos */
-/* Tablets e dispositivos médios */
-@media (max-width: 992px) {
-/* Ajustes para o grid */
-.grid-cols-3 {
-grid-template-columns: repeat(2, 1fr);
-}
-/* Ajustes para tabelas */
-.table-responsive {
-overflow-x: auto;
-}
-/* Ajustes para formulários */
-.form-grid {
-grid-template-columns: repeat(2, 1fr);
-}
-}
-/* Dispositivos móveis */
-@media (max-width: 768px) {
-/* Ajustes para o grid */
-.grid-cols-2,
-.grid-cols-3 {
-grid-template-columns: 1fr;
-}
-/* Ajustes para formulários */
-.form-grid {
-grid-template-columns: 1fr;
-}
-/* Ajustes para o header */
-.header {
-flex-direction: column;
-height: auto;
-padding: var(--spacing-md);
-gap: var(--spacing-md);
-align-items: flex-start;
-}
-.header-actions {
-width: 100%;
-justify-content: flex-start;
-}
-/* Ajustes para filtros */
-.filters-container {
-flex-direction: column;
-gap: var(--spacing-md);
-}
-.search-container,
-.filter-container,
-.export-container {
-width: 100%;
-}
-/* Ajustes para cards */
-.card {
-padding: var(--spacing-md);
-}
-/* Ajustes para botões */
-.btn {
-padding: 0.5rem 0.75rem;
-}
-/* Ajustes para tabelas */
-.table th,
-.table td {
-padding: 0.5rem;
-}
-/* Menu toggle para mobile */
-.menu-toggle {
-display: flex;
-align-items: center;
-justify-content: center;
-width: 40px;
-height: 40px;
-background-color: var(--bg-color-tertiary);
-border-radius: var(--border-radius-md);
-cursor: pointer;
-position: fixed;
-top: 10px;
-left: 10px;
-z-index: 101;
-}
-.dark-mode .menu-toggle {
-background-color: var(--dark-bg-color-tertiary);
-}
-.menu-toggle i {
-font-size: 1.5rem;
-color: var(--text-color);
-}
-.dark-mode .menu-toggle i {
-color: var(--dark-text-color);
-}
-}
-/* Dispositivos muito pequenos */
-@media (max-width: 480px) {
-.content {
-padding: var(--spacing-md);
-}
-.card-title {
-font-size: 1.25rem;
-}
-.btn-group {
-flex-direction: column;
-width: 100%;
-}
-.btn-group .btn {
-width: 100%;
-margin-bottom: var(--spacing-xs);
-}
-}
