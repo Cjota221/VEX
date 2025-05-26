@@ -1,156 +1,324 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appvex - Modelos</title>
+    <!-- CSS Base -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/utilities.css">
+    
+    <!-- Componentes CSS -->
     <link rel="stylesheet" href="css/components/buttons.css">
     <link rel="stylesheet" href="css/components/cards.css">
     <link rel="stylesheet" href="css/components/forms.css">
     <link rel="stylesheet" href="css/components/modals.css">
     <link rel="stylesheet" href="css/components/tables.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Correções CSS -->
+    <link rel="stylesheet" href="css/card-fixes.css">
+    <link rel="stylesheet" href="css/responsive-fixes.css">
+    
+    <!-- Fontes -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body class="dark-mode">
-    <!-- Sidebar - Estrutura básica que será preenchida pelo JavaScript -->
-    <aside class="sidebar"></aside>
-    
-    <!-- Conteúdo principal -->
-    <main class="main-content">
-        <header class="header">
-            <h1>Modelos</h1>
-            <div class="header-actions">
-                <button class="btn btn-primary">Adicionar Modelo</button>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <h1 class="logo">VEX</h1>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="index.html">
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="insumos.html">
+                <i class='bx bxs-cube'></i>
+                <span>Insumos</span>
+            </a>
+            <a href="modelos.html" class="active">
+                <i class='bx bxs-cube-alt'></i>
+                <span>Modelos</span>
+            </a>
+            <a href="producao.html">
+                <i class='bx bxs-factory'></i>
+                <span>Produção</span>
+            </a>
+            <a href="estoque.html">
+                <i class='bx bxs-box'></i>
+                <span>Estoque</span>
+            </a>
+            <a href="financeiro.html">
+                <i class='bx bxs-wallet'></i>
+                <span>Financeiro</span>
+            </a>
+            <a href="relatorios.html">
+                <i class='bx bxs-file'></i>
+                <span>Relatórios</span>
+            </a>
+            <a href="calculadora.html">
+                <i class='bx bxs-calculator'></i>
+                <span>Calculadora</span>
+            </a>
+            <a href="configuracoes.html">
+                <i class='bx bxs-cog'></i>
+                <span>Configurações</span>
+            </a>
+            <a href="#">
+                <i class='bx bxs-help-circle'></i>
+                <span>Ajuda & Suporte</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Botão de toggle para o sidebar em dispositivos móveis -->
+    <button class="sidebar-toggle">
+        <i class='bx bx-menu'></i>
+    </button>
+
+    <!-- Overlay para o sidebar em dispositivos móveis -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- Container Principal -->
+    <div class="main-container">
+        <!-- Cabeçalho da Página -->
+        <div class="page-header">
+            <h2 class="page-title">Modelos</h2>
+            <div class="page-actions">
+                <button class="btn btn-primary">
+                    <i class='bx bx-plus'></i>
+                    Adicionar Modelo
+                </button>
             </div>
-        </header>
-        
-        <div class="content">
-            <!-- Filtros e Busca -->
-            <div class="filters-container mb-4">
-                <div class="search-box">
-                    <input type="text" placeholder="Buscar modelos..." class="form-control">
-                    <i class='bx bx-search'></i>
-                </div>
-                <div class="filters">
-                    <select class="form-control">
-                        <option>Todos os modelos</option>
-                        <option>Categoria: Vestuário</option>
-                        <option>Categoria: Acessórios</option>
-                    </select>
-                    <button class="btn btn-secondary">Filtrar</button>
-                </div>
-                <div class="view-options">
-                    <button class="btn btn-icon" title="Visualização em Cards" disabled>
-                        <i class='bx bxs-grid'></i>
-                    </button>
-                    <button class="btn btn-icon" title="Visualização em Tabela">
-                        <i class='bx bx-table'></i>
-                    </button>
-                </div>
+        </div>
+
+        <!-- Filtros e Busca -->
+        <div class="filters-container">
+            <div class="search-box">
+                <input type="text" placeholder="Buscar modelos..." class="form-control">
             </div>
-            
-            <!-- Grid de Cards de Modelos -->
-            <div class="cards-grid">
-                <!-- Card 1: Modelo XYZ -->
-                <div class="item-card">
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <i class='bx bx-cube'></i>
-                            Modelo XYZ
-                        </h3>
-                        <div class="card-code">MOD001</div>
+            <div class="filter-select">
+                <select class="form-control">
+                    <option value="all">Todos os modelos</option>
+                    <option value="clothing">Categoria: Vestuário</option>
+                    <option value="accessories">Categoria: Acessórios</option>
+                </select>
+            </div>
+            <button class="btn btn-secondary">Filtrar</button>
+            <div class="view-toggle">
+                <button class="btn btn-icon active" title="Visualização em Cards">
+                    <i class='bx bxs-grid'></i>
+                </button>
+                <button class="btn btn-icon" title="Visualização em Tabela">
+                    <i class='bx bx-list-ul'></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Grid de Cards de Modelos -->
+        <div class="cards-grid">
+            <!-- Card de Modelo - Modelo XYZ -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Modelo XYZ</h3>
+                    <span class="status">MOD001</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-group">
+                        <div class="info-label">Categoria:</div>
+                        <div class="info-value">Vestuário</div>
                     </div>
-                    <div class="card-body">
-                        <div class="card-info">
-                            <div class="info-label">Categoria</div>
-                            <div class="info-value">Vestuário</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Preço de Venda</div>
-                            <div class="info-value highlight">R$ 89,90</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Custo Estimado</div>
-                            <div class="info-value">R$ 45,20</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Margem</div>
-                            <div class="margin-indicator">
-                                <div class="margin-value medium">49.7%</div>
-                                <div class="progress-bar" style="width: 80px;">
-                                    <div class="progress-bar-fill warning" style="width: 49.7%;"></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="info-group">
+                        <div class="info-label">Preço de Venda:</div>
+                        <div class="info-value">R$ 89,90</div>
                     </div>
-                    <div class="card-footer">
+                    <div class="info-group">
+                        <div class="info-label">Custo Estimado:</div>
+                        <div class="info-value">R$ 45,20</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Margem:</div>
+                        <div class="info-value">49.7%</div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-actions">
                         <button class="btn btn-icon" title="Editar">
                             <i class='bx bx-edit'></i>
                         </button>
                         <button class="btn btn-icon" title="Ver Insumos">
-                            <i class='bx bx-list-ul'></i>
+                            <i class='bx bx-list-check'></i>
                         </button>
-                        <button class="btn btn-icon btn-danger" title="Excluir">
+                        <button class="btn btn-icon" title="Excluir">
                             <i class='bx bx-trash'></i>
                         </button>
                     </div>
                 </div>
-                
-                <!-- Card 2: Modelo ABC -->
-                <div class="item-card">
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <i class='bx bx-cube'></i>
-                            Modelo ABC
-                        </h3>
-                        <div class="card-code">MOD002</div>
+            </div>
+
+            <!-- Card de Modelo - Modelo ABC -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Modelo ABC</h3>
+                    <span class="status">MOD002</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-group">
+                        <div class="info-label">Categoria:</div>
+                        <div class="info-value">Acessórios</div>
                     </div>
-                    <div class="card-body">
-                        <div class="card-info">
-                            <div class="info-label">Categoria</div>
-                            <div class="info-value">Acessórios</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Preço de Venda</div>
-                            <div class="info-value highlight">R$ 45,00</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Custo Estimado</div>
-                            <div class="info-value">R$ 18,75</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Margem</div>
-                            <div class="margin-indicator">
-                                <div class="margin-value high">58.3%</div>
-                                <div class="progress-bar" style="width: 80px;">
-                                    <div class="progress-bar-fill success" style="width: 58.3%;"></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="info-group">
+                        <div class="info-label">Preço de Venda:</div>
+                        <div class="info-value">R$ 45,00</div>
                     </div>
-                    <div class="card-footer">
+                    <div class="info-group">
+                        <div class="info-label">Custo Estimado:</div>
+                        <div class="info-value">R$ 18,75</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Margem:</div>
+                        <div class="info-value">58.3%</div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-actions">
                         <button class="btn btn-icon" title="Editar">
                             <i class='bx bx-edit'></i>
                         </button>
                         <button class="btn btn-icon" title="Ver Insumos">
-                            <i class='bx bx-list-ul'></i>
+                            <i class='bx bx-list-check'></i>
                         </button>
-                        <button class="btn btn-icon btn-danger" title="Excluir">
+                        <button class="btn btn-icon" title="Excluir">
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card de Modelo - Modelo DEF -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Modelo DEF</h3>
+                    <span class="status">MOD003</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-group">
+                        <div class="info-label">Categoria:</div>
+                        <div class="info-value">Vestuário</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Preço de Venda:</div>
+                        <div class="info-value">R$ 75,50</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Custo Estimado:</div>
+                        <div class="info-value">R$ 32,80</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Margem:</div>
+                        <div class="info-value">56.6%</div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-actions">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Ver Insumos">
+                            <i class='bx bx-list-check'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Excluir">
                             <i class='bx bx-trash'></i>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-    
+
+        <!-- Visualização em Tabela (inicialmente oculta) -->
+        <div class="table-responsive" style="display: none;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Código</th>
+                        <th>Categoria</th>
+                        <th>Preço de Venda</th>
+                        <th>Custo Estimado</th>
+                        <th>Margem</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Modelo XYZ</td>
+                        <td>MOD001</td>
+                        <td>Vestuário</td>
+                        <td>R$ 89,90</td>
+                        <td>R$ 45,20</td>
+                        <td>49.7%</td>
+                        <td>
+                            <button class="btn btn-icon btn-sm" title="Editar">
+                                <i class='bx bx-edit'></i>
+                            </button>
+                            <button class="btn btn-icon btn-sm" title="Ver Insumos">
+                                <i class='bx bx-list-check'></i>
+                            </button>
+                            <button class="btn btn-icon btn-sm" title="Excluir">
+                                <i class='bx bx-trash'></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Modelo ABC</td>
+                        <td>MOD002</td>
+                        <td>Acessórios</td>
+                        <td>R$ 45,00</td>
+                        <td>R$ 18,75</td>
+                        <td>58.3%</td>
+                        <td>
+                            <button class="btn btn-icon btn-sm" title="Editar">
+                                <i class='bx bx-edit'></i>
+                            </button>
+                            <button class="btn btn-icon btn-sm" title="Ver Insumos">
+                                <i class='bx bx-list-check'></i>
+                            </button>
+                            <button class="btn btn-icon btn-sm" title="Excluir">
+                                <i class='bx bx-trash'></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Modelo DEF</td>
+                        <td>MOD003</td>
+                        <td>Vestuário</td>
+                        <td>R$ 75,50</td>
+                        <td>R$ 32,80</td>
+                        <td>56.6%</td>
+                        <td>
+                            <button class="btn btn-icon btn-sm" title="Editar">
+                                <i class='bx bx-edit'></i>
+                            </button>
+                            <button class="btn btn-icon btn-sm" title="Ver Insumos">
+                                <i class='bx bx-list-check'></i>
+                            </button>
+                            <button class="btn btn-icon btn-sm" title="Excluir">
+                                <i class='bx bx-trash'></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="js/menu.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/microinteractions.js"></script>
 </body>
 </html>
