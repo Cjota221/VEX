@@ -1,227 +1,302 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appvex - Relatórios</title>
+    <!-- CSS Base -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/utilities.css">
+    
+    <!-- Componentes CSS -->
     <link rel="stylesheet" href="css/components/buttons.css">
     <link rel="stylesheet" href="css/components/cards.css">
     <link rel="stylesheet" href="css/components/forms.css">
     <link rel="stylesheet" href="css/components/modals.css">
     <link rel="stylesheet" href="css/components/tables.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Correções CSS -->
+    <link rel="stylesheet" href="css/card-fixes.css">
+    <link rel="stylesheet" href="css/responsive-fixes.css">
+    
+    <!-- Fontes -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body class="dark-mode">
-    <!-- Sidebar - Estrutura básica que será preenchida pelo JavaScript -->
-    <aside class="sidebar"></aside>
-    
-    <!-- Conteúdo principal -->
-    <main class="main-content">
-        <header class="header">
-            <h1>Relatórios</h1>
-            <div class="header-actions">
-                <button class="btn btn-primary">Exportar Relatórios</button>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <h1 class="logo">VEX</h1>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="index.html">
+                <i class='bx bxs-dashboard'></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="insumos.html">
+                <i class='bx bxs-cube'></i>
+                <span>Insumos</span>
+            </a>
+            <a href="modelos.html">
+                <i class='bx bxs-cube-alt'></i>
+                <span>Modelos</span>
+            </a>
+            <a href="producao.html">
+                <i class='bx bxs-factory'></i>
+                <span>Produção</span>
+            </a>
+            <a href="estoque.html">
+                <i class='bx bxs-box'></i>
+                <span>Estoque</span>
+            </a>
+            <a href="financeiro.html">
+                <i class='bx bxs-wallet'></i>
+                <span>Financeiro</span>
+            </a>
+            <a href="relatorios.html" class="active">
+                <i class='bx bxs-file'></i>
+                <span>Relatórios</span>
+            </a>
+            <a href="calculadora.html">
+                <i class='bx bxs-calculator'></i>
+                <span>Calculadora</span>
+            </a>
+            <a href="configuracoes.html">
+                <i class='bx bxs-cog'></i>
+                <span>Configurações</span>
+            </a>
+            <a href="#">
+                <i class='bx bxs-help-circle'></i>
+                <span>Ajuda & Suporte</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Botão de toggle para o sidebar em dispositivos móveis -->
+    <button class="sidebar-toggle">
+        <i class='bx bx-menu'></i>
+    </button>
+
+    <!-- Overlay para o sidebar em dispositivos móveis -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- Container Principal -->
+    <div class="main-container">
+        <!-- Cabeçalho da Página -->
+        <div class="page-header">
+            <h2 class="page-title">Relatórios</h2>
+            <div class="page-actions">
+                <button class="btn btn-primary">
+                    <i class='bx bx-export'></i>
+                    Exportar
+                </button>
             </div>
-        </header>
-        
-        <div class="content">
-            <!-- Filtros de Relatórios -->
-            <div class="filters-container mb-4">
-                <div class="search-box">
-                    <input type="text" placeholder="Buscar relatórios..." class="form-control">
-                    <i class='bx bx-search'></i>
+        </div>
+
+        <!-- Filtros e Busca -->
+        <div class="filters-container">
+            <div class="filter-select">
+                <select class="form-control">
+                    <option value="all">Todos os relatórios</option>
+                    <option value="production">Produção</option>
+                    <option value="inventory">Estoque</option>
+                    <option value="financial">Financeiro</option>
+                </select>
+            </div>
+            <div class="filter-select">
+                <select class="form-control">
+                    <option value="month">Mês atual</option>
+                    <option value="quarter">Último trimestre</option>
+                    <option value="year">Último ano</option>
+                    <option value="custom">Período personalizado</option>
+                </select>
+            </div>
+            <button class="btn btn-secondary">Gerar Relatório</button>
+        </div>
+
+        <!-- Grid de Cards de Relatórios -->
+        <div class="cards-grid">
+            <!-- Card de Relatório - Produção Mensal -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Produção Mensal</h3>
+                    <span class="status">Maio/2025</span>
                 </div>
-                <div class="filters">
-                    <select class="form-control">
-                        <option>Todos os relatórios</option>
-                        <option>Produção</option>
-                        <option>Financeiro</option>
-                        <option>Estoque</option>
-                    </select>
-                    <button class="btn btn-secondary">Filtrar</button>
+                <div class="card-content">
+                    <div class="info-group">
+                        <div class="info-label">Tipo:</div>
+                        <div class="info-value">Produção</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Período:</div>
+                        <div class="info-value">01/05/2025 a 31/05/2025</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Itens Produzidos:</div>
+                        <div class="info-value">120</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Eficiência:</div>
+                        <div class="info-value">92%</div>
+                    </div>
                 </div>
-                <div class="view-options">
-                    <button class="btn btn-icon" title="Visualização em Cards" disabled>
-                        <i class='bx bxs-grid'></i>
-                    </button>
-                    <button class="btn btn-icon" title="Visualização em Tabela">
-                        <i class='bx bx-table'></i>
-                    </button>
+                <div class="card-footer">
+                    <div class="card-actions">
+                        <button class="btn btn-icon" title="Visualizar">
+                            <i class='bx bx-show'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Baixar PDF">
+                            <i class='bx bx-download'></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Grid de Cards de Relatórios -->
-            <div class="cards-grid">
-                <!-- Card 1: Relatório de Produção -->
-                <div class="item-card">
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <i class='bx bx-file'></i>
-                            Relatório de Produção - Maio/2025
-                        </h3>
+
+            <!-- Card de Relatório - Estoque Atual -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Estoque Atual</h3>
+                    <span class="status">Atualizado hoje</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-group">
+                        <div class="info-label">Tipo:</div>
+                        <div class="info-value">Estoque</div>
                     </div>
-                    <div class="card-body">
-                        <div class="card-info">
-                            <div class="info-label">Categoria</div>
-                            <div class="info-value">Produção</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Período</div>
-                            <div class="info-value">01/05/2025 - 31/05/2025</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Data de Geração</div>
-                            <div class="info-value">01/06/2025</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Gerado por</div>
-                            <div class="info-value">Admin</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Formato</div>
-                            <div class="info-value">PDF, Excel</div>
-                        </div>
+                    <div class="info-group">
+                        <div class="info-label">Data:</div>
+                        <div class="info-value">26/05/2025</div>
                     </div>
-                    <div class="card-footer">
+                    <div class="info-group">
+                        <div class="info-label">Total de Itens:</div>
+                        <div class="info-value">387</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Valor Total:</div>
+                        <div class="info-value">R$ 8.450,75</div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-actions">
                         <button class="btn btn-icon" title="Visualizar">
                             <i class='bx bx-show'></i>
                         </button>
-                        <button class="btn btn-icon" title="Baixar">
+                        <button class="btn btn-icon" title="Baixar PDF">
                             <i class='bx bx-download'></i>
                         </button>
                     </div>
                 </div>
-                
-                <!-- Card 2: Relatório Financeiro -->
-                <div class="item-card">
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <i class='bx bx-file'></i>
-                            Relatório Financeiro - Maio/2025
-                        </h3>
+            </div>
+
+            <!-- Card de Relatório - Financeiro Mensal -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Financeiro Mensal</h3>
+                    <span class="status">Maio/2025</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-group">
+                        <div class="info-label">Tipo:</div>
+                        <div class="info-value">Financeiro</div>
                     </div>
-                    <div class="card-body">
-                        <div class="card-info">
-                            <div class="info-label">Categoria</div>
-                            <div class="info-value">Financeiro</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Período</div>
-                            <div class="info-value">01/05/2025 - 31/05/2025</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Data de Geração</div>
-                            <div class="info-value">01/06/2025</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Gerado por</div>
-                            <div class="info-value">Admin</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Formato</div>
-                            <div class="info-value">PDF, Excel</div>
-                        </div>
+                    <div class="info-group">
+                        <div class="info-label">Período:</div>
+                        <div class="info-value">01/05/2025 a 31/05/2025</div>
                     </div>
-                    <div class="card-footer">
+                    <div class="info-group">
+                        <div class="info-label">Receitas:</div>
+                        <div class="info-value">R$ 15.780,00</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Despesas:</div>
+                        <div class="info-value">R$ 8.450,00</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Saldo:</div>
+                        <div class="info-value">R$ 7.330,00</div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-actions">
                         <button class="btn btn-icon" title="Visualizar">
                             <i class='bx bx-show'></i>
                         </button>
-                        <button class="btn btn-icon" title="Baixar">
+                        <button class="btn btn-icon" title="Baixar PDF">
                             <i class='bx bx-download'></i>
                         </button>
                     </div>
                 </div>
-                
-                <!-- Card 3: Relatório de Estoque -->
-                <div class="item-card">
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <i class='bx bx-file'></i>
-                            Relatório de Estoque - Abril/2025
-                        </h3>
+            </div>
+
+            <!-- Card de Relatório - Vendas por Produto -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Vendas por Produto</h3>
+                    <span class="status">Maio/2025</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-group">
+                        <div class="info-label">Tipo:</div>
+                        <div class="info-value">Vendas</div>
                     </div>
-                    <div class="card-body">
-                        <div class="card-info">
-                            <div class="info-label">Categoria</div>
-                            <div class="info-value">Estoque</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Período</div>
-                            <div class="info-value">01/04/2025 - 30/04/2025</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Data de Geração</div>
-                            <div class="info-value">01/05/2025</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Gerado por</div>
-                            <div class="info-value">Admin</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Formato</div>
-                            <div class="info-value">PDF, Excel</div>
-                        </div>
+                    <div class="info-group">
+                        <div class="info-label">Período:</div>
+                        <div class="info-value">01/05/2025 a 31/05/2025</div>
                     </div>
-                    <div class="card-footer">
-                        <button class="btn btn-icon" title="Visualizar">
-                            <i class='bx bx-show'></i>
-                        </button>
-                        <button class="btn btn-icon" title="Baixar">
-                            <i class='bx bx-download'></i>
-                        </button>
+                    <div class="info-group">
+                        <div class="info-label">Total de Vendas:</div>
+                        <div class="info-value">45 unidades</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Valor Total:</div>
+                        <div class="info-value">R$ 3.450,00</div>
                     </div>
                 </div>
-                
-                <!-- Card 4: Relatório de Vendas -->
-                <div class="item-card">
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <i class='bx bx-file'></i>
-                            Relatório de Vendas - Q1/2025
-                        </h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-info">
-                            <div class="info-label">Categoria</div>
-                            <div class="info-value">Vendas</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Período</div>
-                            <div class="info-value">01/01/2025 - 31/03/2025</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Data de Geração</div>
-                            <div class="info-value">05/04/2025</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Gerado por</div>
-                            <div class="info-value">Admin</div>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-label">Formato</div>
-                            <div class="info-value">PDF, Excel</div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
+                <div class="card-footer">
+                    <div class="card-actions">
                         <button class="btn btn-icon" title="Visualizar">
                             <i class='bx bx-show'></i>
                         </button>
-                        <button class="btn btn-icon" title="Baixar">
+                        <button class="btn btn-icon" title="Baixar PDF">
                             <i class='bx bx-download'></i>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-    
+
+        <!-- Visualização de Relatório (inicialmente oculta) -->
+        <div class="card" id="reportViewer" style="display: none;">
+            <div class="card-header">
+                <h3 class="card-title">Visualização de Relatório</h3>
+                <button class="btn btn-icon" id="closeReportViewer">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+            <div class="card-content">
+                <div id="reportContent">
+                    <!-- Conteúdo do relatório será carregado aqui -->
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary">
+                    <i class='bx bx-download'></i>
+                    Baixar PDF
+                </button>
+                <button class="btn btn-secondary">
+                    <i class='bx bx-printer'></i>
+                    Imprimir
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="js/menu.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/microinteractions.js"></script>
 </body>
 </html>
