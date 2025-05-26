@@ -31,81 +31,119 @@
         
         <div class="content">
             <!-- Filtros e Busca -->
-            <div class="card mb-4">
-                <div class="filters-container">
-                    <div class="search-container">
-                        <input type="text" placeholder="Buscar modelos..." class="form-control">
-                    </div>
-                    
-                    <div class="filter-container">
-                        <select class="form-control">
-                            <option>Todos os modelos</option>
-                            <option>Categoria: Vestuário</option>
-                            <option>Categoria: Acessórios</option>
-                        </select>
-                        <button class="btn btn-secondary">Filtrar</button>
-                    </div>
+            <div class="filters-container mb-4">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar modelos..." class="form-control">
+                    <i class='bx bx-search'></i>
+                </div>
+                <div class="filters">
+                    <select class="form-control">
+                        <option>Todos os modelos</option>
+                        <option>Categoria: Vestuário</option>
+                        <option>Categoria: Acessórios</option>
+                    </select>
+                    <button class="btn btn-secondary">Filtrar</button>
+                </div>
+                <div class="view-options">
+                    <button class="btn btn-icon" title="Visualização em Cards" disabled>
+                        <i class='bx bxs-grid'></i>
+                    </button>
+                    <button class="btn btn-icon" title="Visualização em Tabela">
+                        <i class='bx bx-table'></i>
+                    </button>
                 </div>
             </div>
             
-            <!-- Lista de Modelos -->
-            <div class="card">
-                <h2 class="card-title">Lista de Modelos</h2>
+            <!-- Grid de Cards de Modelos -->
+            <div class="cards-grid">
+                <!-- Card 1: Modelo XYZ -->
+                <div class="item-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-cube'></i>
+                            Modelo XYZ
+                        </h3>
+                        <div class="card-code">MOD001</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Vestuário</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Preço de Venda</div>
+                            <div class="info-value highlight">R$ 89,90</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Custo Estimado</div>
+                            <div class="info-value">R$ 45,20</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Margem</div>
+                            <div class="margin-indicator">
+                                <div class="margin-value medium">49.7%</div>
+                                <div class="progress-bar" style="width: 80px;">
+                                    <div class="progress-bar-fill warning" style="width: 49.7%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Ver Insumos">
+                            <i class='bx bx-list-ul'></i>
+                        </button>
+                        <button class="btn btn-icon btn-danger" title="Excluir">
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    </div>
+                </div>
                 
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Código</th>
-                                <th>Nome</th>
-                                <th>Categoria</th>
-                                <th>Preço de Venda</th>
-                                <th>Custo Estimado</th>
-                                <th>Margem</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>MOD001</td>
-                                <td>Modelo XYZ</td>
-                                <td>Vestuário</td>
-                                <td>R$ 89,90</td>
-                                <td>R$ 45,20</td>
-                                <td>49.7%</td>
-                                <td>
-                                    <button class="btn btn-icon btn-sm" title="Editar">
-                                        <i class='bx bx-edit'></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-sm" title="Ver Insumos">
-                                        <i class='bx bx-list-ul'></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-sm btn-danger" title="Excluir">
-                                        <i class='bx bx-trash'></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>MOD002</td>
-                                <td>Modelo ABC</td>
-                                <td>Acessórios</td>
-                                <td>R$ 45,00</td>
-                                <td>R$ 18,75</td>
-                                <td>58.3%</td>
-                                <td>
-                                    <button class="btn btn-icon btn-sm" title="Editar">
-                                        <i class='bx bx-edit'></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-sm" title="Ver Insumos">
-                                        <i class='bx bx-list-ul'></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-sm btn-danger" title="Excluir">
-                                        <i class='bx bx-trash'></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Card 2: Modelo ABC -->
+                <div class="item-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class='bx bx-cube'></i>
+                            Modelo ABC
+                        </h3>
+                        <div class="card-code">MOD002</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-label">Categoria</div>
+                            <div class="info-value">Acessórios</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Preço de Venda</div>
+                            <div class="info-value highlight">R$ 45,00</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Custo Estimado</div>
+                            <div class="info-value">R$ 18,75</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-label">Margem</div>
+                            <div class="margin-indicator">
+                                <div class="margin-value high">58.3%</div>
+                                <div class="progress-bar" style="width: 80px;">
+                                    <div class="progress-bar-fill success" style="width: 58.3%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-icon" title="Editar">
+                            <i class='bx bx-edit'></i>
+                        </button>
+                        <button class="btn btn-icon" title="Ver Insumos">
+                            <i class='bx bx-list-ul'></i>
+                        </button>
+                        <button class="btn btn-icon btn-danger" title="Excluir">
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
