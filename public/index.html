@@ -20,6 +20,7 @@
     <!-- Correções CSS -->
     <link rel="stylesheet" href="css/card-fixes.css">
     <link rel="stylesheet" href="css/responsive-fixes.css">
+    <link rel="stylesheet" href="css/layout-fixes.css">
     
     <!-- Fontes -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
@@ -96,108 +97,113 @@
             </div>
         </div>
 
-        <!-- Estatísticas Principais -->
-        <div class="cards-grid dashboard-stats">
-            <!-- Card de Estatística - Produção -->
-            <div class="card stat-card">
+        <!-- Cards de Resumo -->
+        <div class="cards-grid">
+            <!-- Card de Produção -->
+            <div class="card fade-element fade-in">
                 <div class="card-header">
                     <h3 class="card-title">Produção</h3>
                 </div>
                 <div class="card-content">
-                    <div class="stat-value">50</div>
-                    <div class="stat-label">Unidades em produção</div>
-                    <div class="stat-change positive">+15% em relação ao mês anterior</div>
+                    <div class="text-center">
+                        <h2 class="font-size-xl text-primary">50</h2>
+                        <p>Unidades em produção</p>
+                        <p class="text-success mt-2">+15% em relação ao mês anterior</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Card de Estatística - Estoque -->
-            <div class="card stat-card">
+            <!-- Card de Estoque -->
+            <div class="card fade-element fade-in">
                 <div class="card-header">
                     <h3 class="card-title">Estoque</h3>
                 </div>
                 <div class="card-content">
-                    <div class="stat-value">387</div>
-                    <div class="stat-label">Itens em estoque</div>
-                    <div class="stat-change positive">+5% em relação ao mês anterior</div>
+                    <div class="text-center">
+                        <h2 class="font-size-xl text-primary">387</h2>
+                        <p>Itens em estoque</p>
+                        <p class="text-success mt-2">+5% em relação ao mês anterior</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Card de Estatística - Vendas -->
-            <div class="card stat-card">
+            <!-- Card de Vendas -->
+            <div class="card fade-element fade-in">
                 <div class="card-header">
                     <h3 class="card-title">Vendas</h3>
                 </div>
                 <div class="card-content">
-                    <div class="stat-value">R$ 15.780</div>
-                    <div class="stat-label">Receita do mês</div>
-                    <div class="stat-change positive">+12% em relação ao mês anterior</div>
+                    <div class="text-center">
+                        <h2 class="font-size-xl text-primary">R$ 15.780</h2>
+                        <p>Receita do mês</p>
+                        <p class="text-success mt-2">+12% em relação ao mês anterior</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Card de Estatística - Despesas -->
-            <div class="card stat-card">
+            <!-- Card de Despesas -->
+            <div class="card fade-element fade-in">
                 <div class="card-header">
                     <h3 class="card-title">Despesas</h3>
                 </div>
                 <div class="card-content">
-                    <div class="stat-value">R$ 8.450</div>
-                    <div class="stat-label">Despesas do mês</div>
-                    <div class="stat-change negative">-5% em relação ao mês anterior</div>
+                    <div class="text-center">
+                        <h2 class="font-size-xl text-primary">R$ 8.450</h2>
+                        <p>Despesas do mês</p>
+                        <p class="text-danger mt-2">-5% em relação ao mês anterior</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Seção de Produção em Andamento -->
-        <div class="card">
+        <!-- Produção em Andamento -->
+        <div class="card fade-element fade-in">
             <div class="card-header">
                 <h3 class="card-title">Produção em Andamento</h3>
-                <div class="card-actions">
-                    <button class="btn btn-sm btn-outline" title="Ver Todos">
-                        <i class='bx bx-list-ul'></i>
-                    </button>
-                </div>
+                <span class="badge badge-primary">12</span>
             </div>
             <div class="card-content">
-                <div class="info-group">
-                    <div class="info-label">Ordem:</div>
-                    <div class="info-value">#1001</div>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <p class="font-weight-bold">Ordem:</p>
+                        <p>#1001</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="font-weight-bold">Modelo:</p>
+                        <p>Modelo XYZ</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="font-weight-bold">Quantidade:</p>
+                        <p>50 unidades</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="font-weight-bold">Previsão:</p>
+                        <p>25/05/2025</p>
+                    </div>
                 </div>
-                <div class="info-group">
-                    <div class="info-label">Modelo:</div>
-                    <div class="info-value">Modelo XYZ</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-label">Quantidade:</div>
-                    <div class="info-value">50 unidades</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-label">Previsão:</div>
-                    <div class="info-value">25/05/2025</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-label">Progresso:</div>
-                    <div class="info-value">
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 65%;" data-progress="65%"></div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="font-weight-bold">Progresso:</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 65%"></div>
                         </div>
-                        <span>65% concluído</span>
+                        <p class="text-right mt-1">65% concluído</p>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-primary btn-sm">Ver Detalhes</button>
+                <button class="btn btn-primary">
+                    <i class='bx bx-detail'></i>
+                    Ver Detalhes
+                </button>
             </div>
         </div>
 
-        <!-- Seção de Itens Críticos -->
-        <div class="card">
+        <!-- Itens em Nível Crítico -->
+        <div class="card fade-element fade-in">
             <div class="card-header">
                 <h3 class="card-title">Itens em Nível Crítico</h3>
-                <div class="card-actions">
-                    <button class="btn btn-sm btn-outline" title="Ver Todos">
-                        <i class='bx bx-list-ul'></i>
-                    </button>
-                </div>
+                <span class="badge badge-danger">2</span>
             </div>
             <div class="card-content">
                 <div class="table-responsive">
@@ -242,19 +248,18 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-primary btn-sm">Gerenciar Estoque</button>
+                <button class="btn btn-primary">
+                    <i class='bx bx-package'></i>
+                    Gerenciar Estoque
+                </button>
             </div>
         </div>
 
-        <!-- Seção de Próximos Vencimentos -->
-        <div class="card">
+        <!-- Próximos Vencimentos -->
+        <div class="card fade-element fade-in">
             <div class="card-header">
                 <h3 class="card-title">Próximos Vencimentos</h3>
-                <div class="card-actions">
-                    <button class="btn btn-sm btn-outline" title="Ver Todos">
-                        <i class='bx bx-list-ul'></i>
-                    </button>
-                </div>
+                <span class="badge badge-warning">4</span>
             </div>
             <div class="card-content">
                 <div class="table-responsive">
@@ -262,39 +267,57 @@
                         <thead>
                             <tr>
                                 <th>Descrição</th>
-                                <th>Categoria</th>
                                 <th>Valor</th>
                                 <th>Vencimento</th>
                                 <th>Status</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Pagamento de Aluguel</td>
-                                <td>Despesas Fixas</td>
-                                <td>R$ 1.800,00</td>
-                                <td>15/05/2025</td>
-                                <td><span class="status status-warning">Em 3 dias</span></td>
+                                <td>Fornecedor ABC</td>
+                                <td>R$ 2.500,00</td>
+                                <td>28/05/2025</td>
+                                <td><span class="status status-warning">Pendente</span></td>
+                                <td>
+                                    <button class="btn btn-icon btn-sm">
+                                        <i class='bx bx-check'></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-sm">
+                                        <i class='bx bx-detail'></i>
+                                    </button>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Pagamento de Funcionários</td>
-                                <td>Folha de Pagamento</td>
-                                <td>R$ 3.900,00</td>
-                                <td>05/05/2025</td>
-                                <td><span class="status status-warning">Em 5 dias</span></td>
+                                <td>Aluguel</td>
+                                <td>R$ 1.800,00</td>
+                                <td>05/06/2025</td>
+                                <td><span class="status status-warning">Pendente</span></td>
+                                <td>
+                                    <button class="btn btn-icon btn-sm">
+                                        <i class='bx bx-check'></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-sm">
+                                        <i class='bx bx-detail'></i>
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-primary btn-sm">Gerenciar Financeiro</button>
+                <button class="btn btn-primary">
+                    <i class='bx bx-calendar'></i>
+                    Ver Todos
+                </button>
             </div>
         </div>
     </div>
 
     <!-- Scripts -->
     <script src="js/menu.js"></script>
+    <script src="js/menu-fixes.js"></script>
     <script src="js/main.js"></script>
     <script src="js/microinteractions.js"></script>
 </body>
